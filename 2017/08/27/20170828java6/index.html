@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java访问控制权限 | Shangrila-kun Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、 java中为什么要设计访问控制权限机制了？ ​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。 ​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。">
+<meta name="keywords" content="访问控制权限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java访问控制权限">
+<meta property="og:url" content="https://shangrila-kun.github.io/2017/08/27/20170828java6/index.html">
+<meta property="og:site_name" content="Shangrila-kun Blog">
+<meta property="og:description" content="1、 java中为什么要设计访问控制权限机制了？ ​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。 ​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-29T13:08:45.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java访问控制权限">
+<meta name="twitter:description" content="1、 java中为什么要设计访问控制权限机制了？ ​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。 ​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。">
+  
+    <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Shangrila-kun</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Full of passion to meet every day</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/HK/home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/tags">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                            
+                                <a class="fl Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Fork小丝带/" style="font-size: 10px;">Fork小丝带</a> <a href="/tags/HDMI/" style="font-size: 10px;">HDMI</a> <a href="/tags/TCP-IP协议/" style="font-size: 10px;">TCP/IP协议</a> <a href="/tags/execute问题/" style="font-size: 10px;">execute问题</a> <a href="/tags/我的博客/" style="font-size: 10px;">我的博客</a> <a href="/tags/显示器接口/" style="font-size: 20px;">显示器接口</a> <a href="/tags/访问控制权限/" style="font-size: 10px;">访问控制权限</a> <a href="/tags/随机数/" style="font-size: 10px;">随机数</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://shangrila-kun.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">码一手无bug的code,做一个会life的boy。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Shangrila-kun</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Shangrila-kun</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Full of passion to meet every day</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/HK/home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/tags">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                    
+                        <a class="Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-20170828java6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/27/20170828java6/" class="article-date">
+      <time datetime="2017-08-27T01:10:29.000Z" itemprop="datePublished">2017-08-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java访问控制权限
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/访问控制权限/">访问控制权限</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	
+        
+        <p><strong>1、 java中为什么要设计访问控制权限机制了？</strong></p>
+<p>​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。</p>
+<p>​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。</p>
+<a id="more"></a>
+<p><strong>2、java中访问权限控制的等级？</strong></p>
+<p>​    Public&gt; Protected &gt; 包访问权限（没有权限修饰词）default &gt; private </p>
+<p><strong>3、包的介绍</strong></p>
+<p>​    Java中包(package)的概念和C++中命名空间(namespace)的概念很类似，都可以限制类的作用域。二者最大的差别在于，Java中的包隐式地指明了类的树形层级结构（同时也是Java源码文件的目录结构）。这样做的好处在于：可以通过文件系统中对于文件路径唯一性的要求来限制类的唯一性。</p>
+<p>​    编写一个Java源代码文件(<strong>.java</strong>文件)时，此文件通常被称为<strong>编译单元</strong>。在编译单元内最多允许有一个<strong>public</strong>类，且该类的名称必须与文件名完全相同（包括大小写）。</p>
+<p>​    编译一个<strong>.java</strong>文件时，在<strong>.java</strong>文件中的每个类都会有一个<strong>.class</strong>输出文件，这个文件名和类名是相同的。Java可运行程序是一组可以打包并压缩为一个Java文档文件(JAR包，使用Java的jar文档生成器)的<strong>.class</strong>文件。Java解释器负责这些文件的查找、装载和解释。</p>
+<p>​    类库实际上是一组类文件。其中每个<strong>.java</strong>文件最多允许有一个<strong>public</strong>类，以及任意数量的非<strong>public</strong>类。因此，每个文件都有一个构件。如果要将这些构件（每个构建有一个<strong>.java</strong>文件和若干个<strong>.class</strong>文件）组织起来，形成不同的群组，可以使用Java中的关键字<strong>package</strong>。</p>
+<p>​    <strong>3.1 包的作用</strong></p>
+<p>​    (1)     把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用。</p>
+<p>​    (2)     如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</p>
+<p>​    (3)     包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类。</p>
+<p><strong>4、package：包访问权限</strong></p>
+<p>​    如果不提供任何访问权限修饰词，则意味着它是<strong>包访问权限</strong>。</p>
+<p>​    默认访问权限<strong>没有任何关键字</strong>，但通常是指<strong>包访问权限</strong>（有时也表示为<strong>friendly</strong>，有点像C++中的友元概念）。这意味着包中所有其他类都可以访问这个成员或方法，但是<strong>这个包之外的所有类不可以访问</strong>。</p>
+<p>​    如果一个类、类属变量及方法不以这三种修饰符来修饰，它就是friendly类型的，那么包内的任何类都可以访问它，而包外的任何类都不能访问它(包括包外继承了此类的子类)，因此，这种类、类属变量及方法对包内的其他类是友好的，开放的，而对包外的其他类是关闭的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.notes.packages.test;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"default method -- print()"</span>); &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>5、public：接口访问权限</strong></p>
+<p>​    使用<strong>public</strong>关键字，就意味着被声明的成员或方法<strong>对所有人都是可以访问的</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"default method -- print()"</span>);</div></pre></td></tr></table></figure>
+<p><strong>6、private ：无法访问</strong></p>
+<p>​    使用<strong>private</strong>关键字，就意味着被声明的成员或方法，<strong>除了本类，其他任何类都无法访问</strong>。</p>
+<p>应用场景：单例模式<a href="http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/" target="_blank" rel="external">http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;  </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE; </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>7、protected:继承访问权限</strong></p>
+<p>​    新类（称之子类或派生类）通过继承可以复用一个现有类（称之父类或基类），然后扩展基类的成员、方法。有时，基类的创建者会希望某个特定成员，将它的访问权限赋予派生类而不是所有类。<strong>public</strong>无法做到这一点，为此，引入了<strong>protected</strong>来完成这一工作。<strong>protected</strong>也提供包访问权限，也就是说，<strong>派生类以及相同包内的其他类都可以访问</strong>protected成员或方法**。</p>
+<p>例：子类继承父类后，可以访问父类的protected成员。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String a = <span class="string">"private"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> String b = <span class="string">"protected"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> String c = <span class="string">"public"</span>;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function">publicvoid <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// System.out.println("element a：" + super.a); // Error</span></div><div class="line"></div><div class="line">        System.out.println(<span class="string">"element b："</span> + <span class="keyword">super</span>.b);</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"element c："</span> + <span class="keyword">super</span>.c);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">publicclass ProtectedDemo01 &#123;</div><div class="line"></div><div class="line">    <span class="function">publicstaticvoid <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line"></div><div class="line">        Son sub = <span class="keyword">new</span> Son();</div><div class="line"></div><div class="line">        sub.print();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>​    </p>
+
+    
+	
+      
+          
+        <p><strong>1、 java中为什么要设计访问控制权限机制了？</strong></p>
+<p>​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。</p>
+<p>​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。</p>
+<a id="more"></a>
+<p><strong>2、java中访问权限控制的等级？</strong></p>
+<p>​    Public&gt; Protected &gt; 包访问权限（没有权限修饰词）default &gt; private </p>
+<p><strong>3、包的介绍</strong></p>
+<p>​    Java中包(package)的概念和C++中命名空间(namespace)的概念很类似，都可以限制类的作用域。二者最大的差别在于，Java中的包隐式地指明了类的树形层级结构（同时也是Java源码文件的目录结构）。这样做的好处在于：可以通过文件系统中对于文件路径唯一性的要求来限制类的唯一性。</p>
+<p>​    编写一个Java源代码文件(<strong>.java</strong>文件)时，此文件通常被称为<strong>编译单元</strong>。在编译单元内最多允许有一个<strong>public</strong>类，且该类的名称必须与文件名完全相同（包括大小写）。</p>
+<p>​    编译一个<strong>.java</strong>文件时，在<strong>.java</strong>文件中的每个类都会有一个<strong>.class</strong>输出文件，这个文件名和类名是相同的。Java可运行程序是一组可以打包并压缩为一个Java文档文件(JAR包，使用Java的jar文档生成器)的<strong>.class</strong>文件。Java解释器负责这些文件的查找、装载和解释。</p>
+<p>​    类库实际上是一组类文件。其中每个<strong>.java</strong>文件最多允许有一个<strong>public</strong>类，以及任意数量的非<strong>public</strong>类。因此，每个文件都有一个构件。如果要将这些构件（每个构建有一个<strong>.java</strong>文件和若干个<strong>.class</strong>文件）组织起来，形成不同的群组，可以使用Java中的关键字<strong>package</strong>。</p>
+<p>​    <strong>3.1 包的作用</strong></p>
+<p>​    (1)     把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用。</p>
+<p>​    (2)     如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</p>
+<p>​    (3)     包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类。</p>
+<p><strong>4、package：包访问权限</strong></p>
+<p>​    如果不提供任何访问权限修饰词，则意味着它是<strong>包访问权限</strong>。</p>
+<p>​    默认访问权限<strong>没有任何关键字</strong>，但通常是指<strong>包访问权限</strong>（有时也表示为<strong>friendly</strong>，有点像C++中的友元概念）。这意味着包中所有其他类都可以访问这个成员或方法，但是<strong>这个包之外的所有类不可以访问</strong>。</p>
+<p>​    如果一个类、类属变量及方法不以这三种修饰符来修饰，它就是friendly类型的，那么包内的任何类都可以访问它，而包外的任何类都不能访问它(包括包外继承了此类的子类)，因此，这种类、类属变量及方法对包内的其他类是友好的，开放的，而对包外的其他类是关闭的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.notes.packages.test;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"default method -- print()"</span>); &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>5、public：接口访问权限</strong></p>
+<p>​    使用<strong>public</strong>关键字，就意味着被声明的成员或方法<strong>对所有人都是可以访问的</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"default method -- print()"</span>);</div></pre></td></tr></table></figure>
+<p><strong>6、private ：无法访问</strong></p>
+<p>​    使用<strong>private</strong>关键字，就意味着被声明的成员或方法，<strong>除了本类，其他任何类都无法访问</strong>。</p>
+<p>应用场景：单例模式<a href="http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/" target="_blank" rel="external">http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;  </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE; </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>7、protected:继承访问权限</strong></p>
+<p>​    新类（称之子类或派生类）通过继承可以复用一个现有类（称之父类或基类），然后扩展基类的成员、方法。有时，基类的创建者会希望某个特定成员，将它的访问权限赋予派生类而不是所有类。<strong>public</strong>无法做到这一点，为此，引入了<strong>protected</strong>来完成这一工作。<strong>protected</strong>也提供包访问权限，也就是说，<strong>派生类以及相同包内的其他类都可以访问</strong>protected成员或方法**。</p>
+<p>例：子类继承父类后，可以访问父类的protected成员。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String a = <span class="string">"private"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> String b = <span class="string">"protected"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> String c = <span class="string">"public"</span>;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function">publicvoid <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// System.out.println("element a：" + super.a); // Error</span></div><div class="line"></div><div class="line">        System.out.println(<span class="string">"element b："</span> + <span class="keyword">super</span>.b);</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"element c："</span> + <span class="keyword">super</span>.c);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">publicclass ProtectedDemo01 &#123;</div><div class="line"></div><div class="line">    <span class="function">publicstaticvoid <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line"></div><div class="line">        Son sub = <span class="keyword">new</span> Son();</div><div class="line"></div><div class="line">        sub.print();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>​    </p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/08/27/20170828java6/">java访问控制权限</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
+        <p><span>发布时间:</span>2017年08月27日 - 09时10分</p>
+        <p><span>最后更新:</span>2017年08月29日 - 21时08分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/27/20170828java6/" title="java访问控制权限">https://shangrila-kun.github.io/2017/08/27/20170828java6/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2017/08/27/20170828java6/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/30/0830githugfork/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          添加Fork me on GitHub 小丝带
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/15/20170823sql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL中execute操作返回false的问题</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142700"></script>
+</section>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/08/30/0830githugfork/" title="上一篇: 添加Fork me on GitHub 小丝带">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/08/15/20170823sql/" title="下一篇: SQL中execute操作返回false的问题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Shangrila-kun
+            </div>
+            <div class="footer-right">
+                 <a href="https://github.com/shangrila-kun" target="_blank">Welcome to shangrila-kun blog </a>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+<div class="ribbon">
+<a href="https://github.com/shangrila-kun">Fork me on GitHub</a>
+</div>
+  </div>
+</body>
+</html>

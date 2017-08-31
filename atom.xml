@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Shangrila-kun Blog</title>
+  <subtitle>Full of passion to meet every day</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://shangrila-kun.github.io/"/>
+  <updated>2017-08-31T03:12:36.934Z</updated>
+  <id>https://shangrila-kun.github.io/</id>
+  
+  <author>
+    <name>Shangrila-kun</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>添加Fork me on GitHub 小丝带</title>
+    <link href="https://shangrila-kun.github.io/2017/08/30/0830githugfork/"/>
+    <id>https://shangrila-kun.github.io/2017/08/30/0830githugfork/</id>
+    <published>2017-08-30T11:27:28.000Z</published>
+    <updated>2017-08-31T03:12:36.934Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>在自己的博客上面挂一个Fork me on GitHub简直是一个装逼神器，更能体现出一个程序员的气质，经过从网上查找，将查找内容整理如下：</strong></p>
+<a id="more"></a>
+<h2 id="添加Fork-me-on-GitHub-小丝带"><a href="#添加Fork-me-on-GitHub-小丝带" class="headerlink" title="添加Fork me on GitHub 小丝带"></a>添加Fork me on GitHub 小丝带</h2><h3 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h3><h4 id="第一步-创建一个ribbon-ejs"><a href="#第一步-创建一个ribbon-ejs" class="headerlink" title="第一步  创建一个ribbon.ejs"></a>第一步  创建一个ribbon.ejs</h4><p>​    <strong>在主题目录下的/layout/_partial下面创建一个ribbon.ejs，输入下面的代码进去</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ribbon"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://github.com/your username"</span>&gt;</span>Fork me on GitHub<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="第二步-添加代码到after-footer-ejs"><a href="#第二步-添加代码到after-footer-ejs" class="headerlink" title="第二步  添加代码到after_footer.ejs"></a>第二步  添加代码到after_footer.ejs</h4><p>​    <strong>接着要在/layout/_partial/after_footer.ejs中加入一行</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;%- partial(<span class="string">'ribbon'</span>) %&gt;</div><div class="line">  <span class="comment">//此代码的作用是确保这个div能在页面上显示出来。</span></div></pre></td></tr></table></figure>
+<h4 id="第三步-创建ribbon-styl"><a href="#第三步-创建ribbon-styl" class="headerlink" title="第三步  创建ribbon.styl"></a>第三步  创建ribbon.styl</h4><p>​    <strong>添加css,hexo可以在主题目录的/source/css/_partial下创建一个ribbon.styl，然后把下面的代码复制进去。</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.ribbon</span> &#123;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#a00</span>;</div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">  <span class="comment">/* top right corner */</span></div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="attribute">right</span>: -<span class="number">50px</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">40px</span>;</div><div class="line">  <span class="comment">/* 45 deg ccw rotation */</span></div><div class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(45deg);</div><div class="line">     <span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(45deg);</div><div class="line">      <span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(45deg);</div><div class="line">       <span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(45deg);</div><div class="line">          <span class="attribute">transform</span>: <span class="built_in">rotate</span>(45deg);</div><div class="line">  <span class="comment">/* shadow */</span></div><div class="line">  <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#888</span>;</div><div class="line">     <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#888</span>;</div><div class="line">          <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#888</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ribbon</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#faa</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">  <span class="attribute">font</span>: bold <span class="number">81.25%</span> <span class="string">'Helvetica Neue'</span>, Helvetica, Arial, sans-serif;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">1px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">50px</span>;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">text-decoration</span>: none;</div><div class="line">  <span class="comment">/* shadow */</span></div><div class="line">  <span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="number">#444</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="第四步-在style-styl中添加内容"><a href="#第四步-在style-styl中添加内容" class="headerlink" title="第四步  在style.styl中添加内容"></a>第四步  在style.styl中添加内容</h4><p>​    <strong>复制一下代码到style.styl（在主题目录下面的\source\css下面）的最后添加一行（针对Hexo博客用户）：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">if</span> <span class="selector-tag">ribbon</span></div><div class="line">    @<span class="keyword">import</span> <span class="string">'_partial/ribbon'</span></div></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>​    <strong>点击 <a href="http://www.haoeasy.cn" target="_blank" rel="external">效果图</a>     即可查看。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在自己的博客上面挂一个Fork me on GitHub简直是一个装逼神器，更能体现出一个程序员的气质，经过从网上查找，将查找内容整理如下：&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo干货系列" scheme="https://shangrila-kun.github.io/categories/hexo%E5%B9%B2%E8%B4%A7%E7%B3%BB%E5%88%97/"/>
+    
+    
+      <category term="Fork小丝带" scheme="https://shangrila-kun.github.io/tags/Fork%E5%B0%8F%E4%B8%9D%E5%B8%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java访问控制权限</title>
+    <link href="https://shangrila-kun.github.io/2017/08/27/20170828java6/"/>
+    <id>https://shangrila-kun.github.io/2017/08/27/20170828java6/</id>
+    <published>2017-08-27T01:10:29.000Z</published>
+    <updated>2017-08-29T13:08:45.905Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>1、 java中为什么要设计访问控制权限机制了？</strong></p>
+<p>​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。</p>
+<p>​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。</p>
+<a id="more"></a>
+<p><strong>2、java中访问权限控制的等级？</strong></p>
+<p>​    Public&gt; Protected &gt; 包访问权限（没有权限修饰词）default &gt; private </p>
+<p><strong>3、包的介绍</strong></p>
+<p>​    Java中包(package)的概念和C++中命名空间(namespace)的概念很类似，都可以限制类的作用域。二者最大的差别在于，Java中的包隐式地指明了类的树形层级结构（同时也是Java源码文件的目录结构）。这样做的好处在于：可以通过文件系统中对于文件路径唯一性的要求来限制类的唯一性。</p>
+<p>​    编写一个Java源代码文件(<strong>.java</strong>文件)时，此文件通常被称为<strong>编译单元</strong>。在编译单元内最多允许有一个<strong>public</strong>类，且该类的名称必须与文件名完全相同（包括大小写）。</p>
+<p>​    编译一个<strong>.java</strong>文件时，在<strong>.java</strong>文件中的每个类都会有一个<strong>.class</strong>输出文件，这个文件名和类名是相同的。Java可运行程序是一组可以打包并压缩为一个Java文档文件(JAR包，使用Java的jar文档生成器)的<strong>.class</strong>文件。Java解释器负责这些文件的查找、装载和解释。</p>
+<p>​    类库实际上是一组类文件。其中每个<strong>.java</strong>文件最多允许有一个<strong>public</strong>类，以及任意数量的非<strong>public</strong>类。因此，每个文件都有一个构件。如果要将这些构件（每个构建有一个<strong>.java</strong>文件和若干个<strong>.class</strong>文件）组织起来，形成不同的群组，可以使用Java中的关键字<strong>package</strong>。</p>
+<p>​    <strong>3.1 包的作用</strong></p>
+<p>​    (1)     把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用。</p>
+<p>​    (2)     如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</p>
+<p>​    (3)     包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类。</p>
+<p><strong>4、package：包访问权限</strong></p>
+<p>​    如果不提供任何访问权限修饰词，则意味着它是<strong>包访问权限</strong>。</p>
+<p>​    默认访问权限<strong>没有任何关键字</strong>，但通常是指<strong>包访问权限</strong>（有时也表示为<strong>friendly</strong>，有点像C++中的友元概念）。这意味着包中所有其他类都可以访问这个成员或方法，但是<strong>这个包之外的所有类不可以访问</strong>。</p>
+<p>​    如果一个类、类属变量及方法不以这三种修饰符来修饰，它就是friendly类型的，那么包内的任何类都可以访问它，而包外的任何类都不能访问它(包括包外继承了此类的子类)，因此，这种类、类属变量及方法对包内的其他类是友好的，开放的，而对包外的其他类是关闭的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.notes.packages.test;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"default method -- print()"</span>); &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>5、public：接口访问权限</strong></p>
+<p>​    使用<strong>public</strong>关键字，就意味着被声明的成员或方法<strong>对所有人都是可以访问的</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"default method -- print()"</span>);</div></pre></td></tr></table></figure>
+<p><strong>6、private ：无法访问</strong></p>
+<p>​    使用<strong>private</strong>关键字，就意味着被声明的成员或方法，<strong>除了本类，其他任何类都无法访问</strong>。</p>
+<p>应用场景：单例模式<a href="http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/" target="_blank" rel="external">http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;  </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span> <span class="params">()</span></span>&#123;&#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE; </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>7、protected:继承访问权限</strong></p>
+<p>​    新类（称之子类或派生类）通过继承可以复用一个现有类（称之父类或基类），然后扩展基类的成员、方法。有时，基类的创建者会希望某个特定成员，将它的访问权限赋予派生类而不是所有类。<strong>public</strong>无法做到这一点，为此，引入了<strong>protected</strong>来完成这一工作。<strong>protected</strong>也提供包访问权限，也就是说，<strong>派生类以及相同包内的其他类都可以访问</strong>protected成员或方法**。</p>
+<p>例：子类继承父类后，可以访问父类的protected成员。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String a = <span class="string">"private"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> String b = <span class="string">"protected"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> String c = <span class="string">"public"</span>;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function">publicvoid <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// System.out.println("element a：" + super.a); // Error</span></div><div class="line"></div><div class="line">        System.out.println(<span class="string">"element b："</span> + <span class="keyword">super</span>.b);</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"element c："</span> + <span class="keyword">super</span>.c);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">publicclass ProtectedDemo01 &#123;</div><div class="line"></div><div class="line">    <span class="function">publicstaticvoid <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line"></div><div class="line">        Son sub = <span class="keyword">new</span> Son();</div><div class="line"></div><div class="line">        sub.print();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>​    </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;1、 java中为什么要设计访问控制权限机制了？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​    A：为了使用户不要调用他们不应该调用的部分，这些部分对于类内部的操作是必要的，但是它并不是客户端程序员所需接口的一部分。&lt;/p&gt;
+&lt;p&gt;​    B：为了让类库设计者可用更改类的内部工作方法，而不必担心会对用户造成重大影响。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://shangrila-kun.github.io/categories/Java/"/>
+    
+    
+      <category term="访问控制权限" scheme="https://shangrila-kun.github.io/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%9D%83%E9%99%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQL中execute操作返回false的问题</title>
+    <link href="https://shangrila-kun.github.io/2017/08/15/20170823sql/"/>
+    <id>https://shangrila-kun.github.io/2017/08/15/20170823sql/</id>
+    <published>2017-08-15T05:57:36.000Z</published>
+    <updated>2017-08-29T13:11:10.812Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    <strong>今天在码代码的时候遇到了一个问题，代码如下：</strong></p>
+<a id="more"></a>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">SQL一：</div><div class="line">            sql = " <span class="keyword">update</span> t_receive_user <span class="keyword">set</span> user_email = ?, user_name = ?, user_tel = ?, update_timestamp = ? , note = ? <span class="string">" +</span></div><div class="line">                    " <span class="keyword">where</span> user_sid = ? <span class="string">";</span></div><div class="line">            connection = getDataSource().getConnection();</div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            ps.setObject(1,tReceiveUser.getUserEmail());</div><div class="line">            ps.setObject(2,tReceiveUser.getUserName());</div><div class="line">            ps.setObject(3,tReceiveUser.getUserTel());</div><div class="line">            ps.setObject(4,Time.getCurrentTime()/1000);</div><div class="line">            ps.setObject(5,tReceiveUser.getNote());</div><div class="line">            ps.setObject(6,tReceiveUser.getUserSid());</div><div class="line">            System.out.println(ps.execute());</div><div class="line">SQL二：</div><div class="line"> sql = " <span class="keyword">delete</span> t_receive_user <span class="keyword">where</span> user_sid = ? <span class="string">";</span></div><div class="line">            connection = getDataSource().getConnection();</div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            ps.setObject(1,tReceiveUser.getUserSid());</div><div class="line">            System.out.println(ps.execute());</div><div class="line">SQL三：</div><div class="line">sql = "<span class="keyword">INSERT</span> t_receive_user (user_email,user_name,user_tel,update_timestamp,note)<span class="string">" +</span></div><div class="line">                    " <span class="keyword">values</span> (?,?,?,?,?)<span class="string">";</span></div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            ps.setObject(1,tReceiveUser.getUserEmail());</div><div class="line">            ps.setObject(2,tReceiveUser.getUserName());</div><div class="line">            ps.setObject(3,tReceiveUser.getUserTel());</div><div class="line">            ps.setObject(4,Time.getCurrentTime()/1000);</div><div class="line">            ps.setObject(5,tReceiveUser.getNote());</div><div class="line">            System.out.println(ps.execute());</div></pre></td></tr></table></figure>
+<p>​    <strong>我发现即使我的数据库更新成功、删除成功、增加成功，返回值都是false。</strong></p>
+<p><strong>execute内部细节代码如下：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>.checkClosed().getConnectionMutex()) &#123;</div><div class="line">            <span class="keyword">boolean</span> returnVal = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">this</span>.checkStreamability();</div><div class="line">            <span class="keyword">this</span>.setInOutParamsOnServer();</div><div class="line">            <span class="keyword">this</span>.setOutParams();</div><div class="line">            returnVal = <span class="keyword">super</span>.execute();</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.callingStoredFunction) &#123;</div><div class="line">                <span class="keyword">this</span>.functionReturnValueResults = <span class="keyword">this</span>.results;</div><div class="line">                <span class="keyword">this</span>.functionReturnValueResults.next();</div><div class="line">                <span class="keyword">this</span>.results = <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">this</span>.retrieveOutParams();</div><div class="line">            <span class="keyword">return</span> !<span class="keyword">this</span>.callingStoredFunction?returnVal:<span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>​    <strong>查资料发现：boolean execute() throws SQLException在此 PreparedStatement 对象中执行 SQL 语句，该语句可以是任何种类的 SQL 语句。一些特别处理过的语句返回多个结果，execute 方法处理这些复杂的语句；executeQuery 和 executeUpdate 处理形式更简单的语句。 execute 方法返回一个 boolean 值，以指示第一个结果的形式。必须调用 getResultSet 或 getUpdateCount 方法来检索结果，并且必须调用 getMoreResults 移动到任何后面的结果返回：如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false，意思就是如果是查询的话返回true，如果是更新或插入的话就返回false了；execute()返回的是一个boolean值,代表两种不同的操作啊,getResultSet()返回的是结果集,而getUpdateCount()返回的是更新的记数</strong>。</p>
+<p>​    </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    &lt;strong&gt;今天在码代码的时候遇到了一个问题，代码如下：&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SQL" scheme="https://shangrila-kun.github.io/categories/SQL/"/>
+    
+    
+      <category term="execute问题" scheme="https://shangrila-kun.github.io/tags/execute%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Random</title>
+    <link href="https://shangrila-kun.github.io/2017/08/04/Random20170804/"/>
+    <id>https://shangrila-kun.github.io/2017/08/04/Random20170804/</id>
+    <published>2017-08-04T05:10:29.000Z</published>
+    <updated>2017-08-29T13:10:28.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。</p>
+<a id="more"></a>
+<p>​    相同种子数的Random对象，相同次数生成的随机数字是完全相同的。也就是说，两个种子数相同的Random对象，第一次生成的随机数字完全相同，第二次生成的随机数字也完全相同。这点在生成多个随机数字时需要特别注意。</p>
+<p>​    1、Random对象的生产：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Random</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(seedUniquifier() ^ System.nanoTime());</div><div class="line">    &#125;</div><div class="line"><span class="comment">//该构造方法使用一个和当前系统时间对应的相对时间有关的数字作为种子数，然后使用这个种子数构造Random对象。</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Random</span><span class="params">(<span class="keyword">long</span> seed)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (getClass() == Random.class)</div><div class="line">            <span class="keyword">this</span>.seed = <span class="keyword">new</span> AtomicLong(initialScramble(seed));</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// subclass might have overriden setSeed</span></div><div class="line">            <span class="keyword">this</span>.seed = <span class="keyword">new</span> AtomicLong();</div><div class="line">            setSeed(seed);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="comment">//该构造方法可以通过制定一个种子数进行创建。种子数只是随机算法的起源数字，和生成的随机数字的区间无关。</span></div></pre></td></tr></table></figure>
+<p>​    2、Random类中的常用方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next(<span class="number">32</span>);</div><div class="line"> &#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的int值，该值介于int的区间，也就是-231到231-1之间。</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">(<span class="keyword">int</span> bound)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (bound &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(BadBound);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> r = next(<span class="number">31</span>);</div><div class="line">        <span class="keyword">int</span> m = bound - <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> ((bound &amp; m) == <span class="number">0</span>)  <span class="comment">// i.e., bound is a power of 2</span></div><div class="line">            r = (<span class="keyword">int</span>)((bound * (<span class="keyword">long</span>)r) &gt;&gt; <span class="number">31</span>);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> u = r;</div><div class="line">                 u - (r = u % bound) + m &lt; <span class="number">0</span>;</div><div class="line">                 u = next(<span class="number">31</span>))</div><div class="line">                ;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> r;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的int值，该值介于[0,n)的区间，也就是0到n之间的随机int值，包含0而不包含n。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">nextLong</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// it's okay that the bottom word remains signed.</span></div><div class="line">        <span class="keyword">return</span> ((<span class="keyword">long</span>)(next(<span class="number">32</span>)) &lt;&lt; <span class="number">32</span>) + next(<span class="number">32</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">nextBoolean</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next(<span class="number">1</span>) != <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的boolean值，生成true和false的值几率相等，也就是都是50%的几率。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">nextDouble</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (((<span class="keyword">long</span>)(next(<span class="number">26</span>)) &lt;&lt; <span class="number">27</span>) + next(<span class="number">27</span>)) * DOUBLE_UNIT;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的double值，数值介于[0,1.0)之间。</span></div></pre></td></tr></table></figure>
+<p>​    3、Random类使用示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d1 = r.nextDouble();<span class="comment">//生成[0,1.0)区间的小数</span></div><div class="line"><span class="keyword">double</span> d2 = r.nextDouble() * <span class="number">5</span>;<span class="comment">//生成[0,5.0)区间的小数</span></div><div class="line"><span class="keyword">double</span> d3 = r.nextDouble() * <span class="number">1.5</span> + <span class="number">1</span>;<span class="comment">//生成[1,2.5)区间的小数</span></div><div class="line"><span class="keyword">int</span> n1 = r.nextInt();<span class="comment">//int n1 = r.nextInt();</span></div><div class="line"><span class="keyword">int</span> n2 = r.nextInt(<span class="number">10</span>);<span class="comment">//成[0,10)区间的整数</span></div><div class="line">n2 = Math.abs(r.nextInt() % <span class="number">10</span>);<span class="comment">//成[0,10)区间的整数,首先调用nextInt()方法生成一个任意的int数字，该数字和10取余以后生成的数字区间为(-10,10)，</span></div><div class="line"><span class="comment">//然后再对该区间求绝对值，则得到的区间就是[0,10)了。</span></div></pre></td></tr></table></figure>
+<p>​    4、相同种子数Random对象问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//相同种子数的Random对象，相同次数生成的随机数字是完全相同的，下面是测试的代码：</span></div><div class="line"></div><div class="line">Random r1 = <span class="keyword">new</span> Random(<span class="number">10</span>);</div><div class="line"></div><div class="line">Random r2 = <span class="keyword">new</span> Random(<span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">2</span>;i++)&#123;</div><div class="line"></div><div class="line">  System.out.println(r1.nextInt());</div><div class="line"></div><div class="line">  System.out.println(r2.nextInt());</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在该代码中，对象r1和r2使用的种子数都是10，则这两个对象相同次数生成的随机数是完全相同的。</span></div><div class="line"><span class="comment">//如果想避免出现随机数字相同的情况，则需要注意，无论项目中需要生成多少个随机数字，都只使用一个Random对象即可。</span></div></pre></td></tr></table></figure>
+<p>​    5、Random对象生成概率问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> scoreNumber = <span class="number">1000</span>;</div><div class="line">        <span class="keyword">int</span> zero =<span class="number">0</span>, one = <span class="number">1</span>,two = <span class="number">2</span>, three = <span class="number">3</span>,four = <span class="number">4</span>,five =<span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span> zeroTag =<span class="number">0</span>,oneTag =<span class="number">0</span>,twoTag =<span class="number">0</span>,threeTag =<span class="number">0</span>,fourTag =<span class="number">0</span>,fiveTag =<span class="number">0</span>;</div><div class="line">        Double zeroProportion,oneProportion,twoProportion,threeProportion,fourProportion,fiveProportion;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;scoreNumber;i++)&#123;</div><div class="line">            Random r = <span class="keyword">new</span> Random();</div><div class="line">            <span class="keyword">int</span> number = r.nextInt(<span class="number">6</span>);</div><div class="line">            <span class="keyword">if</span>(number==zero)&#123;</div><div class="line">                zeroTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==one)&#123;</div><div class="line">                oneTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==two)&#123;</div><div class="line">                twoTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==three)&#123;</div><div class="line">                threeTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==four)&#123;</div><div class="line">                fourTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==five)&#123;</div><div class="line">                fiveTag++;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                System.out.println(<span class="string">"随机数生成异常"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        zeroProportion = <span class="number">1.0</span>*zeroTag/scoreNumber;</div><div class="line">        oneProportion = <span class="number">1.0</span>*oneTag/scoreNumber;</div><div class="line">        twoProportion = <span class="number">1.0</span>*twoTag/scoreNumber;</div><div class="line">        threeProportion = <span class="number">1.0</span>*threeTag/scoreNumber;</div><div class="line">        fourProportion = <span class="number">1.0</span>*fourTag/scoreNumber;</div><div class="line">        fiveProportion = <span class="number">1.0</span>*fiveTag/scoreNumber;</div><div class="line">        Double total = zeroProportion+oneProportion+twoProportion+threeProportion+fourProportion+fiveProportion;</div><div class="line">        System.out.println(<span class="string">"zeroProportion="</span>+zeroProportion+<span class="string">","</span>+<span class="string">"oneProportion="</span>+oneProportion+<span class="string">","</span>+<span class="string">"twoProportion="</span>+twoProportion+<span class="string">","</span>+<span class="string">"threeProportion="</span>+threeProportion+<span class="string">","</span>+<span class="string">"fourProportion="</span>+fourProportion+<span class="string">","</span>+<span class="string">"fiveProportion="</span>+fiveProportion);</div><div class="line">        System.out.println(<span class="string">"total="</span>+total);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//当scoreNumber = 1000时</span></div><div class="line"><span class="comment">//zeroProportion=0.167,oneProportion=0.158,twoProportion=0.19,threeProportion=0.144,fourProportion=0.169,fiveProportion=0.172，total=1.0</span></div><div class="line"><span class="comment">//当scoreNumber = 10000时</span></div><div class="line"><span class="comment">//zeroProportion=0.1694,oneProportion=0.169,twoProportion=0.1594,threeProportion=0.1632,fourProportion=0.1708,fiveProportion=0.1682 total=1.0</span></div><div class="line"><span class="comment">//当scoreNumber = 1000000时</span></div><div class="line"><span class="comment">//zeroProportion=0.16682,oneProportion=0.166072,twoProportion=0.166039,threeProportion=0.167245,fourProportion=0.16649,fiveProportion=0.167334 total=1.0</span></div></pre></td></tr></table></figure>
+<p>​    6、关于Math类中的random方法</p>
+<p>​    其实在Math类中也有一个random方法，该random方法的工作是生成一个[0,1.0)区间的随机小数。通过阅读Math类的源代码可以发现，Math类中的random方法就是直接调用Random类中的nextDouble方法实现的。只是random方法的调用比较简单，所以很多程序员都习惯使用Math类的random方法来生成随机数字。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://shangrila-kun.github.io/categories/Java/"/>
+    
+    
+      <category term="随机数" scheme="https://shangrila-kun.github.io/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>台式主机用那个接口和显示器相连，分辨率效果最好？</title>
+    <link href="https://shangrila-kun.github.io/2017/07/23/20170723computerDevice/"/>
+    <id>https://shangrila-kun.github.io/2017/07/23/20170723computerDevice/</id>
+    <published>2017-07-23T05:10:29.000Z</published>
+    <updated>2017-08-29T13:11:19.805Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    <strong>随着高清技术的普及，各种高清接口已经不再罕见。如何选择，才能让我们电脑分辨率更清晰了。为了解决以上问题，我们先来认识一下电脑主机显示输出接口：</strong></p>
+<a id="more"></a>
+<p>​    <strong>1.分清电脑主机显示输出接口</strong></p>
+<p>​    电脑常用的视频接口为: VGA(D-Sub)模拟传输接口，  DVI数字高清接口，HDMI数字高清接口， S视频端子接口。</p>
+<p>​      VGA(D-Sub)是模拟视频接口，较为常见，一般是蓝色的。 各种计算机一般均有，这种接口，但是某些高配计算机或高端显卡则放弃了这种接口。</p>
+<p>DVI数字高清接口也较为常见， 相比更先进的HDMI数字在DVI基础上增加了传输声音的信道， 在传输图像的同时支持传输声音，切支持更高的分辨率。</p>
+<p>S端子视频接口，比较传统，用于兼容较旧的显示器或监视器，监控中使用较多。</p>
+<p><img src="http://lyj.fj61.net/upload/2016-08/16080120106215.jpg" alt="“主机接口说明”的图片搜索结果"></p>
+<p>​    <strong>2.分清显示器显示输出接口</strong></p>
+<p>​    对应显示器常用接口有“传统模拟VGA”，“数字高清DVI”,“新一代数字高清HDMI”。  如下图所示。</p>
+<p>​                            <img src="http://f.hiphotos.baidu.com/exp/w=500/sign=2d61305e710e0cf3a0f74efb3a47f23d/9213b07eca806538b1e4395f94dda144ad348274.jpg" alt="主机应该用那个接口和显示器相连效果最好？"></p>
+<p>​    <strong>3.选择合适的连接方式</strong></p>
+<p>​    ① 如果显示器只有VGA接口，则只能用VGA线连接，如果信号不好可以考虑购买质量较好的VGA线，保证传输质量，同时信号线和电源线保持距离，避免干扰。</p>
+<p>​    ②如果有VGA接口，又有DVI接口， 那么首选主机后面和显示器后面均为DVI的相连。</p>
+<p>​    ③如果显示器和电脑主机均有VGA\DIV\HDMI接口，如果在不考虑声音的情况下，依然建议使用DVI接口，以保证显示稳定性。</p>
+<p>​    ④如果有两台显示器，想接双屏显示，可以将显卡的两个接口均连接，如下图所示。</p>
+<p>​    ⑤如果接口不同，可以考虑转换， 可以通过线材直接转换的接口有：DVI转VGA， HDMI转DVI，如下图所示。</p>
+<p>​                            <img src="http://e.hiphotos.baidu.com/exp/w=500/sign=13f906f784d6277fe912323818391f63/472309f790529822e6f6ab8fd4ca7bcb0b46d4b1.jpg" alt="主机应该用那个接口和显示器相连效果最好？"></p>
+<p>​    <strong>4.显示器和主机相连时常见故障分析</strong></p>
+<p>​    ①黑屏，什么都不显示。  检查主机和显示器是否通电， 检查主机后面是否多个显示输出口，尝试更换接口。</p>
+<p>​    ②显示不稳定，有缺色、偏红、偏绿等现象， 很可能是VGA线接触不好，检查插紧连接线即可。</p>
+<p>​    ③图像卡顿，不流畅，这很可能是连接线带宽不足造成的，建议换成DVI数字高清线或HDMI数字高清线。</p>
+<p>​    ④一台主机连接两个显示器，只有一个亮， 另一个不能显示。 很可能是显卡驱动问题， 可以更新驱动设置双屏输出即可。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    &lt;strong&gt;随着高清技术的普及，各种高清接口已经不再罕见。如何选择，才能让我们电脑分辨率更清晰了。为了解决以上问题，我们先来认识一下电脑主机显示输出接口：&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Computer Device" scheme="https://shangrila-kun.github.io/categories/Computer-Device/"/>
+    
+    
+      <category term="显示器接口" scheme="https://shangrila-kun.github.io/tags/%E6%98%BE%E7%A4%BA%E5%99%A8%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DVI、VGA、HDMI</title>
+    <link href="https://shangrila-kun.github.io/2017/07/23/20170722vgadbihdmi/"/>
+    <id>https://shangrila-kun.github.io/2017/07/23/20170722vgadbihdmi/</id>
+    <published>2017-07-23T02:10:29.000Z</published>
+    <updated>2017-08-29T13:11:31.064Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    <strong>显示器接口</strong></p>
+<p>​    <strong>最常见的显示器接口有VGA端子、数码视频接口 (DVI)、高画质多媒体接口(HDMI)和DisplayPort（DP）</strong>。</p>
+<a id="more"></a>
+<p>​    <strong>目前的高清设备中,主要的接口有DVI、HDMI、VGA接口,其中VGA传输的是模拟视频信号,DVI传播的是数字视频信号,HDMI可以同时传输数字视频信号和数字音频信号。</strong></p>
+<p>​    <strong>DVI介绍</strong></p>
+<p>​    DVI接口是在1999年推出的接口标准。DVI接口的传输信号采用全数字格式。DVI接口有多种规格,DVI一共分为5种标准。其中DVI-D和DVI-I分为“双通道”和“单通道”两种类型。</p>
+<p>​    某些较新型的DVD播放器，电视机（包括HDTV）以及投影机采用了所谓”DVI/HDCP”接头，这种接头在外型上完全与DVI相同，但是其传送的数据有经过<strong>HDCP</strong>协议所加密以防止非法复制。</p>
+<p>​    现今装有DVI接口显示适配器的计算机经常可利用前述显示设备作为大型屏幕之用，但由于2007年之前产制的显示适配器大多不支持HDCP，所以可能会受到版权保护技术的限制而无法以最高分辨率播放受到HDCP保护的视讯内容。</p>
+<p><img src="http://hiphotos.baidu.com/exp/pic/item/8367d1fc1e178a8273dd523df403738da877e80f.jpg" alt="img align=center"></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t5812/44/1574591949/238304/a0eb5da9/5927cfa5Na1335ae0.jpg" alt="img align=center"></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t5992/316/406492071/316550/4813525f/5927cfa6N5dce1835.jpg" alt="img"></p>
+<hr>
+<p><strong>VGA介绍</strong></p>
+<p>​    VGA<strong>（</strong>Video Graphics Array）是IBM于1987年提出的一个使用模拟信号的电脑显示标准，这个标准已对于现今的个人电脑市场已经十分过时。即使如此，VGA仍然是最多制造商所共同支持的一个低标准，个人电脑在加载自己的独特驱动程式之前，都必须支持VGA的标准。例如，微软Windows系列产品的开机画面仍然使用VGA显示模式，这也说明其分辨率和载色数的不足。</p>
+<p>​    VGA接口应用范围非常广泛，是三种接口中最先推出的标准，VGA接口，也叫D-Sub接口。虽然液晶显示器可以直接接收数字信号，但很多低端产品为了与VGA接口显卡相匹配，因而采用VGA接口。VGA接口是一种D型接口，上面共有15针空，分成三排，每排五个。VGA接口是显卡上应用最为广泛的接口类型，绝大多数的显卡都带有此种接口。</p>
+<p>​    <strong>虽然许多设备仍然包括VGA端子，VGA通常与DVI标准共存，但VGA和DVI正在迅速淘汰，以支持更新和更紧凑的HDMI和DisplayPort接口，</strong>当播放更高分辨率的视频时，VGA传输带宽足够高，图像质量可能会因电缆质量和长度而下降。VGA只有图像输入，没有声音输入**。</p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t2806/334/1737123184/88032/76d5e915/5747fef5N1ed7bccc.jpg" alt="img align=center"></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t2926/179/15369873/181961/94a3ccfd/5747fef4N7504f378.jpg" alt="img align=center"></p>
+<hr>
+<p><strong>HDMI介绍</strong></p>
+<p>​    HDMI可用于机顶盒、DVD播放器、个人计算机、电视游乐器、综合扩大机、数字音响与电视机等设备。HDMI 的出现取代了模拟信号视频，而DisplayPort的出现则取代的是DVI和VGA接口。</p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t4057/113/415929579/911157/ddcc1ae0/584e3c57Nf00e81cf.jpg" alt="img align=center"></p>
+<p><strong>DisplayPort（DP）介绍</strong></p>
+<p>​    <strong>DisplayPort</strong>（简称DP）是视频电子标准协会（VESA）推动的数字式视讯接口标准，订定于2006年5月。该接口订定免认证、免授权金，发展中的新型数字式音频／视讯界面，主要适应于连接计算机和屏幕，或是计算机和家庭剧院系统。有意要取代旧有的VGA、DVI和FPD-Link（LVDS）视频传输接口技术。</p>
+<p>​    1.DisplayPort内部传输数据方式与DVI、HDMI不同，所以不能像DVI与HDMI间互转那样一个转接头搞定。但可以透过芯片转接成D-sub、DVI、HDMI。</p>
+<p>​    2.DisplayPort 1.2支持MST（Multi-Stream Transport），单个DP可连接到多个显示器。</p>
+<p>​    3.支援USB Type-C。</p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t2851/144/3970756909/111349/438d4a13/57a400b2N8d341ec7.jpg" alt="img align=center"></p>
+<p><strong>VGA和DVI的区别</strong></p>
+<p>​      VGA模拟信号的传输比较麻烦，首先是将电脑内的<strong>数字信号转换为模拟信号</strong>，将信号发送到LCD显示器，由显示器再将该模拟信号转换为数字信号，形成画面展示在大家面前。<strong>正因为如此，中间的信号丢失严重，虽然可以通过软件的方法修复部分画面，但是随着显示器的分辨率越高画面就会越模糊。一般模拟信号在超过1280×1024分辨率以上的情况下就会出现明显的误差，分辨率越高越严重。但DVI接口考虑的对象是PC，对于笔记本、平板电视的兼容能力一般。</strong>另外DVI接口出于兼容性考虑，预留了不少引脚以支持模拟设备，造成接口体积较大，效率很低。</p>
+<p><strong>DVI和HDMI区别</strong></p>
+<p>1、新增了对新型无损压缩数字音频格式Dolby TrueHD和DTS-HD Master Audio的支持。</p>
+<p>2、更高的刷新率：在同样1920x1080分辨率的模式下，HDMI1.3提供165Hz刷新率比双通道DVI接口的120Hz刷新率更高。</p>
+<p>3、以太网络通道：HDMI规格1.4在缆线中增加了数据通路, 来达成双向高速的传送。有此功能的设备在连结后，将可用以太线100Mb/秒的速度发送和接收数据, 并使这些设备立即成为IP基础的设备。HDMI以太网络通道可让集成互联网功能的HDMI设备，无需使用其他以太网络线缆，即可与其他HDMI设备共享其互联网连线。此一新功能同时也提供HDMI设备间共享内容所需的互连架构。</p>
+<p>4、更高的分辨率：支持3840×2160 24Hz/25Hz/30Hz；4096×2160 24Hz分辨率。新规格支持4096×2160分辨率，使得HDMI界面得以用许多数字影院所采用的同等标准分辨率的内容传输。而双通道DVI接口只能支持到2560x1600分辨率。</p>
+<p><strong>VGA与HDMI区别</strong></p>
+<p>HDMI除以上的特点和是数字信号传输外，标准HDMI接口大小（宽约14MM，高约4.5MM）比VGA（宽：16MM，高约：7.9MM）更省空间，但HDMI线材制造价格更高。</p>
+<p><strong>VGA转DVI接口</strong></p>
+<p>​    VGA和DVI互转：模拟信号和数字信号的转换，视频信号损失，造成失真。最好不要这样转换。</p>
+<p><img src="https://img10.360buyimg.com//n0/g7/M02/10/15/rBEHZVDKgr8IAAAAAADOudtNauIAADQjgGJ46AAAM7R583.jpg" alt="img"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    &lt;strong&gt;显示器接口&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​    &lt;strong&gt;最常见的显示器接口有VGA端子、数码视频接口 (DVI)、高画质多媒体接口(HDMI)和DisplayPort（DP）&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Computer Device" scheme="https://shangrila-kun.github.io/categories/Computer-Device/"/>
+    
+    
+      <category term="显示器接口" scheme="https://shangrila-kun.github.io/tags/%E6%98%BE%E7%A4%BA%E5%99%A8%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDMI线</title>
+    <link href="https://shangrila-kun.github.io/2017/07/22/20170722hdmi/"/>
+    <id>https://shangrila-kun.github.io/2017/07/22/20170722hdmi/</id>
+    <published>2017-07-22T14:08:29.000Z</published>
+    <updated>2017-08-29T13:11:41.874Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    <strong>HDMI的英文全称是“High Definition Multimedia Interface”,即高清晰度多媒体接口。它可以无压缩的传送音频信息\ 视频信号。</strong></p>
+<a id="more"></a>
+<p>​    HDMI提供所有兼容装置，–比如机顶盒、DVD播放机、个人电脑、电视等设备。HDMI 是首个也是唯一一个在单数字接口中集成不压缩的高清晰度视频、多声道音频和智能格式与命令数据的数字接口。对于家庭用户来说，最大的好处是享受高清晰数字视频的同时也享受了高档的声效。HDMI在保证高档多声道声效的同时简化了线路，因此非常适合家用电器设备之间的传输。</p>
+<p>​    HDMI支持5Gbps的数据传输率，最远可传输15米，足以应付一个1080p的视频和一个8声道的音频信号。而因为一个1080p的视频和一个8声道的音频信号需求少于4GB/s，因此HDMI还有很大余量。这允许它可以用一个电缆分别连接DVD播放器，接收器和PRR。此外HDMI支持EDID、DDC2B，因此具有HDMI的设备具有”即插即用”的特点，信号源和显示设备之间会自动进行”协商”，自动选择最合适的视频/音频格式。在最新的HDMI 1.3b规范中，其带宽已经翻倍提升到了10.2GB/s，分辨率也由原来的1920×1080提升到了2560×1600。</p>
+<hr>
+<p>​    <strong>以下是我从京东某点选取了几张HDMI图片,这个线也是我们实验室常购买的。</strong></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t3925/150/395357929/516337/185fb92d/584e3c40Ne5d17e62.jpg" alt="img align=center"></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t3250/116/8269149857/471048/5827d2bb/58c21c69N6327cf93.jpg" alt="img align=center"></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t3067/243/4576279079/588948/f5e81448/584e3c44N44db2cc6.jpg" alt="img align=center"></p>
+<p><img src="https://img20.360buyimg.com/vc/jfs/t4057/113/415929579/911157/ddcc1ae0/584e3c57Nf00e81cf.jpg" alt="img align=center"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    &lt;strong&gt;HDMI的英文全称是“High Definition Multimedia Interface”,即高清晰度多媒体接口。它可以无压缩的传送音频信息\ 视频信号。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Computer Device" scheme="https://shangrila-kun.github.io/categories/Computer-Device/"/>
+    
+    
+      <category term="HDMI" scheme="https://shangrila-kun.github.io/tags/HDMI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A、B、C、D、E类地址知识点</title>
+    <link href="https://shangrila-kun.github.io/2017/07/22/network0722/"/>
+    <id>https://shangrila-kun.github.io/2017/07/22/network0722/</id>
+    <published>2017-07-22T07:42:18.000Z</published>
+    <updated>2017-08-29T13:10:49.956Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>A类地址</strong></p>
+<p>​    </p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>网络号</th>
+<th>主机号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1位</td>
+<td>7位</td>
+<td>24位</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<p>​    一个A类网络地址由一个字节（每个字节是8位）的<strong>网络地址</strong>和3个字节<strong>主机地址</strong>组成，网络地址的最高位必须是0。A类地址的第一个字段的范围是0-127,但是由于全0或者全1的地址用作特殊用途<a href="全零（0.0.0.0）地址指任意网络地址。全“1”的ip地址（255.255.255.255）是当前子网的广播地址。全0和全1是保留地址，仅作为实验和开发用，一般公司和用户无使用权。">^注释</a>，实际可指派的第一个字段的范围是1-126。</p>
+<p>​    因此，A类地址的IP范围是：<strong>1.0.0.1 到 126.255.255.254</strong>。（备注：一个网络中，主机号全为0的代表这个网络本身。称之为：网络号，这个地址是不可以分配给主机的，主机号是全1的地址是广播地址，假如你给这个地址发数据包，这个网络内的所有主机都能收到）。</p>
+<p>​    一个A类网络可提供的主机地址为2^24-2。[这里减2的原因是主机地址全0表示”本主机“连接到的单个网络地址，而全1表示该网络上的所有主机]</p>
+<p>​    A类地址适用于具有大量主机而局域网络个数较少的大型网络。例如：IBM公司的网络。</p>
+<hr>
+<p><strong>B类地址</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>0</th>
+<th>网络号</th>
+<th>主机号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1位</td>
+<td>1位</td>
+<td>14位</td>
+<td>16位</td>
+</tr>
+</tbody>
+</table>
+<p>​    一个B类地址由2个字节的<strong>网络地址</strong>和2个字节的<strong>主机地址</strong>组成，网络地址的最高位必须是“10”，第一段数字的范围是128（1000 000）到191（1011 1111，即128+63=191,一个A类网络可提供的主机地址为2^16-2，因为主机号各位不能同时为0,1）,Internet有2^14-1个B类地址（备注：第2个字节不能全为0，因为128.0.0.0是不指派的）。B类地址的IP范围是：<strong>128.1.0.1到191,255.255.254</strong>。</p>
+<p>​    B类地址适用于节点比较多的网络。</p>
+<hr>
+<p><strong>C类地址</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>网络号</th>
+<th>主机号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1位</td>
+<td>1位</td>
+<td>1位</td>
+<td>21位</td>
+<td>8位</td>
+</tr>
+</tbody>
+</table>
+<p>​    一个A雷网络地址由三个字节（每个字节是8位）的<strong>网络地址</strong>和一个字节<strong>主机地址</strong>组成，网络地址的最高位必须是110。A类地址的第一个字段的范围是192-223。每个C类地址可以连接的主机有2^8-2台主机，（0号是网络号不可用255是广播地址），Internet有2^5 <em> 2^8 </em> 2^8 个C类地址。</p>
+<p>​    C类地址较多，适用于小规模的局域网络，每个网络最多只能包含254台计算机。</p>
+<hr>
+<p><strong>D类地址</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>多播组号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1位</td>
+<td>1位</td>
+<td>1位</td>
+<td>1位</td>
+<td>28位</td>
+</tr>
+</tbody>
+</table>
+<p>​    D类地址不分<strong>网络地址</strong>和<strong>主机地址</strong>，它的第一个字节的最高位必须是1110。它是多点播送地址，用于多目的地信息的传输，和作为备用。</p>
+<hr>
+<p><strong>E类地址</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>留着代用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1位</td>
+<td>1位</td>
+<td>1位</td>
+<td>1位</td>
+<td>1位</td>
+<td>27位</td>
+</tr>
+</tbody>
+</table>
+<p>E类地址保留，仅作为实验和开发使用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;A类地址&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​    &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;th&gt;网络号&lt;/th&gt;
+&lt;th&gt;主机号&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1位&lt;/td&gt;
+&lt;td&gt;7位&lt;/td&gt;
+&lt;td&gt;24位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="Network" scheme="https://shangrila-kun.github.io/categories/Network/"/>
+    
+    
+      <category term="TCP/IP协议" scheme="https://shangrila-kun.github.io/tags/TCP-IP%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的博客</title>
+    <link href="https://shangrila-kun.github.io/2017/07/21/hellohk/"/>
+    <id>https://shangrila-kun.github.io/2017/07/21/hellohk/</id>
+    <published>2017-07-21T09:57:36.000Z</published>
+    <updated>2017-08-29T13:10:59.709Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    <strong>在github上搭建一个个人博客一直是我的想法。2年前，我的一个朋友陆沉也推荐过，曾经简单地弄了下，仅搭建好了一个空的框架，没有在里面发表任何博文，现在回想起来，很是遗憾！</strong></p>
+<a id="more"></a>
+<p>​    <strong>最近想整理一下所学的知识，记录下自己生活、学习的轨迹，萌生了写博客的欲望。于是在github上找了一些优秀的博客模板，经过筛选，选中了这一套风格，昨天从开始，到博客搭建完成，用了将近4个小时，里面也走了很多弯路，试试了好几种方法，现在整理如下，有需要的朋友，可以从中借鉴、参考：</strong></p>
+<hr>
+<p>​    首先，我在知乎上搜了下：在github中有哪些好的hexo博客模板，原文链接是：<a href="https://www.zhihu.com/question/39388850?sort=created" target="_blank" rel="external">https://www.zhihu.com/question/39388850?sort=created</a>.</p>
+<p>​    大家可以在这里面选，喜欢我这套，也可以fork我的github仓库，当然世界是多姿多彩的，可以继续在浩瀚的世界搜索自己想要的。</p>
+<pre><code>选中模板之后，如果没有安装git、node.js、hexo软件，博主推荐一篇安装的教程：&lt;http://www.jianshu.com/p/863f3f2d1733&gt;。建议按照这个流程，
+把博客安装流程都走一遍。如果博主推荐的这篇文章不够详细，可以搜一下其他教程。以上安装流程走完了之后，想必各位都有一套github上选的博客模板，
+就博主可以认为，这些博客的页面可以说得过去，也算挺好看的，毕竟，博客还是内容为王，但是博客在想，自己熟悉一些简单的html、css、js，所有，心
+就有点大了，想要一个更好的一个博客页面。如果大家也有类似的想法，那么接下来我们开始进入到博客页面升级版的道路吧！
+
+       1. 选中一套自己喜欢的主题，我以本博客模板为例来讲解。
+    2. 首先Fork一下或者Download一份本项目的代码。
+    3. 修改一下_config_yaml及readme.md文件，变更个人信息。
+    4. 将本项目放入自己博客项目中的themes文件夹中，我的文件结构是 hk_blog/hexo/themes,在themes有一个默认主题landscape,我们只需要将我们自己
+       下载的主题模板放在和landscape并列的文件夹中即可。
+    5. 修改hexo文件下的_config.yml中的themes属性值，改为自己下载的主题。
+    6. hexo启动服务即可访问本项目。
+</code></pre><p>以上是我搭建博客的一点历程！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    &lt;strong&gt;在github上搭建一个个人博客一直是我的想法。2年前，我的一个朋友陆沉也推荐过，曾经简单地弄了下，仅搭建好了一个空的框架，没有在里面发表任何博文，现在回想起来，很是遗憾！&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活琐事" scheme="https://shangrila-kun.github.io/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
+    
+    
+      <category term="我的博客" scheme="https://shangrila-kun.github.io/tags/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Random | Shangrila-kun Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。">
+<meta name="keywords" content="随机数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Random">
+<meta property="og:url" content="https://shangrila-kun.github.io/2017/08/04/Random20170804/index.html">
+<meta property="og:site_name" content="Shangrila-kun Blog">
+<meta property="og:description" content="​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-29T13:10:28.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Random">
+<meta name="twitter:description" content="​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。">
+  
+    <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Shangrila-kun</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Full of passion to meet every day</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/HK/home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/tags">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                            
+                                <a class="fl Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Fork小丝带/" style="font-size: 10px;">Fork小丝带</a> <a href="/tags/HDMI/" style="font-size: 10px;">HDMI</a> <a href="/tags/TCP-IP协议/" style="font-size: 10px;">TCP/IP协议</a> <a href="/tags/execute问题/" style="font-size: 10px;">execute问题</a> <a href="/tags/我的博客/" style="font-size: 10px;">我的博客</a> <a href="/tags/显示器接口/" style="font-size: 20px;">显示器接口</a> <a href="/tags/访问控制权限/" style="font-size: 10px;">访问控制权限</a> <a href="/tags/随机数/" style="font-size: 10px;">随机数</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://shangrila-kun.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">码一手无bug的code,做一个会life的boy。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Shangrila-kun</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Shangrila-kun</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Full of passion to meet every day</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/HK/home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/tags">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                    
+                        <a class="Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Random20170804" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/04/Random20170804/" class="article-date">
+      <time datetime="2017-08-04T05:10:29.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Random
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随机数/">随机数</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	
+        
+        <p>​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。</p>
+<a id="more"></a>
+<p>​    相同种子数的Random对象，相同次数生成的随机数字是完全相同的。也就是说，两个种子数相同的Random对象，第一次生成的随机数字完全相同，第二次生成的随机数字也完全相同。这点在生成多个随机数字时需要特别注意。</p>
+<p>​    1、Random对象的生产：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Random</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(seedUniquifier() ^ System.nanoTime());</div><div class="line">    &#125;</div><div class="line"><span class="comment">//该构造方法使用一个和当前系统时间对应的相对时间有关的数字作为种子数，然后使用这个种子数构造Random对象。</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Random</span><span class="params">(<span class="keyword">long</span> seed)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (getClass() == Random.class)</div><div class="line">            <span class="keyword">this</span>.seed = <span class="keyword">new</span> AtomicLong(initialScramble(seed));</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// subclass might have overriden setSeed</span></div><div class="line">            <span class="keyword">this</span>.seed = <span class="keyword">new</span> AtomicLong();</div><div class="line">            setSeed(seed);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="comment">//该构造方法可以通过制定一个种子数进行创建。种子数只是随机算法的起源数字，和生成的随机数字的区间无关。</span></div></pre></td></tr></table></figure>
+<p>​    2、Random类中的常用方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next(<span class="number">32</span>);</div><div class="line"> &#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的int值，该值介于int的区间，也就是-231到231-1之间。</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">(<span class="keyword">int</span> bound)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (bound &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(BadBound);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> r = next(<span class="number">31</span>);</div><div class="line">        <span class="keyword">int</span> m = bound - <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> ((bound &amp; m) == <span class="number">0</span>)  <span class="comment">// i.e., bound is a power of 2</span></div><div class="line">            r = (<span class="keyword">int</span>)((bound * (<span class="keyword">long</span>)r) &gt;&gt; <span class="number">31</span>);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> u = r;</div><div class="line">                 u - (r = u % bound) + m &lt; <span class="number">0</span>;</div><div class="line">                 u = next(<span class="number">31</span>))</div><div class="line">                ;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> r;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的int值，该值介于[0,n)的区间，也就是0到n之间的随机int值，包含0而不包含n。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">nextLong</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// it's okay that the bottom word remains signed.</span></div><div class="line">        <span class="keyword">return</span> ((<span class="keyword">long</span>)(next(<span class="number">32</span>)) &lt;&lt; <span class="number">32</span>) + next(<span class="number">32</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">nextBoolean</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next(<span class="number">1</span>) != <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的boolean值，生成true和false的值几率相等，也就是都是50%的几率。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">nextDouble</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (((<span class="keyword">long</span>)(next(<span class="number">26</span>)) &lt;&lt; <span class="number">27</span>) + next(<span class="number">27</span>)) * DOUBLE_UNIT;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的double值，数值介于[0,1.0)之间。</span></div></pre></td></tr></table></figure>
+<p>​    3、Random类使用示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d1 = r.nextDouble();<span class="comment">//生成[0,1.0)区间的小数</span></div><div class="line"><span class="keyword">double</span> d2 = r.nextDouble() * <span class="number">5</span>;<span class="comment">//生成[0,5.0)区间的小数</span></div><div class="line"><span class="keyword">double</span> d3 = r.nextDouble() * <span class="number">1.5</span> + <span class="number">1</span>;<span class="comment">//生成[1,2.5)区间的小数</span></div><div class="line"><span class="keyword">int</span> n1 = r.nextInt();<span class="comment">//int n1 = r.nextInt();</span></div><div class="line"><span class="keyword">int</span> n2 = r.nextInt(<span class="number">10</span>);<span class="comment">//成[0,10)区间的整数</span></div><div class="line">n2 = Math.abs(r.nextInt() % <span class="number">10</span>);<span class="comment">//成[0,10)区间的整数,首先调用nextInt()方法生成一个任意的int数字，该数字和10取余以后生成的数字区间为(-10,10)，</span></div><div class="line"><span class="comment">//然后再对该区间求绝对值，则得到的区间就是[0,10)了。</span></div></pre></td></tr></table></figure>
+<p>​    4、相同种子数Random对象问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//相同种子数的Random对象，相同次数生成的随机数字是完全相同的，下面是测试的代码：</span></div><div class="line"></div><div class="line">Random r1 = <span class="keyword">new</span> Random(<span class="number">10</span>);</div><div class="line"></div><div class="line">Random r2 = <span class="keyword">new</span> Random(<span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">2</span>;i++)&#123;</div><div class="line"></div><div class="line">  System.out.println(r1.nextInt());</div><div class="line"></div><div class="line">  System.out.println(r2.nextInt());</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在该代码中，对象r1和r2使用的种子数都是10，则这两个对象相同次数生成的随机数是完全相同的。</span></div><div class="line"><span class="comment">//如果想避免出现随机数字相同的情况，则需要注意，无论项目中需要生成多少个随机数字，都只使用一个Random对象即可。</span></div></pre></td></tr></table></figure>
+<p>​    5、Random对象生成概率问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> scoreNumber = <span class="number">1000</span>;</div><div class="line">        <span class="keyword">int</span> zero =<span class="number">0</span>, one = <span class="number">1</span>,two = <span class="number">2</span>, three = <span class="number">3</span>,four = <span class="number">4</span>,five =<span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span> zeroTag =<span class="number">0</span>,oneTag =<span class="number">0</span>,twoTag =<span class="number">0</span>,threeTag =<span class="number">0</span>,fourTag =<span class="number">0</span>,fiveTag =<span class="number">0</span>;</div><div class="line">        Double zeroProportion,oneProportion,twoProportion,threeProportion,fourProportion,fiveProportion;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;scoreNumber;i++)&#123;</div><div class="line">            Random r = <span class="keyword">new</span> Random();</div><div class="line">            <span class="keyword">int</span> number = r.nextInt(<span class="number">6</span>);</div><div class="line">            <span class="keyword">if</span>(number==zero)&#123;</div><div class="line">                zeroTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==one)&#123;</div><div class="line">                oneTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==two)&#123;</div><div class="line">                twoTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==three)&#123;</div><div class="line">                threeTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==four)&#123;</div><div class="line">                fourTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==five)&#123;</div><div class="line">                fiveTag++;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                System.out.println(<span class="string">"随机数生成异常"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        zeroProportion = <span class="number">1.0</span>*zeroTag/scoreNumber;</div><div class="line">        oneProportion = <span class="number">1.0</span>*oneTag/scoreNumber;</div><div class="line">        twoProportion = <span class="number">1.0</span>*twoTag/scoreNumber;</div><div class="line">        threeProportion = <span class="number">1.0</span>*threeTag/scoreNumber;</div><div class="line">        fourProportion = <span class="number">1.0</span>*fourTag/scoreNumber;</div><div class="line">        fiveProportion = <span class="number">1.0</span>*fiveTag/scoreNumber;</div><div class="line">        Double total = zeroProportion+oneProportion+twoProportion+threeProportion+fourProportion+fiveProportion;</div><div class="line">        System.out.println(<span class="string">"zeroProportion="</span>+zeroProportion+<span class="string">","</span>+<span class="string">"oneProportion="</span>+oneProportion+<span class="string">","</span>+<span class="string">"twoProportion="</span>+twoProportion+<span class="string">","</span>+<span class="string">"threeProportion="</span>+threeProportion+<span class="string">","</span>+<span class="string">"fourProportion="</span>+fourProportion+<span class="string">","</span>+<span class="string">"fiveProportion="</span>+fiveProportion);</div><div class="line">        System.out.println(<span class="string">"total="</span>+total);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//当scoreNumber = 1000时</span></div><div class="line"><span class="comment">//zeroProportion=0.167,oneProportion=0.158,twoProportion=0.19,threeProportion=0.144,fourProportion=0.169,fiveProportion=0.172，total=1.0</span></div><div class="line"><span class="comment">//当scoreNumber = 10000时</span></div><div class="line"><span class="comment">//zeroProportion=0.1694,oneProportion=0.169,twoProportion=0.1594,threeProportion=0.1632,fourProportion=0.1708,fiveProportion=0.1682 total=1.0</span></div><div class="line"><span class="comment">//当scoreNumber = 1000000时</span></div><div class="line"><span class="comment">//zeroProportion=0.16682,oneProportion=0.166072,twoProportion=0.166039,threeProportion=0.167245,fourProportion=0.16649,fiveProportion=0.167334 total=1.0</span></div></pre></td></tr></table></figure>
+<p>​    6、关于Math类中的random方法</p>
+<p>​    其实在Math类中也有一个random方法，该random方法的工作是生成一个[0,1.0)区间的随机小数。通过阅读Math类的源代码可以发现，Math类中的random方法就是直接调用Random类中的nextDouble方法实现的。只是random方法的调用比较简单，所以很多程序员都习惯使用Math类的random方法来生成随机数字。</p>
+
+    
+	
+      
+          
+        <p>​    关于java.util中的Random类，Random类中实现的随机算法是伪随机，也就是有规则的随机。在进行随机时，随机算法的起源数字称为种子数(seed)，在种子数的基础上进行一定的变换，从而产生需要的随机数字。</p>
+<a id="more"></a>
+<p>​    相同种子数的Random对象，相同次数生成的随机数字是完全相同的。也就是说，两个种子数相同的Random对象，第一次生成的随机数字完全相同，第二次生成的随机数字也完全相同。这点在生成多个随机数字时需要特别注意。</p>
+<p>​    1、Random对象的生产：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Random</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(seedUniquifier() ^ System.nanoTime());</div><div class="line">    &#125;</div><div class="line"><span class="comment">//该构造方法使用一个和当前系统时间对应的相对时间有关的数字作为种子数，然后使用这个种子数构造Random对象。</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Random</span><span class="params">(<span class="keyword">long</span> seed)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (getClass() == Random.class)</div><div class="line">            <span class="keyword">this</span>.seed = <span class="keyword">new</span> AtomicLong(initialScramble(seed));</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// subclass might have overriden setSeed</span></div><div class="line">            <span class="keyword">this</span>.seed = <span class="keyword">new</span> AtomicLong();</div><div class="line">            setSeed(seed);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="comment">//该构造方法可以通过制定一个种子数进行创建。种子数只是随机算法的起源数字，和生成的随机数字的区间无关。</span></div></pre></td></tr></table></figure>
+<p>​    2、Random类中的常用方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next(<span class="number">32</span>);</div><div class="line"> &#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的int值，该值介于int的区间，也就是-231到231-1之间。</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nextInt</span><span class="params">(<span class="keyword">int</span> bound)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (bound &lt;= <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(BadBound);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> r = next(<span class="number">31</span>);</div><div class="line">        <span class="keyword">int</span> m = bound - <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> ((bound &amp; m) == <span class="number">0</span>)  <span class="comment">// i.e., bound is a power of 2</span></div><div class="line">            r = (<span class="keyword">int</span>)((bound * (<span class="keyword">long</span>)r) &gt;&gt; <span class="number">31</span>);</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> u = r;</div><div class="line">                 u - (r = u % bound) + m &lt; <span class="number">0</span>;</div><div class="line">                 u = next(<span class="number">31</span>))</div><div class="line">                ;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> r;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的int值，该值介于[0,n)的区间，也就是0到n之间的随机int值，包含0而不包含n。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">nextLong</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// it's okay that the bottom word remains signed.</span></div><div class="line">        <span class="keyword">return</span> ((<span class="keyword">long</span>)(next(<span class="number">32</span>)) &lt;&lt; <span class="number">32</span>) + next(<span class="number">32</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">nextBoolean</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> next(<span class="number">1</span>) != <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的boolean值，生成true和false的值几率相等，也就是都是50%的几率。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">nextDouble</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (((<span class="keyword">long</span>)(next(<span class="number">26</span>)) &lt;&lt; <span class="number">27</span>) + next(<span class="number">27</span>)) * DOUBLE_UNIT;</div><div class="line">&#125;</div><div class="line"><span class="comment">//该方法的作用是生成一个随机的double值，数值介于[0,1.0)之间。</span></div></pre></td></tr></table></figure>
+<p>​    3、Random类使用示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d1 = r.nextDouble();<span class="comment">//生成[0,1.0)区间的小数</span></div><div class="line"><span class="keyword">double</span> d2 = r.nextDouble() * <span class="number">5</span>;<span class="comment">//生成[0,5.0)区间的小数</span></div><div class="line"><span class="keyword">double</span> d3 = r.nextDouble() * <span class="number">1.5</span> + <span class="number">1</span>;<span class="comment">//生成[1,2.5)区间的小数</span></div><div class="line"><span class="keyword">int</span> n1 = r.nextInt();<span class="comment">//int n1 = r.nextInt();</span></div><div class="line"><span class="keyword">int</span> n2 = r.nextInt(<span class="number">10</span>);<span class="comment">//成[0,10)区间的整数</span></div><div class="line">n2 = Math.abs(r.nextInt() % <span class="number">10</span>);<span class="comment">//成[0,10)区间的整数,首先调用nextInt()方法生成一个任意的int数字，该数字和10取余以后生成的数字区间为(-10,10)，</span></div><div class="line"><span class="comment">//然后再对该区间求绝对值，则得到的区间就是[0,10)了。</span></div></pre></td></tr></table></figure>
+<p>​    4、相同种子数Random对象问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//相同种子数的Random对象，相同次数生成的随机数字是完全相同的，下面是测试的代码：</span></div><div class="line"></div><div class="line">Random r1 = <span class="keyword">new</span> Random(<span class="number">10</span>);</div><div class="line"></div><div class="line">Random r2 = <span class="keyword">new</span> Random(<span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">2</span>;i++)&#123;</div><div class="line"></div><div class="line">  System.out.println(r1.nextInt());</div><div class="line"></div><div class="line">  System.out.println(r2.nextInt());</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在该代码中，对象r1和r2使用的种子数都是10，则这两个对象相同次数生成的随机数是完全相同的。</span></div><div class="line"><span class="comment">//如果想避免出现随机数字相同的情况，则需要注意，无论项目中需要生成多少个随机数字，都只使用一个Random对象即可。</span></div></pre></td></tr></table></figure>
+<p>​    5、Random对象生成概率问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> scoreNumber = <span class="number">1000</span>;</div><div class="line">        <span class="keyword">int</span> zero =<span class="number">0</span>, one = <span class="number">1</span>,two = <span class="number">2</span>, three = <span class="number">3</span>,four = <span class="number">4</span>,five =<span class="number">5</span>;</div><div class="line">        <span class="keyword">int</span> zeroTag =<span class="number">0</span>,oneTag =<span class="number">0</span>,twoTag =<span class="number">0</span>,threeTag =<span class="number">0</span>,fourTag =<span class="number">0</span>,fiveTag =<span class="number">0</span>;</div><div class="line">        Double zeroProportion,oneProportion,twoProportion,threeProportion,fourProportion,fiveProportion;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;scoreNumber;i++)&#123;</div><div class="line">            Random r = <span class="keyword">new</span> Random();</div><div class="line">            <span class="keyword">int</span> number = r.nextInt(<span class="number">6</span>);</div><div class="line">            <span class="keyword">if</span>(number==zero)&#123;</div><div class="line">                zeroTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==one)&#123;</div><div class="line">                oneTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==two)&#123;</div><div class="line">                twoTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==three)&#123;</div><div class="line">                threeTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==four)&#123;</div><div class="line">                fourTag++;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(number==five)&#123;</div><div class="line">                fiveTag++;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                System.out.println(<span class="string">"随机数生成异常"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        zeroProportion = <span class="number">1.0</span>*zeroTag/scoreNumber;</div><div class="line">        oneProportion = <span class="number">1.0</span>*oneTag/scoreNumber;</div><div class="line">        twoProportion = <span class="number">1.0</span>*twoTag/scoreNumber;</div><div class="line">        threeProportion = <span class="number">1.0</span>*threeTag/scoreNumber;</div><div class="line">        fourProportion = <span class="number">1.0</span>*fourTag/scoreNumber;</div><div class="line">        fiveProportion = <span class="number">1.0</span>*fiveTag/scoreNumber;</div><div class="line">        Double total = zeroProportion+oneProportion+twoProportion+threeProportion+fourProportion+fiveProportion;</div><div class="line">        System.out.println(<span class="string">"zeroProportion="</span>+zeroProportion+<span class="string">","</span>+<span class="string">"oneProportion="</span>+oneProportion+<span class="string">","</span>+<span class="string">"twoProportion="</span>+twoProportion+<span class="string">","</span>+<span class="string">"threeProportion="</span>+threeProportion+<span class="string">","</span>+<span class="string">"fourProportion="</span>+fourProportion+<span class="string">","</span>+<span class="string">"fiveProportion="</span>+fiveProportion);</div><div class="line">        System.out.println(<span class="string">"total="</span>+total);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//当scoreNumber = 1000时</span></div><div class="line"><span class="comment">//zeroProportion=0.167,oneProportion=0.158,twoProportion=0.19,threeProportion=0.144,fourProportion=0.169,fiveProportion=0.172，total=1.0</span></div><div class="line"><span class="comment">//当scoreNumber = 10000时</span></div><div class="line"><span class="comment">//zeroProportion=0.1694,oneProportion=0.169,twoProportion=0.1594,threeProportion=0.1632,fourProportion=0.1708,fiveProportion=0.1682 total=1.0</span></div><div class="line"><span class="comment">//当scoreNumber = 1000000时</span></div><div class="line"><span class="comment">//zeroProportion=0.16682,oneProportion=0.166072,twoProportion=0.166039,threeProportion=0.167245,fourProportion=0.16649,fiveProportion=0.167334 total=1.0</span></div></pre></td></tr></table></figure>
+<p>​    6、关于Math类中的random方法</p>
+<p>​    其实在Math类中也有一个random方法，该random方法的工作是生成一个[0,1.0)区间的随机小数。通过阅读Math类的源代码可以发现，Math类中的random方法就是直接调用Random类中的nextDouble方法实现的。只是random方法的调用比较简单，所以很多程序员都习惯使用Math类的random方法来生成随机数字。</p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/08/04/Random20170804/">Random</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
+        <p><span>发布时间:</span>2017年08月04日 - 13时10分</p>
+        <p><span>最后更新:</span>2017年08月29日 - 21时10分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/04/Random20170804/" title="Random">https://shangrila-kun.github.io/2017/08/04/Random20170804/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2017/08/04/Random20170804/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/15/20170823sql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SQL中execute操作返回false的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/23/20170723computerDevice/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">台式主机用那个接口和显示器相连，分辨率效果最好？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142700"></script>
+</section>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/08/15/20170823sql/" title="上一篇: SQL中execute操作返回false的问题">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/07/23/20170723computerDevice/" title="下一篇: 台式主机用那个接口和显示器相连，分辨率效果最好？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Shangrila-kun
+            </div>
+            <div class="footer-right">
+                 <a href="https://github.com/shangrila-kun" target="_blank">Welcome to shangrila-kun blog </a>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+<div class="ribbon">
+<a href="https://github.com/shangrila-kun">Fork me on GitHub</a>
+</div>
+  </div>
+</body>
+</html>
