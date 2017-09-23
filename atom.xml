@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shangrila-kun.github.io/"/>
-  <updated>2017-08-31T03:12:36.934Z</updated>
+  <updated>2017-09-10T07:33:31.992Z</updated>
   <id>https://shangrila-kun.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何使用Hexo在多台电脑上提交和更新github pages博客</title>
+    <link href="https://shangrila-kun.github.io/2017/09/10/hexo20170917/"/>
+    <id>https://shangrila-kun.github.io/2017/09/10/hexo20170917/</id>
+    <published>2017-09-10T01:10:29.000Z</published>
+    <updated>2017-09-10T07:33:31.992Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    在实验室电脑上用hexo搭建博客，但是，每次发博客的时候只能用实验室电脑发。于是想在宿舍电脑上也搭建一个，来协同工作。</p>
+<a id="more"></a>
+<p>​    由于实验室的小伙伴已经写了一份操作文档，我就直接粘贴链接过来。<a href="https://michaeljian.github.io/2017/09/07/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Hexo%E5%9C%A8%E5%A4%9A%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E6%8F%90%E4%BA%A4%E5%92%8C%E6%9B%B4%E6%96%B0github-pages%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">点击即可查看</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    在实验室电脑上用hexo搭建博客，但是，每次发博客的时候只能用实验室电脑发。于是想在宿舍电脑上也搭建一个，来协同工作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hexo系列干货" scheme="https://shangrila-kun.github.io/categories/hexo%E7%B3%BB%E5%88%97%E5%B9%B2%E8%B4%A7/"/>
+    
+    
+      <category term="多电脑操作githubblog" scheme="https://shangrila-kun.github.io/tags/%E5%A4%9A%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9Cgithubblog/"/>
+    
+  </entry>
   
   <entry>
     <title>添加Fork me on GitHub 小丝带</title>
