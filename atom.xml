@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shangrila-kun.github.io/"/>
-  <updated>2017-09-10T07:33:31.992Z</updated>
+  <updated>2017-10-13T07:18:41.306Z</updated>
   <id>https://shangrila-kun.github.io/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux安装软件教程</title>
+    <link href="https://shangrila-kun.github.io/2017/10/13/linux20171013/"/>
+    <id>https://shangrila-kun.github.io/2017/10/13/linux20171013/</id>
+    <published>2017-10-13T07:10:29.000Z</published>
+    <updated>2017-10-13T07:18:41.306Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    每次想着安装linux上面的软件，有时候要去网上查资料，有时候测试之后才发现网上的有些资料的正确与否，或者是否过时，这个是我们目前所用到的教程，并经过自己实践后，整理如下：</p>
+<a id="more"></a>
+<h1 id="linux安装软件教程"><a href="#linux安装软件教程" class="headerlink" title="linux安装软件教程"></a>linux安装软件教程</h1><h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p>​    安装连接   <a href="http://www.linuxidc.com/Linux/2016-09/134941.htm" target="_blank" rel="external">点击即可</a></p>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h3><p>​    安装链接  <a href="http://www.linuxidc.com/Linux/2016-09/134907.htm" target="_blank" rel="external">点击即可</a></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 根据端口列进程</div><div class="line">&gt; netstat -ntlp | grep 80 </div><div class="line">&gt; kill -INT 进程号  杀某一进程</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="Nginx下信号量"><a href="#Nginx下信号量" class="headerlink" title="Nginx下信号量"></a>Nginx下信号量</h3><blockquote>
+<p>kill -INT 进程号  简单粗暴的杀死进程</p>
+<p>kill -quit 优雅的杀死进程，等请求结束后，再关闭</p>
+<p>kill -HUB 进程号   改变配置文件，平滑的重读配置文件</p>
+<p>kill -HUN ‘cat logs/nginx.pid’优雅的更新配置</p>
+</blockquote>
+<h3 id="Nginx下的日志"><a href="#Nginx下的日志" class="headerlink" title="Nginx下的日志"></a>Nginx下的日志</h3><blockquote>
+<p><a href="http://www.cnblogs.com/crazylqy/p/6891991.html" target="_blank" rel="external">nginx下日志管理</a></p>
+<p><a href="http://www.cnblogs.com/mfryf/p/3336804.html" target="_blank" rel="external">tail命令</a></p>
+<p><a href="http://www.cnblogs.com/ilanni/p/5365420.html" target="_blank" rel="external">nginx日志切割管理</a> </p>
+</blockquote>
+<h3 id="Ngnix下面的location匹配规则"><a href="#Ngnix下面的location匹配规则" class="headerlink" title="Ngnix下面的location匹配规则"></a>Ngnix下面的location匹配规则</h3><p><img src="http://upload-images.jianshu.io/upload_images/7882280-01cecbe1d8f921e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="123.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7882280-731500b26046ea06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="456.png"></p>
+<blockquote>
+<p><a href="http://blog.csdn.net/qq_39781497/article/details/78038959" target="_blank" rel="external">nginx配置location总结</a>  </p>
+</blockquote>
+<h3 id="Nginx的rewrite重写"><a href="#Nginx的rewrite重写" class="headerlink" title="Nginx的rewrite重写"></a>Nginx的rewrite重写</h3><blockquote>
+<p><a href="http://www.linuxidc.com/Linux/2014-01/95493.htm" target="_blank" rel="external">rewire重写</a> </p>
+<p><a href="http://www.linuxidc.com/Linux/2014-01/95493.htm" target="_blank" rel="external">rewrite重写规则</a> </p>
+</blockquote>
+<h2 id="Mysql安装"><a href="#Mysql安装" class="headerlink" title="Mysql安装"></a>Mysql安装</h2><blockquote>
+<p><a href="http://blog.csdn.net/hellozhijian/article/details/78067593" target="_blank" rel="external">mysql安装</a> </p>
+</blockquote>
+<h2 id="Tomcat安装"><a href="#Tomcat安装" class="headerlink" title="Tomcat安装"></a>Tomcat安装</h2><blockquote>
+<p><a href="http://blog.csdn.net/default7/article/details/54925702" target="_blank" rel="external">tomcat的安装</a> </p>
+</blockquote>
+<h2 id="Mongodb3-4安装"><a href="#Mongodb3-4安装" class="headerlink" title="Mongodb3.4安装"></a>Mongodb3.4安装</h2><blockquote>
+<p><a href="http://www.cnblogs.com/acewhl/p/6638486.html" target="_blank" rel="external">mongodb3.4安装</a> </p>
+</blockquote>
+<h2 id="查看系统版本信息"><a href="#查看系统版本信息" class="headerlink" title="查看系统版本信息"></a>查看系统版本信息</h2><blockquote>
+<p><a href="http://www.linuxidc.com/Linux/2014-12/110748.htm" target="_blank" rel="external">如何查看已安装的CentOS版本信息</a></p>
+<p>lsb_release 是查看系统版本信息的工具,如果出现-bash: lsb_release: command not found,解决方法：yum install redhat-lsb -y</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; [root@localhost ~]# lsb_release  -a</div><div class="line">&gt; LSB Version:    :core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0- noarch:printing-4.0-amd64:printing-4.0-noarch</div><div class="line">&gt; Distributor ID: CentOS</div><div class="line">&gt; Description:    CentOS Linux release 6.0 (Final)</div><div class="line">&gt; Release:        6.0</div><div class="line">&gt; Codename:       Final</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    每次想着安装linux上面的软件，有时候要去网上查资料，有时候测试之后才发现网上的有些资料的正确与否，或者是否过时，这个是我们目前所用到的教程，并经过自己实践后，整理如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="linux" scheme="https://shangrila-kun.github.io/categories/linux/"/>
+    
+    
+      <category term="软件安装" scheme="https://shangrila-kun.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
   
   <entry>
     <title>如何使用Hexo在多台电脑上提交和更新github pages博客</title>
