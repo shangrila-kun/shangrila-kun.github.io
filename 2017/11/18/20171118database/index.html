@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="tE4x1LzlIo" />
+  
+  <title>数据库知识点总结（未完待续） | Shangrila-kun Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库知识点总结（未完待续）">
+<meta property="og:url" content="https://shangrila-kun.github.io/2017/11/18/20171118database/index.html">
+<meta property="og:site_name" content="Shangrila-kun Blog">
+<meta property="og:description" content="​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-18T13:04:18.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库知识点总结（未完待续）">
+<meta name="twitter:description" content="​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。">
+  
+    <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Shangrila-kun</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Full of passion to meet every day</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/HK/home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/tags">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                            
+                                <a class="fl Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Fork小丝带/" style="font-size: 10px;">Fork小丝带</a> <a href="/tags/HDMI/" style="font-size: 10px;">HDMI</a> <a href="/tags/TCP-IP协议/" style="font-size: 10px;">TCP/IP协议</a> <a href="/tags/execute问题/" style="font-size: 10px;">execute问题</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/sql/" style="font-size: 20px;">sql</a> <a href="/tags/多电脑操作githubblog/" style="font-size: 10px;">多电脑操作githubblog</a> <a href="/tags/我的博客/" style="font-size: 10px;">我的博客</a> <a href="/tags/显示器接口/" style="font-size: 20px;">显示器接口</a> <a href="/tags/访问控制权限/" style="font-size: 10px;">访问控制权限</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/随机数/" style="font-size: 10px;">随机数</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://shangrila-kun.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">码一手无bug的code,做一个会life的boy。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Shangrila-kun</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Shangrila-kun</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Full of passion to meet every day</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/HK/home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/tags">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                    
+                        <a class="Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-20171118database" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/18/20171118database/" class="article-date">
+      <time datetime="2017-11-18T12:32:00.000Z" itemprop="datePublished">2017-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库知识点总结（未完待续）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/database/">database</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。</p>
+<a id="more"></a>
+<h2 id="1、SQL中的关键字讲解"><a href="#1、SQL中的关键字讲解" class="headerlink" title="1、SQL中的关键字讲解"></a>1、SQL中的关键字讲解</h2><h3 id="1-1-distinct用法"><a href="#1-1-distinct用法" class="headerlink" title="1.1 distinct用法"></a>1.1 distinct用法</h3><blockquote>
+<p>作用于单列</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; select distinct name from A</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>作用于多列</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; select distinct name, id from A</div><div class="line">&gt; //实际上是根据name和id两个字段来去重的，这种方式Access和SQL Server同时支持。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>COUNT统计</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; select count(distinct name) from A;	  --表中name去重后的数目， SQL Server支持，而Access不支持</div><div class="line">&gt; count是不能统计多个字段的，下面的SQL在SQL Server和Access中都无法运行。</div><div class="line">&gt;</div><div class="line">&gt; select count(distinct name, id) from A;</div><div class="line">&gt; 若想使用，请使用嵌套查询，如下：</div><div class="line">&gt;</div><div class="line">&gt; select count(*) from (select distinct xing, name from B) AS M;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>distinct必须放在开头</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; select id, distinct name from A;   --会提示错误，因为distinct必须放在开头</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="2、子查询"><a href="#2、子查询" class="headerlink" title="2、子查询"></a>2、子查询</h2><h3 id="2-1子查询的定义"><a href="#2-1子查询的定义" class="headerlink" title="2.1子查询的定义"></a>2.1子查询的定义</h3><blockquote>
+<p>定义：子查询本质上是嵌套进其他SELECT,UPDATE,INSERT,DELETE语句的一个被限制的SELECT语句,在子查询中，只有下面几个子句可以使用</p>
+<ol>
+<li>SELECT子句（必须）</li>
+<li>FROM子句(必选）</li>
+<li>WHERE子句(可选)</li>
+<li>GROUP BY(可选)</li>
+<li>HAVING(可选)</li>
+<li>ORDER BY(只有在TOP关键字被使用时才可用)</li>
+</ol>
+<p>子查询也可以嵌套在其他子查询中,这个嵌套最多可达32层。子查询也叫内部查询(Inner query)或者内部选择(Inner Select),而包含子查询的查询语句也叫做外部查询</p>
+</blockquote>
+<h3 id="2-2子查询的谓词"><a href="#2-2子查询的谓词" class="headerlink" title="2.2子查询的谓词"></a>2.2子查询的谓词</h3><blockquote>
+<p>in 谓词（predicate）expr [NOT] IN ( subquery )</p>
+<p>The Quantified Comparison Predicate (量化比较谓词)       expr q SOME|ANY|ALL( subquery )</p>
+<p>The EXISTS Predicate  [NOT] EXISTS ( subquery )</p>
+<p>The BETWEEN Predicate  expr [NOT] BETWEEN expr1 AND expr2</p>
+<p>The IS NULL Predicate column  IS [NOT] NULL</p>
+<p>The LIKE Predicate column [NOT] LIKE val1 [ ESCAPE val2 ]</p>
+<blockquote>
+<p>§underscore ( _ ): any single character</p>
+<p>§percent ( % ): any sequence of zero or morecharacters</p>
+</blockquote>
+</blockquote>
+<h3 id="2-3子查询的执行分析"><a href="#2-3子查询的执行分析" class="headerlink" title="2.3子查询的执行分析"></a>2.3子查询的执行分析</h3><p>​    原文链接：<a href="https://www.cnblogs.com/CareySon/archive/2011/07/18/2109406.html" target="_blank" rel="external">点击</a> </p>
+<blockquote>
+<p><strong>子查询的简单描述</strong> ：</p>
+<p> 通常来讲，子查询按照子查询所返回数据的类型，可以分为三种，分别为：</p>
+<ol>
+<li>返回一张数据表(Table)</li>
+<li>返回一列值(Column)</li>
+<li>返回单个值(Scalar)</li>
+</ol>
+</blockquote>
+<h4 id="2-3-1-子查询做数据源的使用"><a href="#2-3-1-子查询做数据源的使用" class="headerlink" title="2.3.1 子查询做数据源的使用"></a>2.3.1 子查询做数据源的使用</h4><blockquote>
+<p>  当子查询在外部查询的<strong>FROM</strong>子句之后使用时,子查询被当作一个<strong>数据源</strong>使用,即使这时子查询只返回一个单一值(Scalar)或是一列值(Column)，在这里依然可以看作一个特殊的<strong>数据源</strong>,即一个二维数据表(Table).作为数据源使用的子查询很像一个<strong>View(视图),</strong>只是这个子查询只是临时存在，并不包含在数据库中。</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;   SELECT     P.ProductID, P.Name, P.ProductNumber, M.Name AS ProductModelName</div><div class="line">&gt;   FROM         Production.Product AS P INNER JOIN</div><div class="line">&gt;   (SELECT     Name, ProductModelID</div><div class="line">&gt;   FROM          Production.ProductModel) AS M </div><div class="line">&gt;   ON P.ProductModelID = M.ProductModelID</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<h4 id="2-3-2-子查询作为选择条件的使用"><a href="#2-3-2-子查询作为选择条件的使用" class="headerlink" title="2.3.2 子查询作为选择条件的使用"></a>2.3.2 子查询作为选择条件的使用</h4><blockquote>
+<p>​     作为选择条件的子查询也是子查询相对最复杂的应用.</p>
+<p>​    作为选择条件的子查询是那些只返回<strong>一列(Column)</strong>的子查询，如果作为选择条件使用，即使只返回<strong>单个值</strong>，也可以看作是只有<strong>一行</strong>的<strong>一列.</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; select   distinct  cid</div><div class="line">&gt; from     orders</div><div class="line">&gt; where   aid  IN  (</div><div class="line">&gt; select  aid         --uncorrelated Subquery:(a05,a06)非相关的子查询，更快</div><div class="line">&gt; 		from  agents</div><div class="line">&gt; 		where  city= ‘Duluth’  or  city=‘Dallas’)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  但是要强调的是，不要用IN和NOT IN关键字，这会引起很多潜在的问题，这篇文章对这个问题有着很好的阐述:<a href="http://wiki.lessthandot.com/index.php/Subquery_typo_with_using_in" target="_blank" rel="external">http://wiki.lessthandot.com/index.php/Subquery_typo_with_using_in</a>。这篇文章的观点是永远不要再用IN和NOT IN关键字，我的观点是存在即合理，我认为只有在IN里面是固定值的时候才可以用IN和NOT IN，比如： IN (25,33)</p>
+<p>只有在上面这种情况下，使用IN和NOT IN关键字才是安全的，其他情况下，最好使用EXISTS,NOT EXISTS,JOIN关键字来进行替代. 除了IN之外，用于选择条件的关键字还有<strong>ANY</strong>和<strong>ALL</strong>,这两个关键字和其字面意思一样. 和”&lt;”,”&gt;”,”=”连接使用</p>
+<p> 在作为ANY和ALL关键字在子查询中使用时，所实现的效果如下</p>
+<table>
+<thead>
+<tr>
+<th>=ANY</th>
+<th>和IN等价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;&gt;ALL</td>
+<td>和NOT IN等价</td>
+</tr>
+<tr>
+<td>&gt;ANY</td>
+<td>大于最小的(&gt;MIN)</td>
+</tr>
+<tr>
+<td>&lt;ANY</td>
+<td>小于最大的(&lt;MAX)</td>
+</tr>
+<tr>
+<td>&gt;ALL</td>
+<td>大于最大的(&gt;MAX)</td>
+</tr>
+<tr>
+<td>&lt;ALL</td>
+<td>小于最小的(&lt;MIN)</td>
+</tr>
+<tr>
+<td>=ALL</td>
+<td>下面说</td>
+</tr>
+</tbody>
+</table>
+<p>   =ALL关键字很少使用，这个的效果在子查询中为如果只有一个返回值，则和“=”相等，而如果有多个返回值，结果为空。</p>
+<p>这里要注意，SQL是一种很灵活的语言，就像子查询所实现的效果可以使用JOIN来实现一样（效果一样，实现思路不同），ANY和ALL所实现的效果也完全可以使用其他方式来替代,按照上面表格所示，&gt;ANY和&gt;MIN完全等价，比如下面两个查询语句完全等价</p>
+<p>IN             is    =SOME</p>
+<p>NOT IN    is    &lt;&gt;ALL</p>
+</blockquote>
+<h4 id="2-3-3相关子查询和EXISTS关键字"><a href="#2-3-3相关子查询和EXISTS关键字" class="headerlink" title="2. 3.3相关子查询和EXISTS关键字"></a>2. 3.3相关子查询和EXISTS关键字</h4><blockquote>
+<p>前面所说的查询都是<strong>无关子查询(Uncorrelated subquery),</strong>子查询中还有一类很重要的查询是<strong>相关子查询(Correlated subquery),也叫重复子查询</strong>比如，还是上面那个查询，用相关子查询来写:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; SELECT  distinct  cname FROM   customers  c</div><div class="line">&gt; WHERE ‘p05’  IN  ( select pid    --correlated Subquery 相关的子查询</div><div class="line">&gt; 				from  orders  o</div><div class="line">&gt; 				where o.cid=c.cid );</div><div class="line">&gt; SELECT [FirstName],[MiddleName],[LastName] FROM [AdventureWorks].[Person].[Contact] c</div><div class="line">&gt; WHERE EXISTS(SELECT *</div><div class="line">&gt;   FROM [AdventureWorks].[HumanResources].[Employee] e</div><div class="line">&gt;   WHERE c.ContactID=e.ContactID AND e.SickLeaveHours&gt;68)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>如何区别<strong>相关子查询</strong>和<strong>无关子查询</strong>呢?最简单的办法就是直接看子查询本身能否执行。</p>
+<p>上面的<strong>无关子查询</strong>，整个查询过程可以看作是<strong>子查询</strong>首先返回SQLResult(SQL结果集),然后交给<strong>外部查询</strong>使用，整个过程<strong>子查询</strong>只执行一次</p>
+<p>  而相反,作为<strong>相关子查询</strong>,子查询的执行的次数依赖于外部查询，外部查询每执行一行，子查询执行一次。</p>
+<p> 如上面代码所示。上面的相关子查询实际上会执行N次（N取决与外部查询的行数），外部查询每执行一行，都会将对应行所用的参数传到子查询中，如果子查询有对应值，则返回TRUE（既当前行被选中并在结果中显示），如果没有，则返回FALSE。然后重复执行下一行。</p>
+</blockquote>
+<h4 id="2-3-4-子查询作为计算列使用"><a href="#2-3-4-子查询作为计算列使用" class="headerlink" title="2.3.4 子查询作为计算列使用"></a>2.3.4 子查询作为计算列使用</h4><blockquote>
+<p>当<strong>子查询</strong>作为<strong>计算列</strong>使用时，只返回单个值(Scalar) 。用在SELECT语句之后，作为计算列使用。同样分为<strong>相关子查询</strong>和<strong>无关子查询</strong></p>
+<p>​    <strong>相关子查询</strong>的例子比如：我想取得每件产品的名称和总共的销量。</p>
+<p>表t_product    id  ,productName;</p>
+<p>表t_order  id ,orderNo,productId</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; select productName , (select count(*) from t_order o where p.id=o.productId ) as totalNum </div><div class="line">&gt;</div><div class="line">&gt; from t_product p ;//相关的子查询</div><div class="line">&gt;   </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>当<strong>子查询</strong>作为<strong>计算列</strong>使用时，会针对<strong>外部查询</strong>的每一行，返回唯一的值。</p>
+<p>   同样的，SQL子查询都可以使用其他语句达到同样的效果，上面的语句和如下语句达到同样的效果：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; select productName ,count(*) as total from t_product p,t_order o where p.id = o.productId group by productName;</div><div class="line">&gt;</div><div class="line">&gt; select productName ,count(*) as total from t_product p join t_order o on p.id = o.productId group by productName;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   子查询作为计算列且作为无关子查询时使用，只会一次性返回但一值，这里就不再阐述了。</p>
+</blockquote>
+<h3 id="2-4-子查询案例"><a href="#2-4-子查询案例" class="headerlink" title="2.4 子查询案例"></a>2.4 子查询案例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.1 Retrieve cids of customers who place orders with agents in Duluth or Dallas</div><div class="line"></div><div class="line">SQL 1</div><div class="line"><span class="keyword">select</span>  <span class="keyword">distinct</span>  cid</div><div class="line"><span class="keyword">from</span>    orders  o, agents  a</div><div class="line"><span class="keyword">where</span>  a.aid=o.aid  <span class="keyword">and</span></div><div class="line">		    (a.city=‘Duluth’ <span class="keyword">or</span> a.city=‘Dallas’);</div><div class="line">SQL 2 (FAST   Why?)</div><div class="line"><span class="keyword">select</span>   <span class="keyword">distinct</span>  cid</div><div class="line"><span class="keyword">from</span>     orders</div><div class="line"><span class="keyword">where</span>   aid  <span class="keyword">IN</span>  (</div><div class="line"><span class="keyword">select</span>  aid         <span class="comment">--uncorrelated Subquery:(a05,a06)非相关的子查询，更快</span></div><div class="line">		<span class="keyword">from</span>  agents</div><div class="line">		<span class="keyword">where</span>  city= ‘Duluth’  <span class="keyword">or</span>  city=‘Dallas’)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.2 Get all information concerning agents based in Duluth or Dallas.</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  agents</div><div class="line"><span class="keyword">WHERE</span>  city  <span class="keyword">IN</span>  ( ‘Duluth’, ‘Dallas’ ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.3 Get the names and discounts of all customers who place orders through agents in Duluth or Dallas.</div><div class="line"><span class="keyword">SELECT</span>  cname,  discnt <span class="keyword">FROM</span>      customers</div><div class="line"><span class="keyword">WHERE</span>  cid  <span class="keyword">IN</span>  (</div><div class="line">		<span class="keyword">SELECT</span>  o.cid</div><div class="line">		<span class="keyword">FROM</span>      orders  o</div><div class="line">		<span class="keyword">WHERE</span>  o.aid  <span class="keyword">IN</span>  (</div><div class="line">			<span class="keyword">SELECT</span>  a.aid</div><div class="line">			<span class="keyword">FROM</span>      agents  a</div><div class="line">			<span class="keyword">WHERE</span>  a.city <span class="keyword">IN</span> (‘Duluth’, ‘Dallas’))) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.4 Find the names of customers who order product p05. (<span class="keyword">use</span> uncorrelated Subquery?)相关的子查询</div><div class="line"><span class="keyword">SQL</span>(<span class="number">1</span>)</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>   customers  c,  orders  o <span class="keyword">WHERE</span>  c.cid=o.cid <span class="keyword">and</span> o.pid=‘p05’ ; </div><div class="line"></div><div class="line">SQL(2)</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>   customers  c</div><div class="line"><span class="keyword">WHERE</span> ‘p05’  <span class="keyword">IN</span>  ( <span class="keyword">select</span> pid    <span class="comment">--correlated Subquery 相关的子查询</span></div><div class="line">				<span class="keyword">from</span>  orders  o</div><div class="line">				<span class="keyword">where</span> o.cid=c.cid );</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.6 Find ordno values for all orders placed by customers in Duluth through agents in New York.</div><div class="line"><span class="keyword">SELECT</span>  ordno</div><div class="line"><span class="keyword">FROM</span>  orders</div><div class="line"><span class="keyword">WHERE</span>  (cid, aid)  <span class="keyword">IN</span>		</div><div class="line">		(<span class="keyword">select</span>  cid, aid		</div><div class="line"> 		<span class="keyword">from</span>      customers  c,  agents  a</div><div class="line">		<span class="keyword">where</span>   c.city=‘Duluth’ <span class="keyword">and</span> a.city=‘<span class="keyword">New</span> York’) ; </div><div class="line">//这是两个表的笛卡儿积，先查询c表符合的条件，再查询a表符合的条件，做笛卡尔的乘积，让子查询作为选择条件。</div><div class="line"><span class="keyword">select</span> p.id,o.id <span class="keyword">from</span> t_product p ,t_order o;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.7  Find aid values of agents with a minimum percent commission(佣金).</div><div class="line"><span class="keyword">SELECT</span>  aid</div><div class="line"><span class="keyword">FROM</span>  agents</div><div class="line"><span class="keyword">WHERE</span>  <span class="keyword">percent</span> &lt;= ALL (</div><div class="line">		<span class="keyword">SELECT</span> <span class="keyword">percent</span> </div><div class="line">         <span class="keyword">FROM</span> agents</div><div class="line">         ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//找到所有与达拉斯或波士顿的客户相同的折扣客户</div><div class="line">Exp 4.4.8  Find all customers who have the same discount as that of any of the customers in Dallas or Boston.</div><div class="line"><span class="keyword">SELECT</span>  cid,  cname</div><div class="line"><span class="keyword">FROM</span>   customers</div><div class="line"><span class="keyword">WHERE</span>  discnt = <span class="keyword">SOME</span> (</div><div class="line">		<span class="keyword">select</span>  discnt</div><div class="line">		<span class="keyword">from</span>   customers</div><div class="line">		<span class="keyword">where</span>  city=‘Dallas’  <span class="keyword">or</span>  city=‘Boston’ ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.9 Find cid values of customers with discnt smaller than those of any customers who live in Duluth.</div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers</div><div class="line"><span class="keyword">WHERE</span>   discnt  &lt; ALL (</div><div class="line">		<span class="keyword">SELECT</span>  discnt</div><div class="line">		<span class="keyword">FROM</span>      customers</div><div class="line">		<span class="keyword">WHERE</span>   city = ‘Duluth’ ) ;</div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers  c1</div><div class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line">		<span class="keyword">SELECT</span>  *</div><div class="line">		<span class="keyword">FROM</span>    customers  c2</div><div class="line">		<span class="keyword">WHERE</span>   c2.city = ‘Duluth’  <span class="keyword">and</span>      </div><div class="line">                           c1.discnt &gt;= c2. discnt  ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Retrieve all customer names where the customer places an order through agent a05.</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>      customers c, orders o <span class="keyword">WHERE</span>   c.cid = o.cid  <span class="keyword">and</span>  o.aid = ‘a05’ ;</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname</div><div class="line">	<span class="keyword">FROM</span>      customers</div><div class="line">	<span class="keyword">WHERE</span>   cid   <span class="keyword">IN</span>  ( 	<span class="keyword">SELECT</span>   cid</div><div class="line">				<span class="keyword">FROM</span>  orders</div><div class="line">				<span class="keyword">WHERE</span>   aid = ‘a05’   ) ;</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname</div><div class="line">	<span class="keyword">FROM</span>      customers  c</div><div class="line">	<span class="keyword">WHERE</span>   <span class="keyword">EXISTS</span> (</div><div class="line">			<span class="keyword">SELECT</span>  *</div><div class="line">			<span class="keyword">FROM</span>     orders  o</div><div class="line">			<span class="keyword">WHERE</span>  o.cid=c.cid  <span class="keyword">and</span>  o.aid=‘a05’ ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Find all customer names where the customer does not place an order through agent a05.</div><div class="line">((C[cid] – (O where aid = ‘a05’) [cid])  C) [cname]</div><div class="line"><span class="keyword">SELECT</span>  cname	<span class="keyword">FROM</span>  customers</div><div class="line"><span class="keyword">WHERE</span>   cid                     (</div><div class="line"><span class="keyword">SELECT</span>  o.cid    <span class="keyword">FROM</span>  orders  o    <span class="keyword">WHERE</span>  o.aid = ‘a05’ ) ;</div><div class="line"><span class="keyword">SELECT</span>  cname	<span class="keyword">FROM</span>      customers  c</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *	   <span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>   o.cid = c.cid  <span class="keyword">and</span>  o.aid = ‘a05’  ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[Example] Find all cid, aid pairs where the customer does not place an order through the agent.</div><div class="line"><span class="keyword">SELECT</span>  cid,  aid</div><div class="line"><span class="keyword">FROM</span>  customers  c,  agents  a</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>  o.cid = c.cid  <span class="keyword">and</span>  o.aid = a.aid );</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers  c</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>   o.cid = c.cid  <span class="keyword">and</span>  o.aid = ‘a03’  ) ;</div></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
+        <p><span>发布时间:</span>2017年11月18日 - 20时32分</p>
+        <p><span>最后更新:</span>2017年11月18日 - 21时04分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/18/20171118database/" title="数据库知识点总结（未完待续）">https://shangrila-kun.github.io/2017/11/18/20171118database/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2017/11/18/20171118database/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          数据库知识点总结（未完待续）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/29/jsreadxml/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js读取本地文件</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、SQL中的关键字讲解"><span class="toc-number">1.</span> <span class="toc-text">1、SQL中的关键字讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-distinct用法"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 distinct用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、子查询"><span class="toc-number">2.</span> <span class="toc-text">2、子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1子查询的定义"><span class="toc-number">2.1.</span> <span class="toc-text">2.1子查询的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2子查询的谓词"><span class="toc-number">2.2.</span> <span class="toc-text">2.2子查询的谓词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3子查询的执行分析"><span class="toc-number">2.3.</span> <span class="toc-text">2.3子查询的执行分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-子查询做数据源的使用"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 子查询做数据源的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-子查询作为选择条件的使用"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 子查询作为选择条件的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3相关子查询和EXISTS关键字"><span class="toc-number">2.3.3.</span> <span class="toc-text">2. 3.3相关子查询和EXISTS关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-4-子查询作为计算列使用"><span class="toc-number">2.3.4.</span> <span class="toc-text">2.3.4 子查询作为计算列使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-子查询案例"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 子查询案例</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142700"></script>
+</section>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" title="上一篇: 数据库知识点总结（未完待续）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/10/29/jsreadxml/" title="下一篇: js读取本地文件">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Shangrila-kun
+            </div>
+            <div class="footer-right">
+                 <a href="https://github.com/shangrila-kun" target="_blank">Welcome to shangrila-kun blog </a>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+<div class="ribbon">
+<a href="https://github.com/shangrila-kun">Fork me on GitHub</a>
+</div>
+  </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shangrila-kun.github.io/"/>
-  <updated>2017-10-29T02:10:36.612Z</updated>
+  <updated>2017-11-18T13:06:22.783Z</updated>
   <id>https://shangrila-kun.github.io/</id>
   
   <author>
@@ -14,6 +14,232 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库知识点总结（未完待续）</title>
+    <link href="https://shangrila-kun.github.io/2017/11/18/%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6%E6%8A%8A%E7%BD%91%E7%AB%99%E4%BB%8Ehttp%E5%8F%98%E6%88%90https/"/>
+    <id>https://shangrila-kun.github.io/2017/11/18/用阿里云免费ssl证书把网站从http变成https/</id>
+    <published>2017-11-18T12:32:00.000Z</published>
+    <updated>2017-11-18T13:06:22.783Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。</p>
+<h3 id="1、登录阿里云后台找到产品与服务、找到证书"><a href="#1、登录阿里云后台找到产品与服务、找到证书" class="headerlink" title="1、登录阿里云后台找到产品与服务、找到证书"></a>1、登录阿里云后台找到产品与服务、找到证书</h3><p><a href="http://jingyan.baidu.com/album/9f7e7ec09c80976f281554f1.html?picindex=1" target="_blank" rel="external"><img src="https://imgsa.baidu.com/exp/w=500/sign=ccb7fe399813b07ebdbd50083cd79113/77c6a7efce1b9d16cabfe379f8deb48f8c5464a9.jpg" alt="用阿里云免费ssl证书把网站从http变成https">步骤阅读</a></p>
+<h3 id="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"><a href="#2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息" class="headerlink" title="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"></a>2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115509555-875540633.png" alt="img"></p>
+<h3 id="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"><a href="#3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，" class="headerlink" title="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"></a>3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115606945-2078304494.png" alt="img"></p>
+<p>据自己服务器的实际情况 ，选择相应类型，完成安装，我的是nginx。</p>
+<h3 id="4、将下载的两个文件安装到nginx"><a href="#4、将下载的两个文件安装到nginx" class="headerlink" title="4、将下载的两个文件安装到nginx"></a>4、将下载的两个文件安装到nginx</h3><p>​    建议安装最新的nginx，nginx依赖</p>
+<p>​    nginx依赖以下模块：l  gzip模块需要 zlib 库l  rewrite模块需要 pcre 库l  ssl 功能需要openssl库</p>
+<h4 id="4-1-安装pcre"><a href="#4-1-安装pcre" class="headerlink" title="4.1.安装pcre"></a>4.1.安装pcre</h4><ol>
+<li>获取pcre编译安装包，在<a href="http://www.pcre.org/" target="_blank" rel="external">http://www.pcre.org/</a>上可以获取当前最新的版本</li>
+<li>解压缩pcre-xx.tar.gz包。</li>
+<li>进入解压缩目录，执行./configure。</li>
+<li>make &amp; make install</li>
+</ol>
+<h4 id="4-2-安装openssl"><a href="#4-2-安装openssl" class="headerlink" title="4.2.安装openssl"></a>4.2.安装openssl</h4><ol>
+<li>获取openssl编译安装包，在<a href="http://www.openssl.org/source/" target="_blank" rel="external">http://www.openssl.org/source/</a>上可以获取当前最新的版本。</li>
+<li>解压缩openssl-xx.tar.gz包。</li>
+<li>进入解压缩目录，执行./config。</li>
+<li>make &amp; make install</li>
+</ol>
+<h4 id="4-3-安装zlib"><a href="#4-3-安装zlib" class="headerlink" title="4.3.安装zlib"></a>4.3.安装zlib</h4><ol>
+<li>获取zlib编译安装包，在<a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a>上可以获取当前最新的版本。</li>
+</ol>
+<ol>
+<li><p>解压缩openssl-xx.tar.gz包。</p>
+</li>
+<li><p>进入解压缩目录，执行./configure。</p>
+</li>
+<li><p>make &amp; make install </p>
+<h4 id="4-4安装nginx"><a href="#4-4安装nginx" class="headerlink" title="4.4安装nginx"></a>4.4安装nginx</h4><p>  1.获取nginx，在<a href="http://nginx.org/en/download.html上可以获取当前最新的版本。" target="_blank" rel="external">http://nginx.org/en/download.html上可以获取当前最新的版本。</a></p>
+<p>  2.解压缩nginx-xx.tar.gz包。</p>
+<ol>
+<li>进入解压缩目录，执行./configure</li>
+<li>make &amp; make install</li>
+</ol>
+<p>若安装时找不到上述依赖模块，使用–with-openssl=<openssl_dir>、–with-pcre=<pcre_dir>、–with-zlib=<zlib_dir>指定依赖的模块目录。如已安装过，此处的路径为安装目录；若未安装，则此路径为编译安装包路径，nginx将执行模块的默认编译安装。</zlib_dir></pcre_dir></openssl_dir></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。&lt;/p&gt;
+&lt;h3 id=&quot;1、登录阿里云后台找到产品与服务、找到证书&quot;&gt;&lt;a href=&quot;#1、登录阿里云后台找到产品与服务、找到证书&quot; cl
+    
+    </summary>
+    
+      <category term="database" scheme="https://shangrila-kun.github.io/categories/database/"/>
+    
+    
+      <category term="sql" scheme="https://shangrila-kun.github.io/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库知识点总结（未完待续）</title>
+    <link href="https://shangrila-kun.github.io/2017/11/18/20171118database/"/>
+    <id>https://shangrila-kun.github.io/2017/11/18/20171118database/</id>
+    <published>2017-11-18T12:32:00.000Z</published>
+    <updated>2017-11-18T13:04:18.094Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。</p>
+<a id="more"></a>
+<h2 id="1、SQL中的关键字讲解"><a href="#1、SQL中的关键字讲解" class="headerlink" title="1、SQL中的关键字讲解"></a>1、SQL中的关键字讲解</h2><h3 id="1-1-distinct用法"><a href="#1-1-distinct用法" class="headerlink" title="1.1 distinct用法"></a>1.1 distinct用法</h3><blockquote>
+<p>作用于单列</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; select distinct name from A</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>作用于多列</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; select distinct name, id from A</div><div class="line">&gt; //实际上是根据name和id两个字段来去重的，这种方式Access和SQL Server同时支持。</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>COUNT统计</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; select count(distinct name) from A;	  --表中name去重后的数目， SQL Server支持，而Access不支持</div><div class="line">&gt; count是不能统计多个字段的，下面的SQL在SQL Server和Access中都无法运行。</div><div class="line">&gt;</div><div class="line">&gt; select count(distinct name, id) from A;</div><div class="line">&gt; 若想使用，请使用嵌套查询，如下：</div><div class="line">&gt;</div><div class="line">&gt; select count(*) from (select distinct xing, name from B) AS M;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>distinct必须放在开头</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; select id, distinct name from A;   --会提示错误，因为distinct必须放在开头</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="2、子查询"><a href="#2、子查询" class="headerlink" title="2、子查询"></a>2、子查询</h2><h3 id="2-1子查询的定义"><a href="#2-1子查询的定义" class="headerlink" title="2.1子查询的定义"></a>2.1子查询的定义</h3><blockquote>
+<p>定义：子查询本质上是嵌套进其他SELECT,UPDATE,INSERT,DELETE语句的一个被限制的SELECT语句,在子查询中，只有下面几个子句可以使用</p>
+<ol>
+<li>SELECT子句（必须）</li>
+<li>FROM子句(必选）</li>
+<li>WHERE子句(可选)</li>
+<li>GROUP BY(可选)</li>
+<li>HAVING(可选)</li>
+<li>ORDER BY(只有在TOP关键字被使用时才可用)</li>
+</ol>
+<p>子查询也可以嵌套在其他子查询中,这个嵌套最多可达32层。子查询也叫内部查询(Inner query)或者内部选择(Inner Select),而包含子查询的查询语句也叫做外部查询</p>
+</blockquote>
+<h3 id="2-2子查询的谓词"><a href="#2-2子查询的谓词" class="headerlink" title="2.2子查询的谓词"></a>2.2子查询的谓词</h3><blockquote>
+<p>in 谓词（predicate）expr [NOT] IN ( subquery )</p>
+<p>The Quantified Comparison Predicate (量化比较谓词)       expr q SOME|ANY|ALL( subquery )</p>
+<p>The EXISTS Predicate  [NOT] EXISTS ( subquery )</p>
+<p>The BETWEEN Predicate  expr [NOT] BETWEEN expr1 AND expr2</p>
+<p>The IS NULL Predicate column  IS [NOT] NULL</p>
+<p>The LIKE Predicate column [NOT] LIKE val1 [ ESCAPE val2 ]</p>
+<blockquote>
+<p>§underscore ( _ ): any single character</p>
+<p>§percent ( % ): any sequence of zero or morecharacters</p>
+</blockquote>
+</blockquote>
+<h3 id="2-3子查询的执行分析"><a href="#2-3子查询的执行分析" class="headerlink" title="2.3子查询的执行分析"></a>2.3子查询的执行分析</h3><p>​    原文链接：<a href="https://www.cnblogs.com/CareySon/archive/2011/07/18/2109406.html" target="_blank" rel="external">点击</a> </p>
+<blockquote>
+<p><strong>子查询的简单描述</strong> ：</p>
+<p> 通常来讲，子查询按照子查询所返回数据的类型，可以分为三种，分别为：</p>
+<ol>
+<li>返回一张数据表(Table)</li>
+<li>返回一列值(Column)</li>
+<li>返回单个值(Scalar)</li>
+</ol>
+</blockquote>
+<h4 id="2-3-1-子查询做数据源的使用"><a href="#2-3-1-子查询做数据源的使用" class="headerlink" title="2.3.1 子查询做数据源的使用"></a>2.3.1 子查询做数据源的使用</h4><blockquote>
+<p>  当子查询在外部查询的<strong>FROM</strong>子句之后使用时,子查询被当作一个<strong>数据源</strong>使用,即使这时子查询只返回一个单一值(Scalar)或是一列值(Column)，在这里依然可以看作一个特殊的<strong>数据源</strong>,即一个二维数据表(Table).作为数据源使用的子查询很像一个<strong>View(视图),</strong>只是这个子查询只是临时存在，并不包含在数据库中。</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;   SELECT     P.ProductID, P.Name, P.ProductNumber, M.Name AS ProductModelName</div><div class="line">&gt;   FROM         Production.Product AS P INNER JOIN</div><div class="line">&gt;   (SELECT     Name, ProductModelID</div><div class="line">&gt;   FROM          Production.ProductModel) AS M </div><div class="line">&gt;   ON P.ProductModelID = M.ProductModelID</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+</blockquote>
+<h4 id="2-3-2-子查询作为选择条件的使用"><a href="#2-3-2-子查询作为选择条件的使用" class="headerlink" title="2.3.2 子查询作为选择条件的使用"></a>2.3.2 子查询作为选择条件的使用</h4><blockquote>
+<p>​     作为选择条件的子查询也是子查询相对最复杂的应用.</p>
+<p>​    作为选择条件的子查询是那些只返回<strong>一列(Column)</strong>的子查询，如果作为选择条件使用，即使只返回<strong>单个值</strong>，也可以看作是只有<strong>一行</strong>的<strong>一列.</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; select   distinct  cid</div><div class="line">&gt; from     orders</div><div class="line">&gt; where   aid  IN  (</div><div class="line">&gt; select  aid         --uncorrelated Subquery:(a05,a06)非相关的子查询，更快</div><div class="line">&gt; 		from  agents</div><div class="line">&gt; 		where  city= ‘Duluth’  or  city=‘Dallas’)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>  但是要强调的是，不要用IN和NOT IN关键字，这会引起很多潜在的问题，这篇文章对这个问题有着很好的阐述:<a href="http://wiki.lessthandot.com/index.php/Subquery_typo_with_using_in" target="_blank" rel="external">http://wiki.lessthandot.com/index.php/Subquery_typo_with_using_in</a>。这篇文章的观点是永远不要再用IN和NOT IN关键字，我的观点是存在即合理，我认为只有在IN里面是固定值的时候才可以用IN和NOT IN，比如： IN (25,33)</p>
+<p>只有在上面这种情况下，使用IN和NOT IN关键字才是安全的，其他情况下，最好使用EXISTS,NOT EXISTS,JOIN关键字来进行替代. 除了IN之外，用于选择条件的关键字还有<strong>ANY</strong>和<strong>ALL</strong>,这两个关键字和其字面意思一样. 和”&lt;”,”&gt;”,”=”连接使用</p>
+<p> 在作为ANY和ALL关键字在子查询中使用时，所实现的效果如下</p>
+<table>
+<thead>
+<tr>
+<th>=ANY</th>
+<th>和IN等价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;&gt;ALL</td>
+<td>和NOT IN等价</td>
+</tr>
+<tr>
+<td>&gt;ANY</td>
+<td>大于最小的(&gt;MIN)</td>
+</tr>
+<tr>
+<td>&lt;ANY</td>
+<td>小于最大的(&lt;MAX)</td>
+</tr>
+<tr>
+<td>&gt;ALL</td>
+<td>大于最大的(&gt;MAX)</td>
+</tr>
+<tr>
+<td>&lt;ALL</td>
+<td>小于最小的(&lt;MIN)</td>
+</tr>
+<tr>
+<td>=ALL</td>
+<td>下面说</td>
+</tr>
+</tbody>
+</table>
+<p>   =ALL关键字很少使用，这个的效果在子查询中为如果只有一个返回值，则和“=”相等，而如果有多个返回值，结果为空。</p>
+<p>这里要注意，SQL是一种很灵活的语言，就像子查询所实现的效果可以使用JOIN来实现一样（效果一样，实现思路不同），ANY和ALL所实现的效果也完全可以使用其他方式来替代,按照上面表格所示，&gt;ANY和&gt;MIN完全等价，比如下面两个查询语句完全等价</p>
+<p>IN             is    =SOME</p>
+<p>NOT IN    is    &lt;&gt;ALL</p>
+</blockquote>
+<h4 id="2-3-3相关子查询和EXISTS关键字"><a href="#2-3-3相关子查询和EXISTS关键字" class="headerlink" title="2. 3.3相关子查询和EXISTS关键字"></a>2. 3.3相关子查询和EXISTS关键字</h4><blockquote>
+<p>前面所说的查询都是<strong>无关子查询(Uncorrelated subquery),</strong>子查询中还有一类很重要的查询是<strong>相关子查询(Correlated subquery),也叫重复子查询</strong>比如，还是上面那个查询，用相关子查询来写:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; SELECT  distinct  cname FROM   customers  c</div><div class="line">&gt; WHERE ‘p05’  IN  ( select pid    --correlated Subquery 相关的子查询</div><div class="line">&gt; 				from  orders  o</div><div class="line">&gt; 				where o.cid=c.cid );</div><div class="line">&gt; SELECT [FirstName],[MiddleName],[LastName] FROM [AdventureWorks].[Person].[Contact] c</div><div class="line">&gt; WHERE EXISTS(SELECT *</div><div class="line">&gt;   FROM [AdventureWorks].[HumanResources].[Employee] e</div><div class="line">&gt;   WHERE c.ContactID=e.ContactID AND e.SickLeaveHours&gt;68)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>如何区别<strong>相关子查询</strong>和<strong>无关子查询</strong>呢?最简单的办法就是直接看子查询本身能否执行。</p>
+<p>上面的<strong>无关子查询</strong>，整个查询过程可以看作是<strong>子查询</strong>首先返回SQLResult(SQL结果集),然后交给<strong>外部查询</strong>使用，整个过程<strong>子查询</strong>只执行一次</p>
+<p>  而相反,作为<strong>相关子查询</strong>,子查询的执行的次数依赖于外部查询，外部查询每执行一行，子查询执行一次。</p>
+<p> 如上面代码所示。上面的相关子查询实际上会执行N次（N取决与外部查询的行数），外部查询每执行一行，都会将对应行所用的参数传到子查询中，如果子查询有对应值，则返回TRUE（既当前行被选中并在结果中显示），如果没有，则返回FALSE。然后重复执行下一行。</p>
+</blockquote>
+<h4 id="2-3-4-子查询作为计算列使用"><a href="#2-3-4-子查询作为计算列使用" class="headerlink" title="2.3.4 子查询作为计算列使用"></a>2.3.4 子查询作为计算列使用</h4><blockquote>
+<p>当<strong>子查询</strong>作为<strong>计算列</strong>使用时，只返回单个值(Scalar) 。用在SELECT语句之后，作为计算列使用。同样分为<strong>相关子查询</strong>和<strong>无关子查询</strong></p>
+<p>​    <strong>相关子查询</strong>的例子比如：我想取得每件产品的名称和总共的销量。</p>
+<p>表t_product    id  ,productName;</p>
+<p>表t_order  id ,orderNo,productId</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; select productName , (select count(*) from t_order o where p.id=o.productId ) as totalNum </div><div class="line">&gt;</div><div class="line">&gt; from t_product p ;//相关的子查询</div><div class="line">&gt;   </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>当<strong>子查询</strong>作为<strong>计算列</strong>使用时，会针对<strong>外部查询</strong>的每一行，返回唯一的值。</p>
+<p>   同样的，SQL子查询都可以使用其他语句达到同样的效果，上面的语句和如下语句达到同样的效果：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; select productName ,count(*) as total from t_product p,t_order o where p.id = o.productId group by productName;</div><div class="line">&gt;</div><div class="line">&gt; select productName ,count(*) as total from t_product p join t_order o on p.id = o.productId group by productName;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   子查询作为计算列且作为无关子查询时使用，只会一次性返回但一值，这里就不再阐述了。</p>
+</blockquote>
+<h3 id="2-4-子查询案例"><a href="#2-4-子查询案例" class="headerlink" title="2.4 子查询案例"></a>2.4 子查询案例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.1 Retrieve cids of customers who place orders with agents in Duluth or Dallas</div><div class="line"></div><div class="line">SQL 1</div><div class="line"><span class="keyword">select</span>  <span class="keyword">distinct</span>  cid</div><div class="line"><span class="keyword">from</span>    orders  o, agents  a</div><div class="line"><span class="keyword">where</span>  a.aid=o.aid  <span class="keyword">and</span></div><div class="line">		    (a.city=‘Duluth’ <span class="keyword">or</span> a.city=‘Dallas’);</div><div class="line">SQL 2 (FAST   Why?)</div><div class="line"><span class="keyword">select</span>   <span class="keyword">distinct</span>  cid</div><div class="line"><span class="keyword">from</span>     orders</div><div class="line"><span class="keyword">where</span>   aid  <span class="keyword">IN</span>  (</div><div class="line"><span class="keyword">select</span>  aid         <span class="comment">--uncorrelated Subquery:(a05,a06)非相关的子查询，更快</span></div><div class="line">		<span class="keyword">from</span>  agents</div><div class="line">		<span class="keyword">where</span>  city= ‘Duluth’  <span class="keyword">or</span>  city=‘Dallas’)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.2 Get all information concerning agents based in Duluth or Dallas.</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  agents</div><div class="line"><span class="keyword">WHERE</span>  city  <span class="keyword">IN</span>  ( ‘Duluth’, ‘Dallas’ ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.3 Get the names and discounts of all customers who place orders through agents in Duluth or Dallas.</div><div class="line"><span class="keyword">SELECT</span>  cname,  discnt <span class="keyword">FROM</span>      customers</div><div class="line"><span class="keyword">WHERE</span>  cid  <span class="keyword">IN</span>  (</div><div class="line">		<span class="keyword">SELECT</span>  o.cid</div><div class="line">		<span class="keyword">FROM</span>      orders  o</div><div class="line">		<span class="keyword">WHERE</span>  o.aid  <span class="keyword">IN</span>  (</div><div class="line">			<span class="keyword">SELECT</span>  a.aid</div><div class="line">			<span class="keyword">FROM</span>      agents  a</div><div class="line">			<span class="keyword">WHERE</span>  a.city <span class="keyword">IN</span> (‘Duluth’, ‘Dallas’))) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.4 Find the names of customers who order product p05. (<span class="keyword">use</span> uncorrelated Subquery?)相关的子查询</div><div class="line"><span class="keyword">SQL</span>(<span class="number">1</span>)</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>   customers  c,  orders  o <span class="keyword">WHERE</span>  c.cid=o.cid <span class="keyword">and</span> o.pid=‘p05’ ; </div><div class="line"></div><div class="line">SQL(2)</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>   customers  c</div><div class="line"><span class="keyword">WHERE</span> ‘p05’  <span class="keyword">IN</span>  ( <span class="keyword">select</span> pid    <span class="comment">--correlated Subquery 相关的子查询</span></div><div class="line">				<span class="keyword">from</span>  orders  o</div><div class="line">				<span class="keyword">where</span> o.cid=c.cid );</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.6 Find ordno values for all orders placed by customers in Duluth through agents in New York.</div><div class="line"><span class="keyword">SELECT</span>  ordno</div><div class="line"><span class="keyword">FROM</span>  orders</div><div class="line"><span class="keyword">WHERE</span>  (cid, aid)  <span class="keyword">IN</span>		</div><div class="line">		(<span class="keyword">select</span>  cid, aid		</div><div class="line"> 		<span class="keyword">from</span>      customers  c,  agents  a</div><div class="line">		<span class="keyword">where</span>   c.city=‘Duluth’ <span class="keyword">and</span> a.city=‘<span class="keyword">New</span> York’) ; </div><div class="line">//这是两个表的笛卡儿积，先查询c表符合的条件，再查询a表符合的条件，做笛卡尔的乘积，让子查询作为选择条件。</div><div class="line"><span class="keyword">select</span> p.id,o.id <span class="keyword">from</span> t_product p ,t_order o;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.7  Find aid values of agents with a minimum percent commission(佣金).</div><div class="line"><span class="keyword">SELECT</span>  aid</div><div class="line"><span class="keyword">FROM</span>  agents</div><div class="line"><span class="keyword">WHERE</span>  <span class="keyword">percent</span> &lt;= ALL (</div><div class="line">		<span class="keyword">SELECT</span> <span class="keyword">percent</span> </div><div class="line">         <span class="keyword">FROM</span> agents</div><div class="line">         ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//找到所有与达拉斯或波士顿的客户相同的折扣客户</div><div class="line">Exp 4.4.8  Find all customers who have the same discount as that of any of the customers in Dallas or Boston.</div><div class="line"><span class="keyword">SELECT</span>  cid,  cname</div><div class="line"><span class="keyword">FROM</span>   customers</div><div class="line"><span class="keyword">WHERE</span>  discnt = <span class="keyword">SOME</span> (</div><div class="line">		<span class="keyword">select</span>  discnt</div><div class="line">		<span class="keyword">from</span>   customers</div><div class="line">		<span class="keyword">where</span>  city=‘Dallas’  <span class="keyword">or</span>  city=‘Boston’ ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Exp 4.4.9 Find cid values of customers with discnt smaller than those of any customers who live in Duluth.</div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers</div><div class="line"><span class="keyword">WHERE</span>   discnt  &lt; ALL (</div><div class="line">		<span class="keyword">SELECT</span>  discnt</div><div class="line">		<span class="keyword">FROM</span>      customers</div><div class="line">		<span class="keyword">WHERE</span>   city = ‘Duluth’ ) ;</div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers  c1</div><div class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line">		<span class="keyword">SELECT</span>  *</div><div class="line">		<span class="keyword">FROM</span>    customers  c2</div><div class="line">		<span class="keyword">WHERE</span>   c2.city = ‘Duluth’  <span class="keyword">and</span>      </div><div class="line">                           c1.discnt &gt;= c2. discnt  ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Retrieve all customer names where the customer places an order through agent a05.</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>      customers c, orders o <span class="keyword">WHERE</span>   c.cid = o.cid  <span class="keyword">and</span>  o.aid = ‘a05’ ;</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname</div><div class="line">	<span class="keyword">FROM</span>      customers</div><div class="line">	<span class="keyword">WHERE</span>   cid   <span class="keyword">IN</span>  ( 	<span class="keyword">SELECT</span>   cid</div><div class="line">				<span class="keyword">FROM</span>  orders</div><div class="line">				<span class="keyword">WHERE</span>   aid = ‘a05’   ) ;</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname</div><div class="line">	<span class="keyword">FROM</span>      customers  c</div><div class="line">	<span class="keyword">WHERE</span>   <span class="keyword">EXISTS</span> (</div><div class="line">			<span class="keyword">SELECT</span>  *</div><div class="line">			<span class="keyword">FROM</span>     orders  o</div><div class="line">			<span class="keyword">WHERE</span>  o.cid=c.cid  <span class="keyword">and</span>  o.aid=‘a05’ ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Find all customer names where the customer does not place an order through agent a05.</div><div class="line">((C[cid] – (O where aid = ‘a05’) [cid])  C) [cname]</div><div class="line"><span class="keyword">SELECT</span>  cname	<span class="keyword">FROM</span>  customers</div><div class="line"><span class="keyword">WHERE</span>   cid                     (</div><div class="line"><span class="keyword">SELECT</span>  o.cid    <span class="keyword">FROM</span>  orders  o    <span class="keyword">WHERE</span>  o.aid = ‘a05’ ) ;</div><div class="line"><span class="keyword">SELECT</span>  cname	<span class="keyword">FROM</span>      customers  c</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *	   <span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>   o.cid = c.cid  <span class="keyword">and</span>  o.aid = ‘a05’  ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[Example] Find all cid, aid pairs where the customer does not place an order through the agent.</div><div class="line"><span class="keyword">SELECT</span>  cid,  aid</div><div class="line"><span class="keyword">FROM</span>  customers  c,  agents  a</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>  o.cid = c.cid  <span class="keyword">and</span>  o.aid = a.aid );</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers  c</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>   o.cid = c.cid  <span class="keyword">and</span>  o.aid = ‘a03’  ) ;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="database" scheme="https://shangrila-kun.github.io/categories/database/"/>
+    
+    
+      <category term="sql" scheme="https://shangrila-kun.github.io/tags/sql/"/>
+    
+  </entry>
   
   <entry>
     <title>js读取本地文件</title>
