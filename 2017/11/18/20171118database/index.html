@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Shangrila-kun Blog">
 <meta property="og:description" content="​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-18T13:04:18.094Z">
+<meta property="og:updated_time" content="2017-11-19T08:57:23.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库知识点总结（未完待续）">
 <meta name="twitter:description" content="​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。">
@@ -405,6 +405,8 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Retrieve all customer names where the customer places an order through agent a05.</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname <span class="keyword">FROM</span>      customers c, orders o <span class="keyword">WHERE</span>   c.cid = o.cid  <span class="keyword">and</span>  o.aid = ‘a05’ ;</div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname</div><div class="line">	<span class="keyword">FROM</span>      customers</div><div class="line">	<span class="keyword">WHERE</span>   cid   <span class="keyword">IN</span>  ( 	<span class="keyword">SELECT</span>   cid</div><div class="line">				<span class="keyword">FROM</span>  orders</div><div class="line">				<span class="keyword">WHERE</span>   aid = ‘a05’   ) ;</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  <span class="keyword">distinct</span>  cname</div><div class="line">	<span class="keyword">FROM</span>      customers  c</div><div class="line">	<span class="keyword">WHERE</span>   <span class="keyword">EXISTS</span> (</div><div class="line">			<span class="keyword">SELECT</span>  *</div><div class="line">			<span class="keyword">FROM</span>     orders  o</div><div class="line">			<span class="keyword">WHERE</span>  o.cid=c.cid  <span class="keyword">and</span>  o.aid=‘a05’ ) ;</div></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Find all customer names where the customer does not place an order through agent a05.</div><div class="line">((C[cid] – (O where aid = ‘a05’) [cid])  C) [cname]</div><div class="line"><span class="keyword">SELECT</span>  cname	<span class="keyword">FROM</span>  customers</div><div class="line"><span class="keyword">WHERE</span>   cid                     (</div><div class="line"><span class="keyword">SELECT</span>  o.cid    <span class="keyword">FROM</span>  orders  o    <span class="keyword">WHERE</span>  o.aid = ‘a05’ ) ;</div><div class="line"><span class="keyword">SELECT</span>  cname	<span class="keyword">FROM</span>      customers  c</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *	   <span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>   o.cid = c.cid  <span class="keyword">and</span>  o.aid = ‘a05’  ) ;</div></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[Example] Find all cid, aid pairs where the customer does not place an order through the agent.</div><div class="line"><span class="keyword">SELECT</span>  cid,  aid</div><div class="line"><span class="keyword">FROM</span>  customers  c,  agents  a</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>  o.cid = c.cid  <span class="keyword">and</span>  o.aid = a.aid );</div><div class="line"></div><div class="line"><span class="keyword">SELECT</span>  cid</div><div class="line"><span class="keyword">FROM</span>      customers  c</div><div class="line"><span class="keyword">WHERE</span>   <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (</div><div class="line"><span class="keyword">SELECT</span>  *</div><div class="line"><span class="keyword">FROM</span>  orders  o</div><div class="line"><span class="keyword">WHERE</span>   o.cid = c.cid  <span class="keyword">and</span>  o.aid = ‘a03’  ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Exp 2.9.4: Find products that have never been ordered by a customer based in New York through an agent based in Boston.</div><div class="line">T1 := (C where city = ‘New York’)[cid]</div><div class="line">T2 := (((T1  O)  A) where city = ‘Boston’) [pid]</div><div class="line">T3 := P[pid] – T2</div><div class="line">SQL:</div><div class="line"><span class="keyword">SELECT</span>  p.pid</div><div class="line"><span class="keyword">FROM</span>    products  p</div><div class="line"><span class="keyword">WHERE</span>  p.pid  <span class="keyword">NOT</span> <span class="keyword">IN</span> (</div><div class="line"><span class="keyword">SELECT</span> o.pid <span class="keyword">FROM</span>  customers c, agents a, orders o <span class="keyword">WHERE</span>  c.city=‘<span class="keyword">New</span> York’  <span class="keyword">and</span></div><div class="line">a.city=‘Boston’  <span class="keyword">and</span>  c.cid=o.cid <span class="keyword">and</span>  o.aid=a.aid ) ;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Exp 2.9.11] List pids of products that are ordered through agents who place orders for (possibly different) customers who order at least one product from an agent who has placed an order for customer c001.</div></pre></td></tr></table></figure>
 
       
       
@@ -463,7 +465,7 @@
         <p><span>本文标题:</span><a href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
         <p><span>发布时间:</span>2017年11月18日 - 20时32分</p>
-        <p><span>最后更新:</span>2017年11月18日 - 21时04分</p>
+        <p><span>最后更新:</span>2017年11月19日 - 16时57分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/11/18/20171118database/" title="数据库知识点总结（未完待续）">https://shangrila-kun.github.io/2017/11/18/20171118database/</a>
             <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2017/11/18/20171118database/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -479,18 +481,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          数据库知识点总结（未完待续）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/29/jsreadxml/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js读取本地文件</div>
+    <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用阿里云免费ssl证书把网站从http变成https</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -558,18 +551,16 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" title="上一篇: 数据库知识点总结（未完待续）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/10/29/jsreadxml/" title="下一篇: js读取本地文件">
+            <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" title="下一篇: 用阿里云免费ssl证书把网站从http变成https">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">用阿里云免费ssl证书把网站从http变成https</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
