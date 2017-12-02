@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shangrila-kun.github.io/"/>
-  <updated>2017-11-20T11:35:14.726Z</updated>
+  <updated>2017-12-02T03:14:11.435Z</updated>
   <id>https://shangrila-kun.github.io/</id>
   
   <author>
@@ -14,6 +14,186 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx的哪些坑</title>
+    <link href="https://shangrila-kun.github.io/2017/12/02/20171202nginx%E7%9A%84%E5%93%AA%E4%BA%9B%E5%9D%91/"/>
+    <id>https://shangrila-kun.github.io/2017/12/02/20171202nginx的哪些坑/</id>
+    <published>2017-12-02T02:34:55.000Z</published>
+    <updated>2017-12-02T03:14:11.435Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    本文主要内容记载我在学习nginx中遇到的各种问题。</p>
+<a id="more"></a>
+<h2 id="wordpress更改默认端口的方法"><a href="#wordpress更改默认端口的方法" class="headerlink" title="wordpress更改默认端口的方法"></a>wordpress更改默认端口的方法</h2><blockquote>
+<p>通过nginx转发到wordpress博客时，我们不想把80端口给wordpress时，我们需要通过nginx监听到80端口，然后准发到指定的wordpress的端口，wordpress默认端口是80端口。</p>
+</blockquote>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><blockquote>
+<p>也可以先使用更改前的端口80访问wordpress，在控制板的设置里面url到<a href="http://xxx.com:18001/" target="_blank" rel="external">http://xxxx.com:18001</a>.</p>
+<p>如图：</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    本文主要内容记载我在学习nginx中遇到的各种问题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="运维" scheme="https://shangrila-kun.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="nginx" scheme="https://shangrila-kun.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lnmp安装</title>
+    <link href="https://shangrila-kun.github.io/2017/12/02/20171202lnmp%E5%AE%89%E8%A3%85/"/>
+    <id>https://shangrila-kun.github.io/2017/12/02/20171202lnmp安装/</id>
+    <published>2017-12-02T02:09:14.000Z</published>
+    <updated>2017-12-02T03:14:23.514Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    由于项目需要lnmp，linux、nginx 、mysql、php环境，每次一个个源码安装或者yum安装都稀里糊涂的安装好了，有时候还出现莫名奇怪的问题，于是在网上查找了，使用了军哥的脚本部署lnmp。<a href="https://lnmp.org/install.html" target="_blank" rel="external">lnmg一键安装官网及问题解答</a></p>
+<a id="more"></a>
+<h2 id="LNMP一键安装包介绍"><a href="#LNMP一键安装包介绍" class="headerlink" title="LNMP一键安装包介绍"></a>LNMP一键安装包介绍</h2><h3 id="LNMP一键安装包是什么"><a href="#LNMP一键安装包是什么" class="headerlink" title="LNMP一键安装包是什么?"></a><strong>LNMP一键安装包是什么?</strong></h3><blockquote>
+<p>LNMP一键安装包是一个用Linux Shell编写的可以为CentOS/RHEL/Fedora/Aliyun/Amazon、Debian/Ubuntu/Raspbian/DeepinServer/Mint Linux VPS或独立主机安装LNMP(Nginx/MySQL/PHP)、LNMPA(Nginx/MySQL/PHP/Apache)、LAMP(Apache/MySQL/PHP)生产环境的Shell程序。</p>
+</blockquote>
+<h3 id="我们为什么需要它"><a href="#我们为什么需要它" class="headerlink" title="我们为什么需要它?"></a><strong>我们为什么需要它?</strong></h3><blockquote>
+<p>编译安装需要输入大量的命令，如果是配置生产环境需要耗费大量的时间。<br>不会Linux的站长或Linux新手想使用Linux作为生产环境……</p>
+</blockquote>
+<h3 id="它有什么优势和功能"><a href="#它有什么优势和功能" class="headerlink" title="它有什么优势和功能?"></a><strong>它有什么优势和功能?</strong></h3><blockquote>
+<p>无需一个一个的输入命令，无需值守，编译安装优化编译参数，提高性能，解决不必要的软件间依赖，特别针对配置自动优化。</p>
+<p>支持自定义Nginx、PHP编译参数及网站和数据库目录、支持生成LetseEcrypt证书、LNMP模式支持多PHP版本、支持单独安装Nginx/MySQL/MariaDB/Pureftpd服务器，同时提供一些实用的辅助工具如：虚拟主机管理、FTP用户管理、Nginx、MySQL/MariaDB、PHP的升级、常用缓存组件Redis/Xcache等的安装、重置MySQL root密码、502自动重启、日志切割、SSH防护DenyHosts/Fail2Ban、备份等许多实用脚本。</p>
+</blockquote>
+<h3 id="如何获取它"><a href="#如何获取它" class="headerlink" title="如何获取它?"></a><strong>如何获取它?</strong></h3><blockquote>
+<p>你可以自由 <a href="https://lnmp.org/download.html" target="_blank" rel="external">下载</a> 并使用它在VPS或独立服务器上，做为真正的生产环境或测试环境。</p>
+</blockquote>
+<h3 id="我们为什么采用LNMP这种架构"><a href="#我们为什么采用LNMP这种架构" class="headerlink" title="我们为什么采用LNMP这种架构?"></a><strong>我们为什么采用LNMP这种架构?</strong></h3><blockquote>
+<p>采用Linux、PHP、MySQL的优点我们不必多说。</p>
+<p>Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的，已经在一些俄罗斯的大型网站上运行多年，目前很多国内外的门户网站、行业网站也都在是使用Nginx，相当的稳定。</p>
+<p>Nginx相当的稳定、功能丰富、安装配置简单、低系统资源<a href="https://lnmp.org/nginx.html" target="_blank" rel="external">…</a></p>
+</blockquote>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><h3 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h3><blockquote>
+<ul>
+<li>CentOS/RHEL/Fedora/Debian/Ubuntu/Raspbian/Deepin Server/Aliyun/Amazon/Mint Linux发行版</li>
+<li>需要5GB以上硬盘剩余空间，MySQL 5.7,MariaDB 10至少9GB剩余空间</li>
+<li>需要128MB以上内存(如果为128MB的小内存VPS,Xen的需要有SWAP,OpenVZ的至少要有128MB以上的vSWAP或突发内存)，注意小内存请勿使用64位系统！</li>
+<li><strong>安装MySQL 5.6或5.7及MariaDB 10必须1G以上内存!</strong>。</li>
+<li>VPS或服务器必须已经联网，且必须设置的是网络源不能是光盘源，同时VPS/服务器 DNS要正常！</li>
+<li>Linux下区分大小写，输入命令时请注意！</li>
+<li>CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用！</li>
+</ul>
+<p>LNMP一键安装包 V1.4 已经在<a href="https://www.vpser.net/go/vultr" target="_blank" rel="external">Vultr</a>、<a href="https://www.vpser.net/go/aoyohost" target="_blank" rel="external">遨游主机</a>、<a href="https://www.vpser.net/go/bandwagonhost" target="_blank" rel="external">搬瓦工</a>、<a href="https://www.vpser.net/go/photonvps" target="_blank" rel="external">PhotonVPS</a>、<a href="https://www.vpser.net/go/oneasiahost" target="_blank" rel="external">OneAsiahost新加坡VPS</a>、<a href="https://www.vpser.net/go/budgetvm" target="_blank" rel="external">BudgetVM</a>、<a href="https://www.vpser.net/go/digitalocean" target="_blank" rel="external">DigitalOcean</a>、<a href="https://www.vpser.net/go/locvps" target="_blank" rel="external">LocVPS</a>、<a href="https://www.vpser.net/go/linode" target="_blank" rel="external">Linode</a>、<a href="https://www.vpser.net/go/diahosting" target="_blank" rel="external">DiaHosting</a>、<a href="https://www.vpser.net/go/kvmla" target="_blank" rel="external">KVMLA</a>、<a href="https://www.vpser.net/go/jwdns" target="_blank" rel="external">景文互联</a>、<a href="https://www.vpser.net/go/ramnode" target="_blank" rel="external">RamNode</a>、<a href="https://www.vpser.net/go/buyvm" target="_blank" rel="external">BuyVM</a>、<a href="https://www.vpser.net/go/80vps" target="_blank" rel="external">80VPS</a>、<a href="https://www.vpser.net/go/kiiyi" target="_blank" rel="external">快易互联</a>、<a href="https://www.vpser.net/go/aliyun" target="_blank" rel="external">阿里云</a>等众多VPS的CentOS 6-7、RHEL 6-7、Fedora 21-23、Debian 7-9、Ubuntu 10.04-17.04的32位和64位系统上测试通过(CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用,Debian9上Apache需选2.4.26版本以上，<strong>深度/deepin只能使用服务器版,桌面版勿用！！</strong>)。</p>
+</blockquote>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><blockquote>
+<p><strong>1、使用putty或类似的SSH工具登陆VPS或服务器；</strong></p>
+<p>登陆后运行：<strong>screen -S lnmp</strong></p>
+<p>如果提示screen: command not found 命令不存在可以执行：yum install screen 或 apt-get install screen安装，详细内容参考<a href="https://www.vpser.net/manage/run-screen-lnmp.html" target="_blank" rel="external">screen教程</a>。</p>
+<p><strong>2、下载并安装LNMP一键安装包：</strong></p>
+<p>您可以选择使用下载版(推荐美国及海外VPS或空间较小用户使用)或者完整版(推荐国内VPS使用，国内用户可用在<a href="https://lnmp.org/download.html" target="_blank" rel="external">下载</a>中找国内下载地址替换)，两者没什么区别，只是完整版把一些需要的源码文件预先放到安装包里。<strong>深度/deepin只能使用服务器版，桌面版请勿安装！！</strong></p>
+<p>安装LNMP稳定版<br><strong>wget -c <a href="http://soft.vpser.net/lnmp/lnmp1.4.tar.gz" target="_blank" rel="external">http://soft.vpser.net/lnmp/lnmp1.4.tar.gz</a> &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp</strong></p>
+<p>默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面的参数替换为lnmpa或lamp即可。如需更改网站和数据库目录先修改安装包目录下的 lnmp.conf 文件。</p>
+<p>如下载速度慢请更换其他下载节点，详情请看<a href="https://lnmp.org/download.html" target="_blank" rel="external">下载页面</a>。<a href="https://lnmp.org/faq/lnmp-download-source.html" target="_blank" rel="external">LNMP下载节点具体替换方法</a>。</p>
+<p>运行上述LNMP安装命令后，会出现如下提示：<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-1.png" alt="img"><br>目前提供了较多的MySQL、MariaDB版本和不安装数据库的选项，需要<strong>注意的是MySQL 5.6,5.7及MariaDB 10必须在1G以上内存的更高配置上才能选择</strong>！</p>
+<p>输入对应MySQL或MariaDB版本前面的序号，回车进入下一步.</p>
+<p><img src="https://lnmp.org/images/1.4/lnmp1.4-install-2.png" alt="img"><br>需要设置MySQL的root密码（不输入直接回车将会设置为root）如果输入有错误需要删除时，可以按住Ctrl再按Backspace键进行删除(个别情况下是只需要Backspace键)。输入后回车进入下一步，如下图所示：<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-3.png" alt="img"><br>询问是否需要启用MySQL InnoDB，InnoDB引擎默认为开启，一般建议开启，直接回车或输入 y ，如果确定确实不需要该引擎可以输入 n，输入完成，回车进入下一步。</p>
+<p>注意：选择PHP7等高版本时需要自行确认是否与自己的程序兼容。<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-4.png" alt="img"><br>输入要选择的PHP版本的序号，回车进入下一步，选择是否安装内存优化：<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-5.png" alt="img"><br>可以选择不安装、Jemalloc或TCmalloc，输入对应序号回车，直接回车为默认为不安装。</p>
+<p>如果是LNMPA或LAMP的话还会提示<img src="https://lnmp.org/images/1.4/lnmp1.4-install-6.png" alt="img">“Please enter Administrator Email Address:”，需要设置管理员邮箱，该邮箱会在报错时显示在错误页面上。</p>
+<p>再选择Apache版本<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-7.png" alt="img"><br>按提示输入对应版本前面的数字序号，回车。</p>
+<p>提示”Press any key to install…or Press Ctrl+c to cancel”后，按回车键确认开始安装。<br>LNMP脚本就会自动安装编译Nginx、MySQL、PHP、phpMyAdmin、Zend Optimizer这几个软件。</p>
+<p>安装时间可能会几十分钟到几个小时不等，主要是机器的配置网速等原因会造成影响。</p>
+</blockquote>
+<h2 id="安装完成效果"><a href="#安装完成效果" class="headerlink" title="安装完成效果"></a>安装完成效果</h2><blockquote>
+<p>如果显示Nginx: OK，MySQL: OK，PHP: OK<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-success.png" alt="img"><br>并且Nginx、MySQL、PHP都是running，80和3306端口都存在，并提示安装使用的时间及Install lnmp V1.4 completed! enjoy it.的话，说明已经安装成功。</p>
+<p>安装完成接下来开始使用就可以了，按<a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="external"><strong>添加虚拟主机教程</strong></a>，添加虚拟主机后可以使用<a href="https://lnmp.org/faq/sftp.html" target="_blank" rel="external">sftp</a>或<a href="https://lnmp.org/faq/ftpserver.html" target="_blank" rel="external">ftp服务器</a>上传网站代码，将域名解析到VPS或服务器的IP上，解析生效即可使用。</p>
+</blockquote>
+<h2 id="安装失败效果"><a href="#安装失败效果" class="headerlink" title="安装失败效果"></a>安装失败效果</h2><blockquote>
+<p><img src="https://lnmp.org/images/1.4/lnmp1.4-install-failed.png" alt="img"><br>如果出现类似上图的提示，有一个没安装成功表明安装失败！！需要用<a href="http://www.vpser.net/manage/winscp.html" target="_blank" rel="external">winscp</a>或其他类似工具，将/root目录下面的lnmp-install.log下载下来，到<a href="http://bbs.vpser.net/forum-25-1.html" target="_blank" rel="external">LNMP支持论坛</a>发帖注明你的系统发行版名称及版本号、32位还是64位等信息，并将lnmp-install.log压缩以附件形式上传到论坛，我们会通过日志查找错误，并给予相应的解决方法。</p>
+<p>默认LNMP是不安装FTP服务器的，如需要FTP服务器：<a href="https://lnmp.org/faq/ftpserver.html" target="_blank" rel="external">https://lnmp.org/faq/ftpserver.html</a></p>
+<p>5、添加、删除虚拟主机及伪静态管理</p>
+<p><a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
+<p>6、eAccelerator、xcache、memcached、imageMagick、ionCube、redis、opcache的安装</p>
+<p><a href="https://lnmp.org/faq/addons.html" target="_blank" rel="external">https://lnmp.org/faq/addons.html</a></p>
+<p>7、LNMP相关软件目录及文件位置</p>
+<p><a href="https://lnmp.org/faq/lnmp-software-list.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-software-list.html</a></p>
+<p>8、LNMP状态管理命令</p>
+<p><a href="https://lnmp.org/faq/lnmp-status-manager.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-status-manager.html</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    由于项目需要lnmp，linux、nginx 、mysql、php环境，每次一个个源码安装或者yum安装都稀里糊涂的安装好了，有时候还出现莫名奇怪的问题，于是在网上查找了，使用了军哥的脚本部署lnmp。&lt;a href=&quot;https://lnmp.org/install.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;lnmg一键安装官网及问题解答&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="软件安装" scheme="https://shangrila-kun.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+    
+      <category term="linux" scheme="https://shangrila-kun.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用阿里云免费ssl证书把网站从http变成https</title>
+    <link href="https://shangrila-kun.github.io/2017/11/18/%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6%E6%8A%8A%E7%BD%91%E7%AB%99%E4%BB%8Ehttp%E5%8F%98%E6%88%90https/"/>
+    <id>https://shangrila-kun.github.io/2017/11/18/用阿里云免费ssl证书把网站从http变成https/</id>
+    <published>2017-11-18T12:32:00.000Z</published>
+    <updated>2017-11-19T09:45:52.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。</p>
+<p>​<a id="more"></a></p>
+<h3 id="1、登录阿里云后台找到产品与服务、找到证书"><a href="#1、登录阿里云后台找到产品与服务、找到证书" class="headerlink" title="1、登录阿里云后台找到产品与服务、找到证书"></a>1、登录阿里云后台找到产品与服务、找到证书</h3><p><a href="http://jingyan.baidu.com/album/9f7e7ec09c80976f281554f1.html?picindex=1" target="_blank" rel="external"><img src="https://imgsa.baidu.com/exp/w=500/sign=ccb7fe399813b07ebdbd50083cd79113/77c6a7efce1b9d16cabfe379f8deb48f8c5464a9.jpg" alt="用阿里云免费ssl证书把网站从http变成https">步骤阅读</a></p>
+<h3 id="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"><a href="#2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息" class="headerlink" title="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"></a>2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115509555-875540633.png" alt="img"></p>
+<h3 id="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"><a href="#3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，" class="headerlink" title="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"></a>3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115606945-2078304494.png" alt="img"></p>
+<p>据自己服务器的实际情况 ，选择相应类型，完成安装，我的是nginx。</p>
+<h3 id="4、将下载的两个文件安装到nginx"><a href="#4、将下载的两个文件安装到nginx" class="headerlink" title="4、将下载的两个文件安装到nginx"></a>4、将下载的两个文件安装到nginx</h3><p>​    建议安装最新的nginx，nginx依赖</p>
+<p>​    nginx依赖以下模块：l  gzip模块需要 zlib 库l  rewrite模块需要 pcre 库l  ssl 功能需要openssl库</p>
+<h4 id="4-1-安装pcre"><a href="#4-1-安装pcre" class="headerlink" title="4.1.安装pcre"></a>4.1.安装pcre</h4><ol>
+<li>获取pcre编译安装包，在<a href="http://www.pcre.org/" target="_blank" rel="external">http://www.pcre.org/</a>上可以获取当前最新的版本</li>
+<li>解压缩pcre-xx.tar.gz包。</li>
+<li>进入解压缩目录，执行./configure。</li>
+<li>make &amp; make install</li>
+</ol>
+<h4 id="4-2-安装openssl"><a href="#4-2-安装openssl" class="headerlink" title="4.2.安装openssl"></a>4.2.安装openssl</h4><ol>
+<li>获取openssl编译安装包，在<a href="http://www.openssl.org/source/" target="_blank" rel="external">http://www.openssl.org/source/</a>上可以获取当前最新的版本。</li>
+<li>解压缩openssl-xx.tar.gz包。</li>
+<li>进入解压缩目录，执行./config。</li>
+<li>make &amp; make install</li>
+</ol>
+<h4 id="4-3-安装zlib"><a href="#4-3-安装zlib" class="headerlink" title="4.3.安装zlib"></a>4.3.安装zlib</h4><ol>
+<li>获取zlib编译安装包，在<a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a>上可以获取当前最新的版本。</li>
+</ol>
+<ol>
+<li><p>解压缩openssl-xx.tar.gz包。</p>
+</li>
+<li><p>进入解压缩目录，执行./configure。</p>
+</li>
+<li><p>make &amp; make install </p>
+<h4 id="4-4安装nginx"><a href="#4-4安装nginx" class="headerlink" title="4.4安装nginx"></a>4.4安装nginx</h4><p>  1.获取nginx，在<a href="http://nginx.org/en/download.html上可以获取当前最新的版本。" target="_blank" rel="external">http://nginx.org/en/download.html上可以获取当前最新的版本。</a></p>
+<p>  2.解压缩nginx-xx.tar.gz包。</p>
+<ol>
+<li>进入解压缩目录，执行./configure</li>
+<li>make &amp; make install</li>
+</ol>
+<p>若安装时找不到上述依赖模块，使用–with-openssl=<openssl_dir>、–with-pcre=<pcre_dir>、–with-zlib=<zlib_dir>指定依赖的模块目录。如已安装过，此处的路径为安装目录；若未安装，则此路径为编译安装包路径，nginx将执行模块的默认编译安装。</zlib_dir></pcre_dir></openssl_dir></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。&lt;/p&gt;
+&lt;p&gt;​
+    
+    </summary>
+    
+      <category term="database" scheme="https://shangrila-kun.github.io/categories/database/"/>
+    
+    
+      <category term="sql" scheme="https://shangrila-kun.github.io/tags/sql/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库知识点总结（未完待续）</title>
@@ -337,67 +517,6 @@
     <summary type="html">
     
       &lt;p&gt;​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="database" scheme="https://shangrila-kun.github.io/categories/database/"/>
-    
-    
-      <category term="sql" scheme="https://shangrila-kun.github.io/tags/sql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用阿里云免费ssl证书把网站从http变成https</title>
-    <link href="https://shangrila-kun.github.io/2017/11/18/%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6%E6%8A%8A%E7%BD%91%E7%AB%99%E4%BB%8Ehttp%E5%8F%98%E6%88%90https/"/>
-    <id>https://shangrila-kun.github.io/2017/11/18/用阿里云免费ssl证书把网站从http变成https/</id>
-    <published>2017-11-18T12:32:00.000Z</published>
-    <updated>2017-11-19T09:45:52.402Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。</p>
-<p>​<a id="more"></a></p>
-<h3 id="1、登录阿里云后台找到产品与服务、找到证书"><a href="#1、登录阿里云后台找到产品与服务、找到证书" class="headerlink" title="1、登录阿里云后台找到产品与服务、找到证书"></a>1、登录阿里云后台找到产品与服务、找到证书</h3><p><a href="http://jingyan.baidu.com/album/9f7e7ec09c80976f281554f1.html?picindex=1" target="_blank" rel="external"><img src="https://imgsa.baidu.com/exp/w=500/sign=ccb7fe399813b07ebdbd50083cd79113/77c6a7efce1b9d16cabfe379f8deb48f8c5464a9.jpg" alt="用阿里云免费ssl证书把网站从http变成https">步骤阅读</a></p>
-<h3 id="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"><a href="#2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息" class="headerlink" title="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"></a>2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115509555-875540633.png" alt="img"></p>
-<h3 id="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"><a href="#3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，" class="headerlink" title="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"></a>3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115606945-2078304494.png" alt="img"></p>
-<p>据自己服务器的实际情况 ，选择相应类型，完成安装，我的是nginx。</p>
-<h3 id="4、将下载的两个文件安装到nginx"><a href="#4、将下载的两个文件安装到nginx" class="headerlink" title="4、将下载的两个文件安装到nginx"></a>4、将下载的两个文件安装到nginx</h3><p>​    建议安装最新的nginx，nginx依赖</p>
-<p>​    nginx依赖以下模块：l  gzip模块需要 zlib 库l  rewrite模块需要 pcre 库l  ssl 功能需要openssl库</p>
-<h4 id="4-1-安装pcre"><a href="#4-1-安装pcre" class="headerlink" title="4.1.安装pcre"></a>4.1.安装pcre</h4><ol>
-<li>获取pcre编译安装包，在<a href="http://www.pcre.org/" target="_blank" rel="external">http://www.pcre.org/</a>上可以获取当前最新的版本</li>
-<li>解压缩pcre-xx.tar.gz包。</li>
-<li>进入解压缩目录，执行./configure。</li>
-<li>make &amp; make install</li>
-</ol>
-<h4 id="4-2-安装openssl"><a href="#4-2-安装openssl" class="headerlink" title="4.2.安装openssl"></a>4.2.安装openssl</h4><ol>
-<li>获取openssl编译安装包，在<a href="http://www.openssl.org/source/" target="_blank" rel="external">http://www.openssl.org/source/</a>上可以获取当前最新的版本。</li>
-<li>解压缩openssl-xx.tar.gz包。</li>
-<li>进入解压缩目录，执行./config。</li>
-<li>make &amp; make install</li>
-</ol>
-<h4 id="4-3-安装zlib"><a href="#4-3-安装zlib" class="headerlink" title="4.3.安装zlib"></a>4.3.安装zlib</h4><ol>
-<li>获取zlib编译安装包，在<a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a>上可以获取当前最新的版本。</li>
-</ol>
-<ol>
-<li><p>解压缩openssl-xx.tar.gz包。</p>
-</li>
-<li><p>进入解压缩目录，执行./configure。</p>
-</li>
-<li><p>make &amp; make install </p>
-<h4 id="4-4安装nginx"><a href="#4-4安装nginx" class="headerlink" title="4.4安装nginx"></a>4.4安装nginx</h4><p>  1.获取nginx，在<a href="http://nginx.org/en/download.html上可以获取当前最新的版本。" target="_blank" rel="external">http://nginx.org/en/download.html上可以获取当前最新的版本。</a></p>
-<p>  2.解压缩nginx-xx.tar.gz包。</p>
-<ol>
-<li>进入解压缩目录，执行./configure</li>
-<li>make &amp; make install</li>
-</ol>
-<p>若安装时找不到上述依赖模块，使用–with-openssl=<openssl_dir>、–with-pcre=<pcre_dir>、–with-zlib=<zlib_dir>指定依赖的模块目录。如已安装过，此处的路径为安装目录；若未安装，则此路径为编译安装包路径，nginx将执行模块的默认编译安装。</zlib_dir></pcre_dir></openssl_dir></p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。&lt;/p&gt;
-&lt;p&gt;​
     
     </summary>
     
