@@ -267,26 +267,26 @@
           
         <p>​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。</p>
 <p>​<a id="more"></a></p>
-<h3 id="1、登录阿里云后台找到产品与服务、找到证书"><a href="#1、登录阿里云后台找到产品与服务、找到证书" class="headerlink" title="1、登录阿里云后台找到产品与服务、找到证书"></a>1、登录阿里云后台找到产品与服务、找到证书</h3><p><a href="http://jingyan.baidu.com/album/9f7e7ec09c80976f281554f1.html?picindex=1" target="_blank" rel="external"><img src="https://imgsa.baidu.com/exp/w=500/sign=ccb7fe399813b07ebdbd50083cd79113/77c6a7efce1b9d16cabfe379f8deb48f8c5464a9.jpg" alt="用阿里云免费ssl证书把网站从http变成https">步骤阅读</a></p>
+<h3 id="1、登录阿里云后台找到产品与服务、找到证书"><a href="#1、登录阿里云后台找到产品与服务、找到证书" class="headerlink" title="1、登录阿里云后台找到产品与服务、找到证书"></a>1、登录阿里云后台找到产品与服务、找到证书</h3><p><a href="http://jingyan.baidu.com/album/9f7e7ec09c80976f281554f1.html?picindex=1" target="_blank" rel="noopener"><img src="https://imgsa.baidu.com/exp/w=500/sign=ccb7fe399813b07ebdbd50083cd79113/77c6a7efce1b9d16cabfe379f8deb48f8c5464a9.jpg" alt="用阿里云免费ssl证书把网站从http变成https">步骤阅读</a></p>
 <h3 id="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"><a href="#2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息" class="headerlink" title="2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息"></a>2、免费购买完成后，在订单里不去信息，输入需要使用Https服务的详细子域名，填写个人信息</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115509555-875540633.png" alt="img"></p>
 <h3 id="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"><a href="#3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，" class="headerlink" title="3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，"></a>3、完成信息后，接下来就是等待审批结果了，审批通过后，下载，</h3><p><img src="http://images2015.cnblogs.com/blog/601899/201703/601899-20170331115606945-2078304494.png" alt="img"></p>
 <p>据自己服务器的实际情况 ，选择相应类型，完成安装，我的是nginx。</p>
 <h3 id="4、将下载的两个文件安装到nginx"><a href="#4、将下载的两个文件安装到nginx" class="headerlink" title="4、将下载的两个文件安装到nginx"></a>4、将下载的两个文件安装到nginx</h3><p>​    建议安装最新的nginx，nginx依赖</p>
 <p>​    nginx依赖以下模块：l  gzip模块需要 zlib 库l  rewrite模块需要 pcre 库l  ssl 功能需要openssl库</p>
 <h4 id="4-1-安装pcre"><a href="#4-1-安装pcre" class="headerlink" title="4.1.安装pcre"></a>4.1.安装pcre</h4><ol>
-<li>获取pcre编译安装包，在<a href="http://www.pcre.org/" target="_blank" rel="external">http://www.pcre.org/</a>上可以获取当前最新的版本</li>
+<li>获取pcre编译安装包，在<a href="http://www.pcre.org/" target="_blank" rel="noopener">http://www.pcre.org/</a>上可以获取当前最新的版本</li>
 <li>解压缩pcre-xx.tar.gz包。</li>
 <li>进入解压缩目录，执行./configure。</li>
 <li>make &amp; make install</li>
 </ol>
 <h4 id="4-2-安装openssl"><a href="#4-2-安装openssl" class="headerlink" title="4.2.安装openssl"></a>4.2.安装openssl</h4><ol>
-<li>获取openssl编译安装包，在<a href="http://www.openssl.org/source/" target="_blank" rel="external">http://www.openssl.org/source/</a>上可以获取当前最新的版本。</li>
+<li>获取openssl编译安装包，在<a href="http://www.openssl.org/source/" target="_blank" rel="noopener">http://www.openssl.org/source/</a>上可以获取当前最新的版本。</li>
 <li>解压缩openssl-xx.tar.gz包。</li>
 <li>进入解压缩目录，执行./config。</li>
 <li>make &amp; make install</li>
 </ol>
 <h4 id="4-3-安装zlib"><a href="#4-3-安装zlib" class="headerlink" title="4.3.安装zlib"></a>4.3.安装zlib</h4><ol>
-<li>获取zlib编译安装包，在<a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a>上可以获取当前最新的版本。</li>
+<li>获取zlib编译安装包，在<a href="http://www.zlib.net/" target="_blank" rel="noopener">http://www.zlib.net/</a>上可以获取当前最新的版本。</li>
 </ol>
 <ol>
 <li><p>解压缩openssl-xx.tar.gz包。</p>
@@ -294,7 +294,7 @@
 <li><p>进入解压缩目录，执行./configure。</p>
 </li>
 <li><p>make &amp; make install </p>
-<h4 id="4-4安装nginx"><a href="#4-4安装nginx" class="headerlink" title="4.4安装nginx"></a>4.4安装nginx</h4><p>  1.获取nginx，在<a href="http://nginx.org/en/download.html上可以获取当前最新的版本。" target="_blank" rel="external">http://nginx.org/en/download.html上可以获取当前最新的版本。</a></p>
+<h4 id="4-4安装nginx"><a href="#4-4安装nginx" class="headerlink" title="4.4安装nginx"></a>4.4安装nginx</h4><p>  1.获取nginx，在<a href="http://nginx.org/en/download.html上可以获取当前最新的版本。" target="_blank" rel="noopener">http://nginx.org/en/download.html上可以获取当前最新的版本。</a></p>
 <p>  2.解压缩nginx-xx.tar.gz包。</p>
 <ol>
 <li>进入解压缩目录，执行./configure</li>

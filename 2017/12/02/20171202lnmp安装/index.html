@@ -271,7 +271,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>​    由于项目需要lnmp，linux、nginx 、mysql、php环境，每次一个个源码安装或者yum安装都稀里糊涂的安装好了，有时候还出现莫名奇怪的问题，于是在网上查找了，使用了军哥的脚本部署lnmp。<a href="https://lnmp.org/install.html" target="_blank" rel="external">lnmg一键安装官网及问题解答</a></p>
+        <p>​    由于项目需要lnmp，linux、nginx 、mysql、php环境，每次一个个源码安装或者yum安装都稀里糊涂的安装好了，有时候还出现莫名奇怪的问题，于是在网上查找了，使用了军哥的脚本部署lnmp。<a href="https://lnmp.org/install.html" target="_blank" rel="noopener">lnmg一键安装官网及问题解答</a></p>
 <a id="more"></a>
 <h2 id="LNMP一键安装包介绍"><a href="#LNMP一键安装包介绍" class="headerlink" title="LNMP一键安装包介绍"></a>LNMP一键安装包介绍</h2><h3 id="LNMP一键安装包是什么"><a href="#LNMP一键安装包是什么" class="headerlink" title="LNMP一键安装包是什么?"></a><strong>LNMP一键安装包是什么?</strong></h3><blockquote>
 <p>LNMP一键安装包是一个用Linux Shell编写的可以为CentOS/RHEL/Fedora/Aliyun/Amazon、Debian/Ubuntu/Raspbian/DeepinServer/Mint Linux VPS或独立主机安装LNMP(Nginx/MySQL/PHP)、LNMPA(Nginx/MySQL/PHP/Apache)、LAMP(Apache/MySQL/PHP)生产环境的Shell程序。</p>
@@ -284,12 +284,12 @@
 <p>支持自定义Nginx、PHP编译参数及网站和数据库目录、支持生成LetseEcrypt证书、LNMP模式支持多PHP版本、支持单独安装Nginx/MySQL/MariaDB/Pureftpd服务器，同时提供一些实用的辅助工具如：虚拟主机管理、FTP用户管理、Nginx、MySQL/MariaDB、PHP的升级、常用缓存组件Redis/Xcache等的安装、重置MySQL root密码、502自动重启、日志切割、SSH防护DenyHosts/Fail2Ban、备份等许多实用脚本。</p>
 </blockquote>
 <h3 id="如何获取它"><a href="#如何获取它" class="headerlink" title="如何获取它?"></a><strong>如何获取它?</strong></h3><blockquote>
-<p>你可以自由 <a href="https://lnmp.org/download.html" target="_blank" rel="external">下载</a> 并使用它在VPS或独立服务器上，做为真正的生产环境或测试环境。</p>
+<p>你可以自由 <a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载</a> 并使用它在VPS或独立服务器上，做为真正的生产环境或测试环境。</p>
 </blockquote>
 <h3 id="我们为什么采用LNMP这种架构"><a href="#我们为什么采用LNMP这种架构" class="headerlink" title="我们为什么采用LNMP这种架构?"></a><strong>我们为什么采用LNMP这种架构?</strong></h3><blockquote>
 <p>采用Linux、PHP、MySQL的优点我们不必多说。</p>
 <p>Nginx是一个小巧而高效的Linux下的Web服务器软件，是由 Igor Sysoev 为俄罗斯访问量第二的 Rambler.ru 站点开发的，已经在一些俄罗斯的大型网站上运行多年，目前很多国内外的门户网站、行业网站也都在是使用Nginx，相当的稳定。</p>
-<p>Nginx相当的稳定、功能丰富、安装配置简单、低系统资源<a href="https://lnmp.org/nginx.html" target="_blank" rel="external">…</a></p>
+<p>Nginx相当的稳定、功能丰富、安装配置简单、低系统资源<a href="https://lnmp.org/nginx.html" target="_blank" rel="noopener">…</a></p>
 </blockquote>
 <h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><h3 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h3><blockquote>
 <ul>
@@ -301,17 +301,17 @@
 <li>Linux下区分大小写，输入命令时请注意！</li>
 <li>CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用！</li>
 </ul>
-<p>LNMP一键安装包 V1.4 已经在<a href="https://www.vpser.net/go/vultr" target="_blank" rel="external">Vultr</a>、<a href="https://www.vpser.net/go/aoyohost" target="_blank" rel="external">遨游主机</a>、<a href="https://www.vpser.net/go/bandwagonhost" target="_blank" rel="external">搬瓦工</a>、<a href="https://www.vpser.net/go/photonvps" target="_blank" rel="external">PhotonVPS</a>、<a href="https://www.vpser.net/go/oneasiahost" target="_blank" rel="external">OneAsiahost新加坡VPS</a>、<a href="https://www.vpser.net/go/budgetvm" target="_blank" rel="external">BudgetVM</a>、<a href="https://www.vpser.net/go/digitalocean" target="_blank" rel="external">DigitalOcean</a>、<a href="https://www.vpser.net/go/locvps" target="_blank" rel="external">LocVPS</a>、<a href="https://www.vpser.net/go/linode" target="_blank" rel="external">Linode</a>、<a href="https://www.vpser.net/go/diahosting" target="_blank" rel="external">DiaHosting</a>、<a href="https://www.vpser.net/go/kvmla" target="_blank" rel="external">KVMLA</a>、<a href="https://www.vpser.net/go/jwdns" target="_blank" rel="external">景文互联</a>、<a href="https://www.vpser.net/go/ramnode" target="_blank" rel="external">RamNode</a>、<a href="https://www.vpser.net/go/buyvm" target="_blank" rel="external">BuyVM</a>、<a href="https://www.vpser.net/go/80vps" target="_blank" rel="external">80VPS</a>、<a href="https://www.vpser.net/go/kiiyi" target="_blank" rel="external">快易互联</a>、<a href="https://www.vpser.net/go/aliyun" target="_blank" rel="external">阿里云</a>等众多VPS的CentOS 6-7、RHEL 6-7、Fedora 21-23、Debian 7-9、Ubuntu 10.04-17.04的32位和64位系统上测试通过(CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用,Debian9上Apache需选2.4.26版本以上，<strong>深度/deepin只能使用服务器版,桌面版勿用！！</strong>)。</p>
+<p>LNMP一键安装包 V1.4 已经在<a href="https://www.vpser.net/go/vultr" target="_blank" rel="noopener">Vultr</a>、<a href="https://www.vpser.net/go/aoyohost" target="_blank" rel="noopener">遨游主机</a>、<a href="https://www.vpser.net/go/bandwagonhost" target="_blank" rel="noopener">搬瓦工</a>、<a href="https://www.vpser.net/go/photonvps" target="_blank" rel="noopener">PhotonVPS</a>、<a href="https://www.vpser.net/go/oneasiahost" target="_blank" rel="noopener">OneAsiahost新加坡VPS</a>、<a href="https://www.vpser.net/go/budgetvm" target="_blank" rel="noopener">BudgetVM</a>、<a href="https://www.vpser.net/go/digitalocean" target="_blank" rel="noopener">DigitalOcean</a>、<a href="https://www.vpser.net/go/locvps" target="_blank" rel="noopener">LocVPS</a>、<a href="https://www.vpser.net/go/linode" target="_blank" rel="noopener">Linode</a>、<a href="https://www.vpser.net/go/diahosting" target="_blank" rel="noopener">DiaHosting</a>、<a href="https://www.vpser.net/go/kvmla" target="_blank" rel="noopener">KVMLA</a>、<a href="https://www.vpser.net/go/jwdns" target="_blank" rel="noopener">景文互联</a>、<a href="https://www.vpser.net/go/ramnode" target="_blank" rel="noopener">RamNode</a>、<a href="https://www.vpser.net/go/buyvm" target="_blank" rel="noopener">BuyVM</a>、<a href="https://www.vpser.net/go/80vps" target="_blank" rel="noopener">80VPS</a>、<a href="https://www.vpser.net/go/kiiyi" target="_blank" rel="noopener">快易互联</a>、<a href="https://www.vpser.net/go/aliyun" target="_blank" rel="noopener">阿里云</a>等众多VPS的CentOS 6-7、RHEL 6-7、Fedora 21-23、Debian 7-9、Ubuntu 10.04-17.04的32位和64位系统上测试通过(CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用,Debian9上Apache需选2.4.26版本以上，<strong>深度/deepin只能使用服务器版,桌面版勿用！！</strong>)。</p>
 </blockquote>
 <h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><blockquote>
 <p><strong>1、使用putty或类似的SSH工具登陆VPS或服务器；</strong></p>
 <p>登陆后运行：<strong>screen -S lnmp</strong></p>
-<p>如果提示screen: command not found 命令不存在可以执行：yum install screen 或 apt-get install screen安装，详细内容参考<a href="https://www.vpser.net/manage/run-screen-lnmp.html" target="_blank" rel="external">screen教程</a>。</p>
+<p>如果提示screen: command not found 命令不存在可以执行：yum install screen 或 apt-get install screen安装，详细内容参考<a href="https://www.vpser.net/manage/run-screen-lnmp.html" target="_blank" rel="noopener">screen教程</a>。</p>
 <p><strong>2、下载并安装LNMP一键安装包：</strong></p>
-<p>您可以选择使用下载版(推荐美国及海外VPS或空间较小用户使用)或者完整版(推荐国内VPS使用，国内用户可用在<a href="https://lnmp.org/download.html" target="_blank" rel="external">下载</a>中找国内下载地址替换)，两者没什么区别，只是完整版把一些需要的源码文件预先放到安装包里。<strong>深度/deepin只能使用服务器版，桌面版请勿安装！！</strong></p>
-<p>安装LNMP稳定版<br><strong>wget -c <a href="http://soft.vpser.net/lnmp/lnmp1.4.tar.gz" target="_blank" rel="external">http://soft.vpser.net/lnmp/lnmp1.4.tar.gz</a> &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp</strong></p>
+<p>您可以选择使用下载版(推荐美国及海外VPS或空间较小用户使用)或者完整版(推荐国内VPS使用，国内用户可用在<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载</a>中找国内下载地址替换)，两者没什么区别，只是完整版把一些需要的源码文件预先放到安装包里。<strong>深度/deepin只能使用服务器版，桌面版请勿安装！！</strong></p>
+<p>安装LNMP稳定版<br><strong>wget -c <a href="http://soft.vpser.net/lnmp/lnmp1.4.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/lnmp/lnmp1.4.tar.gz</a> &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp</strong></p>
 <p>默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面的参数替换为lnmpa或lamp即可。如需更改网站和数据库目录先修改安装包目录下的 lnmp.conf 文件。</p>
-<p>如下载速度慢请更换其他下载节点，详情请看<a href="https://lnmp.org/download.html" target="_blank" rel="external">下载页面</a>。<a href="https://lnmp.org/faq/lnmp-download-source.html" target="_blank" rel="external">LNMP下载节点具体替换方法</a>。</p>
+<p>如下载速度慢请更换其他下载节点，详情请看<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载页面</a>。<a href="https://lnmp.org/faq/lnmp-download-source.html" target="_blank" rel="noopener">LNMP下载节点具体替换方法</a>。</p>
 <p>运行上述LNMP安装命令后，会出现如下提示：<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-1.png" alt="img"><br>目前提供了较多的MySQL、MariaDB版本和不安装数据库的选项，需要<strong>注意的是MySQL 5.6,5.7及MariaDB 10必须在1G以上内存的更高配置上才能选择</strong>！</p>
 <p>输入对应MySQL或MariaDB版本前面的序号，回车进入下一步.</p>
 <p><img src="https://lnmp.org/images/1.4/lnmp1.4-install-2.png" alt="img"><br>需要设置MySQL的root密码（不输入直接回车将会设置为root）如果输入有错误需要删除时，可以按住Ctrl再按Backspace键进行删除(个别情况下是只需要Backspace键)。输入后回车进入下一步，如下图所示：<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-3.png" alt="img"><br>询问是否需要启用MySQL InnoDB，InnoDB引擎默认为开启，一般建议开启，直接回车或输入 y ，如果确定确实不需要该引擎可以输入 n，输入完成，回车进入下一步。</p>
@@ -323,19 +323,19 @@
 </blockquote>
 <h2 id="安装完成效果"><a href="#安装完成效果" class="headerlink" title="安装完成效果"></a>安装完成效果</h2><blockquote>
 <p>如果显示Nginx: OK，MySQL: OK，PHP: OK<br><img src="https://lnmp.org/images/1.4/lnmp1.4-install-success.png" alt="img"><br>并且Nginx、MySQL、PHP都是running，80和3306端口都存在，并提示安装使用的时间及Install lnmp V1.4 completed! enjoy it.的话，说明已经安装成功。</p>
-<p>安装完成接下来开始使用就可以了，按<a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="external"><strong>添加虚拟主机教程</strong></a>，添加虚拟主机后可以使用<a href="https://lnmp.org/faq/sftp.html" target="_blank" rel="external">sftp</a>或<a href="https://lnmp.org/faq/ftpserver.html" target="_blank" rel="external">ftp服务器</a>上传网站代码，将域名解析到VPS或服务器的IP上，解析生效即可使用。</p>
+<p>安装完成接下来开始使用就可以了，按<a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="noopener"><strong>添加虚拟主机教程</strong></a>，添加虚拟主机后可以使用<a href="https://lnmp.org/faq/sftp.html" target="_blank" rel="noopener">sftp</a>或<a href="https://lnmp.org/faq/ftpserver.html" target="_blank" rel="noopener">ftp服务器</a>上传网站代码，将域名解析到VPS或服务器的IP上，解析生效即可使用。</p>
 </blockquote>
 <h2 id="安装失败效果"><a href="#安装失败效果" class="headerlink" title="安装失败效果"></a>安装失败效果</h2><blockquote>
-<p><img src="https://lnmp.org/images/1.4/lnmp1.4-install-failed.png" alt="img"><br>如果出现类似上图的提示，有一个没安装成功表明安装失败！！需要用<a href="http://www.vpser.net/manage/winscp.html" target="_blank" rel="external">winscp</a>或其他类似工具，将/root目录下面的lnmp-install.log下载下来，到<a href="http://bbs.vpser.net/forum-25-1.html" target="_blank" rel="external">LNMP支持论坛</a>发帖注明你的系统发行版名称及版本号、32位还是64位等信息，并将lnmp-install.log压缩以附件形式上传到论坛，我们会通过日志查找错误，并给予相应的解决方法。</p>
-<p>默认LNMP是不安装FTP服务器的，如需要FTP服务器：<a href="https://lnmp.org/faq/ftpserver.html" target="_blank" rel="external">https://lnmp.org/faq/ftpserver.html</a></p>
+<p><img src="https://lnmp.org/images/1.4/lnmp1.4-install-failed.png" alt="img"><br>如果出现类似上图的提示，有一个没安装成功表明安装失败！！需要用<a href="http://www.vpser.net/manage/winscp.html" target="_blank" rel="noopener">winscp</a>或其他类似工具，将/root目录下面的lnmp-install.log下载下来，到<a href="http://bbs.vpser.net/forum-25-1.html" target="_blank" rel="noopener">LNMP支持论坛</a>发帖注明你的系统发行版名称及版本号、32位还是64位等信息，并将lnmp-install.log压缩以附件形式上传到论坛，我们会通过日志查找错误，并给予相应的解决方法。</p>
+<p>默认LNMP是不安装FTP服务器的，如需要FTP服务器：<a href="https://lnmp.org/faq/ftpserver.html" target="_blank" rel="noopener">https://lnmp.org/faq/ftpserver.html</a></p>
 <p>5、添加、删除虚拟主机及伪静态管理</p>
-<p><a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
+<p><a href="https://lnmp.org/faq/lnmp-vhost-add-howto.html" target="_blank" rel="noopener">https://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
 <p>6、eAccelerator、xcache、memcached、imageMagick、ionCube、redis、opcache的安装</p>
-<p><a href="https://lnmp.org/faq/addons.html" target="_blank" rel="external">https://lnmp.org/faq/addons.html</a></p>
+<p><a href="https://lnmp.org/faq/addons.html" target="_blank" rel="noopener">https://lnmp.org/faq/addons.html</a></p>
 <p>7、LNMP相关软件目录及文件位置</p>
-<p><a href="https://lnmp.org/faq/lnmp-software-list.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-software-list.html</a></p>
+<p><a href="https://lnmp.org/faq/lnmp-software-list.html" target="_blank" rel="noopener">https://lnmp.org/faq/lnmp-software-list.html</a></p>
 <p>8、LNMP状态管理命令</p>
-<p><a href="https://lnmp.org/faq/lnmp-status-manager.html" target="_blank" rel="external">https://lnmp.org/faq/lnmp-status-manager.html</a></p>
+<p><a href="https://lnmp.org/faq/lnmp-status-manager.html" target="_blank" rel="noopener">https://lnmp.org/faq/lnmp-status-manager.html</a></p>
 </blockquote>
 
       
