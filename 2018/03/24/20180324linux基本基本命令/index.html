@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="tE4x1LzlIo" />
   
-  <title>SQL中execute操作返回false的问题 | Shangrila-kun Blog</title>
+  <title>20180324linux基本基本命令 | Shangrila-kun Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    今天在码代码的时候遇到了一个问题，代码如下：">
-<meta name="keywords" content="execute问题">
+  <meta name="description" content="​    学号linux不是一件一蹴而就的事情，一定要坚持坚持再坚持。自己每每感觉学习linux是一个长期的过程，很耗时间，本文主要记载在学习中一些命令的使用及介绍，以供自己温故而知新。">
+<meta name="keywords" content="linux基本命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL中execute操作返回false的问题">
-<meta property="og:url" content="https://shangrila-kun.github.io/2017/08/15/20170823sql/index.html">
+<meta property="og:title" content="20180324linux基本基本命令">
+<meta property="og:url" content="https://shangrila-kun.github.io/2018/03/24/20180324linux基本基本命令/index.html">
 <meta property="og:site_name" content="Shangrila-kun Blog">
-<meta property="og:description" content="​    今天在码代码的时候遇到了一个问题，代码如下：">
+<meta property="og:description" content="​    学号linux不是一件一蹴而就的事情，一定要坚持坚持再坚持。自己每每感觉学习linux是一个长期的过程，很耗时间，本文主要记载在学习中一些命令的使用及介绍，以供自己温故而知新。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-29T13:11:10.812Z">
+<meta property="og:updated_time" content="2018-03-24T11:18:09.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL中execute操作返回false的问题">
-<meta name="twitter:description" content="​    今天在码代码的时候遇到了一个问题，代码如下：">
+<meta name="twitter:title" content="20180324linux基本基本命令">
+<meta name="twitter:description" content="​    学号linux不是一件一蹴而就的事情，一定要坚持坚持再坚持。自己每每感觉学习linux是一个长期的过程，很耗时间，本文主要记载在学习中一些命令的使用及介绍，以供自己温故而知新。">
   
     <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
   
@@ -219,11 +219,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-20170823sql" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-20180324linux基本基本命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/15/20170823sql/" class="article-date">
-      <time datetime="2017-08-15T05:57:36.000Z" itemprop="datePublished">2017-08-15</time>
+      <a href="/2018/03/24/20180324linux基本基本命令/" class="article-date">
+      <time datetime="2018-03-24T10:52:47.000Z" itemprop="datePublished">2018-03-24</time>
 </a>
     </div>
   
@@ -236,7 +236,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SQL中execute操作返回false的问题
+      20180324linux基本基本命令
     </h1>
   
 
@@ -245,13 +245,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+    <a class="article-category-link" href="/categories/运维/">运维</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/execute问题/">execute问题</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux基本命令/">linux基本命令</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -261,14 +261,87 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>​    <strong>今天在码代码的时候遇到了一个问题，代码如下：</strong></p>
+        <p>​    学号linux不是一件一蹴而就的事情，一定要坚持坚持再坚持。自己每每感觉学习linux是一个长期的过程，很耗时间，本文主要记载在学习中一些命令的使用及介绍，以供自己温故而知新。</p>
 <a id="more"></a>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">SQL一：</div><div class="line">            sql = " <span class="keyword">update</span> t_receive_user <span class="keyword">set</span> user_email = ?, user_name = ?, user_tel = ?, update_timestamp = ? , note = ? <span class="string">" +</span></div><div class="line">                    " <span class="keyword">where</span> user_sid = ? <span class="string">";</span></div><div class="line">            connection = getDataSource().getConnection();</div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            ps.setObject(1,tReceiveUser.getUserEmail());</div><div class="line">            ps.setObject(2,tReceiveUser.getUserName());</div><div class="line">            ps.setObject(3,tReceiveUser.getUserTel());</div><div class="line">            ps.setObject(4,Time.getCurrentTime()/1000);</div><div class="line">            ps.setObject(5,tReceiveUser.getNote());</div><div class="line">            ps.setObject(6,tReceiveUser.getUserSid());</div><div class="line">            System.out.println(ps.execute());</div><div class="line">SQL二：</div><div class="line"> sql = " <span class="keyword">delete</span> t_receive_user <span class="keyword">where</span> user_sid = ? <span class="string">";</span></div><div class="line">            connection = getDataSource().getConnection();</div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            ps.setObject(1,tReceiveUser.getUserSid());</div><div class="line">            System.out.println(ps.execute());</div><div class="line">SQL三：</div><div class="line">sql = "<span class="keyword">INSERT</span> t_receive_user (user_email,user_name,user_tel,update_timestamp,note)<span class="string">" +</span></div><div class="line">                    " <span class="keyword">values</span> (?,?,?,?,?)<span class="string">";</span></div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            ps.setObject(1,tReceiveUser.getUserEmail());</div><div class="line">            ps.setObject(2,tReceiveUser.getUserName());</div><div class="line">            ps.setObject(3,tReceiveUser.getUserTel());</div><div class="line">            ps.setObject(4,Time.getCurrentTime()/1000);</div><div class="line">            ps.setObject(5,tReceiveUser.getNote());</div><div class="line">            System.out.println(ps.execute());</div></pre></td></tr></table></figure>
-<p>​    <strong>我发现即使我的数据库更新成功、删除成功、增加成功，返回值都是false。</strong></p>
-<p><strong>execute内部细节代码如下：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">execute</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>.checkClosed().getConnectionMutex()) &#123;</div><div class="line">            <span class="keyword">boolean</span> returnVal = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">this</span>.checkStreamability();</div><div class="line">            <span class="keyword">this</span>.setInOutParamsOnServer();</div><div class="line">            <span class="keyword">this</span>.setOutParams();</div><div class="line">            returnVal = <span class="keyword">super</span>.execute();</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.callingStoredFunction) &#123;</div><div class="line">                <span class="keyword">this</span>.functionReturnValueResults = <span class="keyword">this</span>.results;</div><div class="line">                <span class="keyword">this</span>.functionReturnValueResults.next();</div><div class="line">                <span class="keyword">this</span>.results = <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">this</span>.retrieveOutParams();</div><div class="line">            <span class="keyword">return</span> !<span class="keyword">this</span>.callingStoredFunction?returnVal:<span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>​    <strong>查资料发现：boolean execute() throws SQLException在此 PreparedStatement 对象中执行 SQL 语句，该语句可以是任何种类的 SQL 语句。一些特别处理过的语句返回多个结果，execute 方法处理这些复杂的语句；executeQuery 和 executeUpdate 处理形式更简单的语句。 execute 方法返回一个 boolean 值，以指示第一个结果的形式。必须调用 getResultSet 或 getUpdateCount 方法来检索结果，并且必须调用 getMoreResults 移动到任何后面的结果返回：如果第一个结果是 ResultSet 对象，则返回 true；如果第一个结果是更新计数或者没有结果，则返回 false，意思就是如果是查询的话返回true，如果是更新或插入的话就返回false了；execute()返回的是一个boolean值,代表两种不同的操作啊,getResultSet()返回的是结果集,而getUpdateCount()返回的是更新的记数</strong>。</p>
-<p>​    </p>
+<h2 id="vim的使用技巧"><a href="#vim的使用技巧" class="headerlink" title="vim的使用技巧"></a>vim的使用技巧</h2><p><strong>编辑文档操作</strong></p>
+<blockquote>
+<p>x:删除光标当前字符<br>dd:删除一行<br>ndd:删除n行（n为数字）<br>d$删除光标至行尾。<br>u:撤销上一步操作，可以多次使用，如输入两个u，表示撤销2步。<br>rx:将当前光标字符替换为x<br>yy:复制当前行。<br>p:粘贴至当前行之后。<br>P：粘贴至当前行之前。<br>J:删除换行符，可以将两行合并为一行。<br>VIM查找与替换<br>/host,从上望下查。 /?关键词从下往上查。<br>：1,$s/xxx/yyy/ 将从第一行至尾行内的xxx替换成yyy。<br>：s/root/admin/ 将光标当前行中第一个出现root替换为admin<br>：s/root/admin/g 将当前行中所有的root替换为admin<br>：3,5 s/sbin/bin/g将3到5行之间的所有sbin替换为bin</p>
+</blockquote>
+<p><strong>vim光标操作</strong></p>
+<blockquote>
+<p>h:光标向左移动一位<br>j:光标向下移动一行（以回车为换行符）<br>k:光标向上移动一行。<br>l:光标向右移动一行。<br>gg:光标移动至文件首行。<br>G：光标移动至文件末尾。<br>nG:移动光标至n行。<br>^:光标移动至当前行的首字符。<br>$:光标移动至行前行的尾字符。<br>fx:光标移至当前行的下一个x字符处。<br>Fx:光标移至当前行的上一个x字符处。<br>W:光标向右移动一个单词。<br>nw：光标向右移动n个单词。<br>b:光标向左移动一个单词。<br>nb：光标向左移动n个单词。</p>
+</blockquote>
+<p><strong>vim保存与退出</strong></p>
+<blockquote>
+<p>：q! 不保存并 ：wq 保存并退出  ：x 保存并退出 ：w 保存<br>：w b.txt 另存为b.txt<br> :set ignorecase 查找时不区分大小写<br>vim多窗口编辑<br>：split可以同一个文档的不同行。Ctrl+w+j跳转至上面一个窗口<br>Ctrl+w+k跳转至下一个窗口。<br>：split second.txt 打开新的文件。</p>
+</blockquote>
+<h2 id="ps-aux-grep-xxx详解"><a href="#ps-aux-grep-xxx详解" class="headerlink" title="ps aux|grep xxx详解"></a>ps aux|grep xxx详解</h2><blockquote>
+<p>对进程进行监测和控制,首先必须要了解当前进程的情况,也就是需要查看当前进程, 而ps命令（Process Status）就是最基本同时也是非常强大的进程查看命令.使用该命令 可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵尸、哪些进程占用了过多的资源等等.总之大部分信息都是可以通过执行该命令得到的。</p>
+<p>ps 为我们提供了进程的一次性的查看，它所提供的查看结果并不动态连续的；如果想对进程时间监控，应该用 top 工具。</p>
+<p>如果直接用ps命令，会显示所有进程的状态，通常结合grep命令查看某进程的状态。</p>
+</blockquote>
+<p><strong>grep</strong></p>
+<blockquote>
+<p>grep （global search regular expression(RE) and print out the line,全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> ps -aux|grep nginx</div><div class="line"> root     25001  0.0  0.0 122036  1460 ?        Sl   02:00   0:34 /usr/local/middleware/Git_NTP_APQTS_Code_Mid_MIS/LL/application/bin</div><div class="line">root     25003  2.8  8.1 3533580 316088 ?      Sl   02:00  29:34 /usr/local/java/jdk1.8.0_144/bin/java -Djava.util.logging.config.fi</div><div class="line">root     25272  0.0  0.0 122036  1456 ?        Sl   02:06   0:34 /usr/local/middleware/Git_NTP_APQTS_Code_Mid_MIS_Simp/AGP/application/bin</div></pre></td></tr></table></figure>
+<blockquote>
+<p>运行 ps aux 的到如下信息：</p>
+<p>   ps aux</p>
+<p>USER    PID   %CPU %MEM VSZ   RSS TTY    STAT   START TIME COMMAND</p>
+<p>stat 中的参数意义如下：<br>   D 不可中断 Uninterruptible（usually IO）<br>   R 正在运行，或在队列中的进程<br>   S 处于休眠状态<br>   T 停止或被追踪<br>   Z 僵尸进程<br>   W 进入内存交换（从内核2.6开始无效）<br>   X   死掉的进程</p>
+<p>&lt; 高优先级<br>n   低优先级<br>s   包含子进程</p>
+<p>+位于后台的进程组</p>
+</blockquote>
+<h3 id="ps命令"><a href="#ps命令" class="headerlink" title="ps命令"></a>ps命令</h3><blockquote>
+<p>ps命令</p>
+<p>要对进程进行监测和控制,首先必须要了解当前进程的情况,也就是需要查看当前进程,而ps命令就是最基本同时也是非常强大的进程查看命令.使用该命令可以确定有哪些<strong>进程正在运行和运行的状态、进程是否结束、进程有没有僵尸、哪些进程占用了过多的资源等等</strong>.总之大部分信息都是可以通过执行该命令得到的.</p>
+<p>ps命令最常用的还是用于监控后台进程的工作情况,因为后台进程是不和屏幕键盘这些标准输入/输出设备进行通信的,所以如果需要检测其情况,便可以使用ps命令了.</p>
+<p> 1）ps a 显示现行终端机下的所有程序，包括其他用户的程序。</p>
+<p>2）ps -A 显示所有程序。</p>
+<p>3）ps c 列出程序时，显示每个程序真正的指令名称，而不包含路径，参数或常驻服务的标示。</p>
+<p>4）ps -e 此参数的效果和指定”A”参数相同。</p>
+<p>5）ps e 列出程序时，显示每个程序所使用的环境变量。</p>
+<p>6）ps f 用ASCII字符显示树状结构，表达程序间的相互关系。</p>
+<p>7）ps -H 显示树状结构，表示程序间的相互关系。</p>
+<p>8）ps -N 显示所有的程序，除了执行ps指令终端机下的程序之外。</p>
+<p>9）ps s 采用程序信号的格式显示程序状况。</p>
+<p>10）ps S 列出程序时，包括已中断的子程序资料。</p>
+<p>11）ps -t&lt;终端机编号&gt; 　指定终端机编号，并列出属于该终端机的程序的状况。</p>
+<p>12）ps u 　以用户为主的格式来显示程序状况。</p>
+<p>13）ps x 　显示所有程序，不以终端机来区分。</p>
+<p>最常用的方法是ps -aux,然后再利用一个管道符号导向到grep去查找特定的进程,然后再对特定的进程进行操作。</p>
+<p>linux上进程有5种状态:</p>
+<p>\1. 运行(正在运行或在运行队列中等待)</p>
+<p>\2. 中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号)</p>
+<p>\3. 不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生)</p>
+<p>\4. 僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放)</p>
+<p>\5. 停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)</p>
+<p>ps工具标识进程的5种状态码:</p>
+<p>D 不可中断 uninterruptible sleep (usually IO)</p>
+<p>R 运行 runnable (on run queue)</p>
+<p>S 中断 sleeping</p>
+<p>T 停止 traced or stopped</p>
+<p>Z 僵死 a defunct (”zombie”) process</p>
+<p>注: 其它状态还包括W(无驻留页), &lt;(高优先级进程), N(低优先级进程), L(内存锁页).</p>
+<p>使用ps格式输出来查看进程状态:</p>
+<p>ps -eo user,stat..,cmd</p>
+<p>user 用户名</p>
+<p>uid 用户号</p>
+<p>pid 进程号</p>
+<p>ppid 父进程号</p>
+<p>size 内存大小, Kbytes字节.</p>
+<p>vsize 总虚拟内存大小, bytes字节(包含code+data+stack)</p>
+<p>share 总共享页数</p>
+<p>nice 进程优先级(缺省为0, 最大为-20)</p>
+<p>priority(pri) 内核调度优先级</p>
+<p>pmem 进程分享的物理内存数的百分比</p>
+<p>trs 程序执行代码驻留大小</p>
+<p>rss 进程使用的总物理内存数, Kbytes字节</p>
+<p>time 进程执行起到现在总的CPU暂用时间</p>
+<p>stat 进程状态</p>
+<p>cmd(args) 执行命令的简单格式</p>
+</blockquote>
 
       
       
@@ -324,13 +397,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/24/20180324linux基本基本命令/">20180324linux基本基本命令</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
-        <p><span>发布时间:</span>2017年08月15日 - 13时57分</p>
-        <p><span>最后更新:</span>2017年08月29日 - 21时11分</p>
+        <p><span>发布时间:</span>2018年03月24日 - 18时52分</p>
+        <p><span>最后更新:</span>2018年03月24日 - 19时18分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/15/20170823sql/" title="SQL中execute操作返回false的问题">https://shangrila-kun.github.io/2017/08/15/20170823sql/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2017/08/15/20170823sql/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/24/20180324linux基本基本命令/" title="20180324linux基本基本命令">https://shangrila-kun.github.io/2018/03/24/20180324linux基本基本命令/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2018/03/24/20180324linux基本基本命令/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -343,18 +416,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/27/20170828java6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          java访问控制权限
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/04/Random20170804/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Random</div>
+    <a href="/2018/03/17/面向对象3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面向对象3</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -365,7 +429,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vim的使用技巧"><span class="toc-number">1.</span> <span class="toc-text">vim的使用技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps-aux-grep-xxx详解"><span class="toc-number">2.</span> <span class="toc-text">ps aux|grep xxx详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps命令"><span class="toc-number">2.1.</span> <span class="toc-text">ps命令</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -422,13 +486,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/27/20170828java6/" title="上一篇: java访问控制权限">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/04/Random20170804/" title="下一篇: Random">
+            <a href="/2018/03/17/面向对象3/" title="下一篇: 面向对象3">
                 <i class="fa fa-angle-right"></i>
             </a>
         
