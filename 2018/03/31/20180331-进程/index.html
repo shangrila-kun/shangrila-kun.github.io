@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="tE4x1LzlIo" />
   
-  <title>Shangrila-kun Blog</title>
+  <title>20180331-进程 | Shangrila-kun Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="shangrila-kun blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shangrila-kun Blog">
-<meta property="og:url" content="https://shangrila-kun.github.io/index.html">
+  <meta name="description" content="​    主要介绍了关于进程及其相关的知识，更详细内容还需看书。感觉linux进程很深奥，很有意思。 进程什么是进程 在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述(静态)，进程是程序的实体（运动的，在执行中）。即进程是一个具有独立功能的程序关于某个数据集合的一次运行活动。它可以申请和拥有系统资源，">
+<meta name="keywords" content="进程、线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20180331-进程">
+<meta property="og:url" content="https://shangrila-kun.github.io/2018/03/31/20180331-进程/index.html">
 <meta property="og:site_name" content="Shangrila-kun Blog">
-<meta property="og:description" content="shangrila-kun blog">
+<meta property="og:description" content="​    主要介绍了关于进程及其相关的知识，更详细内容还需看书。感觉linux进程很深奥，很有意思。 进程什么是进程 在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述(静态)，进程是程序的实体（运动的，在执行中）。即进程是一个具有独立功能的程序关于某个数据集合的一次运行活动。它可以申请和拥有系统资源，">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/273421/201704/273421-20170411100345079-2080566903.jpg">
+<meta property="og:image" content="http://files.jb51.net/file_images/article/201606/2016622152015141.gif?2016522152036">
+<meta property="og:image" content="http://files.jb51.net/file_images/article/201606/2016622152338182.gif?2016522152421">
+<meta property="og:updated_time" content="2018-04-01T05:44:30.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shangrila-kun Blog">
-<meta name="twitter:description" content="shangrila-kun blog">
+<meta name="twitter:title" content="20180331-进程">
+<meta name="twitter:description" content="​    主要介绍了关于进程及其相关的知识，更详细内容还需看书。感觉linux进程很深奥，很有意思。 进程什么是进程 在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述(静态)，进程是程序的实体（运动的，在执行中）。即进程是一个具有独立功能的程序关于某个数据集合的一次运行活动。它可以申请和拥有系统资源，">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/273421/201704/273421-20170411100345079-2080566903.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
   
@@ -29,9 +35,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -43,8 +46,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -220,9 +223,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-20180331-进程" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-20180331-进程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2018/03/31/20180331-进程/" class="article-date">
@@ -238,12 +239,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/20180331-进程/">20180331-进程</a>
+    <h1 class="article-title" itemprop="name">
+      20180331-进程
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程、线程/">进程、线程</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -495,641 +511,183 @@
 
       
       
-    </div>
-    
-    <div class="article-info article-info-index">
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
       
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程、线程/">进程、线程</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20180331-操作系统的介介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/31/20180331-操作系统的介介绍/" class="article-date">
-      <time datetime="2018-03-31T06:25:53.000Z" itemprop="datePublished">2018-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/20180331-操作系统的介介绍/">操作系统的介绍</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    一些基本的操作系统知识，主要谈了下操作系统的主要功能，进化史、linux系统特点、内核、版本号等一些基本知识点。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统介绍/">操作系统介绍</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/03/31/20180331-操作系统的介介绍/#more">more >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/03/31/20180331-进程/">20180331-进程</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
+        <p><span>发布时间:</span>2018年03月31日 - 14时29分</p>
+        <p><span>最后更新:</span>2018年04月01日 - 13时44分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/31/20180331-进程/" title="20180331-进程">https://shangrila-kun.github.io/2018/03/31/20180331-进程/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2018/03/31/20180331-进程/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20180324自己搭建java-web框架架" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/24/20180324自己搭建java-web框架架/" class="article-date">
-      <time datetime="2018-03-24T14:07:23.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/20180324自己搭建java-web框架架/">20180324自己搭建java web框架架</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20180324linux基本基本命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/24/20180324linux基本基本命令/" class="article-date">
-      <time datetime="2018-03-24T10:52:47.000Z" itemprop="datePublished">2018-03-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/24/20180324linux基本基本命令/">linux基本基本命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    学号linux不是一件一蹴而就的事情，一定要坚持坚持再坚持。自己每每感觉学习linux是一个长期的过程，很耗时间，本文主要记载在学习中一些命令的使用及介绍，以供自己温故而知新。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/运维/">运维</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux基本命令/">linux基本命令</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/03/24/20180324linux基本基本命令/#more">more >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/31/20180331-操作系统的介介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统的介绍</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程"><span class="toc-number">1.</span> <span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是进程"><span class="toc-number">1.1.</span> <span class="toc-text">什么是进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作系统引入进程的原因"><span class="toc-number">1.2.</span> <span class="toc-text">操作系统引入进程的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的基本特征是什么"><span class="toc-number">1.3.</span> <span class="toc-text">进程的基本特征是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程和程序的区别"><span class="toc-number">1.4.</span> <span class="toc-text">进程和程序的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的基本状态和转换"><span class="toc-number">1.5.</span> <span class="toc-text">进程的基本状态和转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程控制块"><span class="toc-number">1.6.</span> <span class="toc-text">进程控制块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux的进程控制"><span class="toc-number">1.7.</span> <span class="toc-text">Linux的进程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的创建与映像更换"><span class="toc-number">1.7.1.</span> <span class="toc-text">进程的创建与映像更换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux是如何创建进程的"><span class="toc-number">1.8.</span> <span class="toc-text">Linux是如何创建进程的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建进程示例1"><span class="toc-number">1.8.1.</span> <span class="toc-text">创建进程示例1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例讲解"><span class="toc-number">1.8.2.</span> <span class="toc-text">示例讲解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建进阶进程示例2"><span class="toc-number">1.8.3.</span> <span class="toc-text">创建进阶进程示例2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程调度"><span class="toc-number">1.9.</span> <span class="toc-text">进程调度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#功能"><span class="toc-number">1.9.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#调度策略"><span class="toc-number">1.9.2.</span> <span class="toc-text">调度策略</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">2.</span> <span class="toc-text">锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell"><span class="toc-number">3.</span> <span class="toc-text">Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shell是什么"><span class="toc-number">3.1.</span> <span class="toc-text">shell是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell工作原理"><span class="toc-number">3.2.</span> <span class="toc-text">shell工作原理</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
 
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
 
-
-  
-    <article id="post-面向对象3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/03/17/面向对象3/" class="article-date">
-      <time datetime="2018-03-17T04:58:45.000Z" itemprop="datePublished">2018-03-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142700"></script>
+</section>
+
     
-    
-      <header class="article-header">
+
+
+
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/17/面向对象3/">面向对象3</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    本篇主要介绍了抽象类、</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象设计/">面向对象设计</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2018/03/17/面向对象3/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20171202mysql的那些些坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/02/20171202mysql的那些些坑/" class="article-date">
-      <time datetime="2017-12-02T03:37:56.000Z" itemprop="datePublished">2017-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/02/20171202mysql的那些些坑/">20171202mysql的那些些坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20171202nginx的哪些坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/02/20171202nginx的哪些坑/" class="article-date">
-      <time datetime="2017-12-02T02:34:55.000Z" itemprop="datePublished">2017-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a href="/2018/03/31/20180331-操作系统的介介绍/" title="下一篇: 操作系统的介绍">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/02/20171202nginx的哪些坑/">nginx的哪些坑</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    本文主要内容记载我在学习nginx中遇到的各种问题。</p>
-          
-      
-      
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/运维/">运维</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/02/20171202nginx的哪些坑/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-进程/">20180331-进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-操作系统的介介绍/">操作系统的介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324自己搭建java-web框架架/">20180324自己搭建java web框架架</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324linux基本基本命令/">linux基本基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/面向对象3/">面向对象3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202mysql的那些些坑/">20171202mysql的那些些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202nginx的哪些坑/">nginx的哪些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202lnmp安装/">lnmp安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">用阿里云免费ssl证书把网站从http变成https</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
 
 
 
-
-
-
-
-
-
-
-
-  
-    <article id="post-20171202lnmp安装" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/02/20171202lnmp安装/" class="article-date">
-      <time datetime="2017-12-02T02:09:14.000Z" itemprop="datePublished">2017-12-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <script>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/02/20171202lnmp安装/">lnmp安装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    由于项目需要lnmp，linux、nginx 、mysql、php环境，每次一个个源码安装或者yum安装都稀里糊涂的安装好了，有时候还出现莫名奇怪的问题，于是在网上查找了，使用了军哥的脚本部署lnmp。<a href="https://lnmp.org/install.html" target="_blank" rel="noopener">lnmg一键安装官网及问题解答</a></p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/软件安装/">软件安装</a>
-    </div>
+    </script>
 
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/02/20171202lnmp安装/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-用阿里云免费ssl证书把网站从http变成https" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/" class="article-date">
-      <time datetime="2017-11-18T12:32:00.000Z" itemprop="datePublished">2017-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">用阿里云免费ssl证书把网站从http变成https</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    实验室小程序需要调用到全程版接口，但是全程版接口都是http形式，需要http转https，整理了这篇文章，解决这个问题。</p>
-<p>​
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/database/">database</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-20171118database" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/11/18/20171118database/" class="article-date">
-      <time datetime="2017-11-18T12:32:00.000Z" itemprop="datePublished">2017-11-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>​    本文内容记载在我在学习数据库这门课程中的知识点，内容涵盖对sql关键字的讲解，sql语句的具体案例及分析。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/database/">database</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/11/18/20171118database/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
     <div class="outer">
