@@ -4,19 +4,29 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="tE4x1LzlIo" />
   
-  <title>20180324自己搭建java web框架架 | Shangrila-kun Blog</title>
+  <title>搭建java web框架架 | Shangrila-kun Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="shangrila-kun blog">
+  <meta name="description" content="​    本章主要介绍maven项目、pom.xml、WEB服务器、什么是servlet、Tomcat工作原理。">
+<meta name="keywords" content="java web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20180324自己搭建java web框架架">
+<meta property="og:title" content="搭建java web框架架">
 <meta property="og:url" content="https://shangrila-kun.github.io/2018/03/24/20180324自己搭建java-web框架架/index.html">
 <meta property="og:site_name" content="Shangrila-kun Blog">
-<meta property="og:description" content="shangrila-kun blog">
+<meta property="og:description" content="​    本章主要介绍maven项目、pom.xml、WEB服务器、什么是servlet、Tomcat工作原理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-24T14:07:23.121Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-8cf5a891988e314f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-fa39524956cd25e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-7f3b114e0350a670.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-89d2fd9e92040ff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-14290e2fa96e4d4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-15bb966deef614f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-3da95ca10cc5d75f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2062729-fefd9142bc563fd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240/format/jpg">
+<meta property="og:updated_time" content="2018-05-04T00:59:46.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20180324自己搭建java web框架架">
-<meta name="twitter:description" content="shangrila-kun blog">
+<meta name="twitter:title" content="搭建java web框架架">
+<meta name="twitter:description" content="​    本章主要介绍maven项目、pom.xml、WEB服务器、什么是servlet、Tomcat工作原理。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2062729-8cf5a891988e314f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
   
@@ -144,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Fork小丝带/" style="font-size: 10px;">Fork小丝带</a> <a href="/tags/HDMI/" style="font-size: 10px;">HDMI</a> <a href="/tags/TCP-IP协议/" style="font-size: 10px;">TCP/IP协议</a> <a href="/tags/execute问题/" style="font-size: 10px;">execute问题</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux基本命令/" style="font-size: 10px;">linux基本命令</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/sql/" style="font-size: 20px;">sql</a> <a href="/tags/多电脑操作githubblog/" style="font-size: 10px;">多电脑操作githubblog</a> <a href="/tags/我的博客/" style="font-size: 10px;">我的博客</a> <a href="/tags/操作系统介绍/" style="font-size: 10px;">操作系统介绍</a> <a href="/tags/显示器接口/" style="font-size: 20px;">显示器接口</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/访问控制权限/" style="font-size: 10px;">访问控制权限</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/进程、线程/" style="font-size: 10px;">进程、线程</a> <a href="/tags/随机数/" style="font-size: 10px;">随机数</a> <a href="/tags/面向对象设计/" style="font-size: 10px;">面向对象设计</a>
+                        <a href="/tags/Fork小丝带/" style="font-size: 10px;">Fork小丝带</a> <a href="/tags/HDMI/" style="font-size: 10px;">HDMI</a> <a href="/tags/TCP-IP协议/" style="font-size: 10px;">TCP/IP协议</a> <a href="/tags/c语言竞赛/" style="font-size: 10px;">c语言竞赛</a> <a href="/tags/execute问题/" style="font-size: 10px;">execute问题</a> <a href="/tags/java-web/" style="font-size: 10px;">java web</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux基本命令/" style="font-size: 10px;">linux基本命令</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/sql/" style="font-size: 20px;">sql</a> <a href="/tags/多电脑操作githubblog/" style="font-size: 10px;">多电脑操作githubblog</a> <a href="/tags/我的博客/" style="font-size: 10px;">我的博客</a> <a href="/tags/操作系统介绍/" style="font-size: 10px;">操作系统介绍</a> <a href="/tags/显示器接口/" style="font-size: 20px;">显示器接口</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/访问控制权限/" style="font-size: 10px;">访问控制权限</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/进程、线程/" style="font-size: 10px;">进程、线程</a> <a href="/tags/随机数/" style="font-size: 10px;">随机数</a> <a href="/tags/面向对象/" style="font-size: 20px;">面向对象</a> <a href="/tags/面向对象设计/" style="font-size: 10px;">面向对象设计</a>
                     </div>
                 </section>
                 
@@ -235,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      20180324自己搭建java web框架架
+      搭建java web框架架
     </h1>
   
 
@@ -243,8 +253,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/框架/">框架</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-web/">java web</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -252,7 +270,216 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>​    本章主要介绍maven项目、pom.xml、WEB服务器、什么是servlet、Tomcat工作原理。</p>
+<a id="more"></a>
+<h2 id="创建maven项目"><a href="#创建maven项目" class="headerlink" title="创建maven项目"></a>创建maven项目</h2><blockquote>
+<p><a href="https://blog.csdn.net/zzy1078689276/article/details/78732183" target="_blank" rel="noopener">创建教程</a></p>
+</blockquote>
+<h2 id="web-xml讲解"><a href="#web-xml讲解" class="headerlink" title="web.xml讲解"></a>web.xml讲解</h2><blockquote>
+<p><a href="https://www.cnblogs.com/ClassNotFoundException/p/6641867.html" target="_blank" rel="noopener">web.xml配置详细</a></p>
+</blockquote>
+<p>##部署Maven工程到Tomcat</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/li_steve/article/details/72812084" target="_blank" rel="noopener">Intellij Idea2016部署Maven工程到Tomcat</a></p>
+</blockquote>
+<p>##pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></div><div class="line">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.apqts<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>chapter1<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--设置maven使用UTF-8进行编码--&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--统一源代码与编译输出的JDK版本--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--Compile--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--Test--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">skipTests</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skipTests</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--Tomcat--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">path</span>&gt;</span>/$&#123;project.artifactId&#125;<span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--打包设置--&gt;</span><span class="comment">&lt;!--如果某些依赖只是运行时需要，但无须参与打编译，可将scope设置为runtime--&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span> &gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span> &gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">                <span class="comment">&lt;!-- Servlet -api --&gt;</span><span class="comment">&lt;!--如果某些依赖只是运行时需要，但无须参与编译，可将scope设置为provided--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span> &gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span> provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> javax.servlet<span class="tag">&lt;/<span class="name">groupId</span> &gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span> provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="WEB服务器"><a href="#WEB服务器" class="headerlink" title="WEB服务器"></a>WEB服务器</h2><h3 id="Http-Server"><a href="#Http-Server" class="headerlink" title="Http Server"></a>Http Server</h3><blockquote>
+<p><strong>运行在服务器之上，绑定服务器的IP地址并监听某一个tcp端口来接收并处理HTTP请求</strong>，浏览器就能够通过HTTP协议来获取服务器上的网页（HTML格式）、文档（PDF格式）、音频（MP4格式）、视频（MOV格式）等等资源。<strong>一个HTTP Server关心的是HTTP协议层面的传输和访问控制</strong>。</p>
+</blockquote>
+<h4 id="Apache-HTTP服务器"><a href="#Apache-HTTP服务器" class="headerlink" title="Apache HTTP服务器"></a>Apache HTTP服务器</h4><blockquote>
+<p>Apache支持模块多，性能稳定，Apache本身是静态解析，适合静态HTML、图片等，但可以通过扩展脚本、模块等支持动态页面等。</p>
+<p>对Java，需要Tomcat在Apache后台支撑，将Java请求由Apache转发给Tomcat处理。</p>
+</blockquote>
+<h4 id="Nginx-HTTP服务器"><a href="#Nginx-HTTP服务器" class="headerlink" title="Nginx HTTP服务器"></a>Nginx HTTP服务器</h4><blockquote>
+<p>Nginx是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP代理服务器。</p>
+<p><strong>其特点是占有内存少，并发能力强</strong>。Nginx代码完全用C语言从头写成。</p>
+<p><strong>具有很高的稳定性</strong>。其它HTTP服务器，当遇到访问的峰值，或者有人恶意发起慢速连接时，也很可能会导致服务器物理内存耗尽频繁交换，失去响应，只能重启服务器。例如当前apache一旦上到200个以上进程，web响应速度就明显非常缓慢了。</p>
+<p><strong>而Nginx采取了分阶段资源分配技术，使得它的CPU与内存占用率非常低</strong>。Nginx官方表示保持10000个没有活动的连接，它只占2.5M内存，所以类似DOS这样的攻击对nginx来说基本上是毫无用处的。<strong>就稳定性而言</strong>，Nginx比Lighthttpd更胜一筹。</p>
+</blockquote>
+<h4 id="Nginx与Apache比较"><a href="#Nginx与Apache比较" class="headerlink" title="Nginx与Apache比较"></a>Nginx与Apache比较</h4><blockquote>
+<ol>
+<li><strong>轻量级</strong>，同样启动WEB服务，比Apache占用更少的内存以及资源；</li>
+<li><strong>抗并发性能高</strong>，核心区别在于<strong>Apache是同步多进程模型，一个连接对应一个进程</strong>。<strong>Nginx是异步的，多个连接（万级别）可以对应一个进程</strong>；</li>
+<li><strong>Nginx模块较少，配置简单</strong>，所以Nginx可以将资源用在数据处理以及进程上面，Apache模块较多比较全，相对稳定，但在内存资源上消耗比较大；</li>
+<li><strong>Nginx可以在不间断的情况下进行软件版本的升级</strong>；</li>
+<li><strong>Nginx处理静态页面性能比apache高3倍多</strong>；</li>
+</ol>
+</blockquote>
+<p>选择高并发高性能就选择Nginx，如果要稳定，选择Apache，主要根据服务器要面临的需求而定。</p>
+<h3 id="Application-Server"><a href="#Application-Server" class="headerlink" title="Application Server"></a>Application Server</h3><blockquote>
+<p>与HTTP Server相比，Application Server能够动态的生成资源并返回到客户端。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; |- Application Server</div><div class="line">&gt;     |- Tomcat</div><div class="line">&gt;     |- Jetty</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p><strong>Servlet Container:为了支持Servlet</strong>。<strong>Web服务器软件处理一般请求，并把Servlet调用传递给“容器”来处理。</strong></p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-8cf5a891988e314f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>HTTP Server 与 Application Server</p>
+<p><strong>Tomcat运行在JVM之上，它和HTTP服务器一样，绑定IP地址并监听TCP端口，同时还包含以下指责：</strong></p>
+<blockquote>
+<ol>
+<li>管理Servlet程序的生命周期；</li>
+<li>将URL映射到指定的Servlet进行处理；</li>
+<li>与Servlet程序合作处理HTTP请求——根据HTTP请求生成HttpServletRequest/Response对象并传递给Servlet进行处理，将Servlet中的HttpServletResponse对象生成的内容返回给浏览器</li>
+</ol>
+</blockquote>
+</blockquote>
+<h4 id="Servlet的工作模式"><a href="#Servlet的工作模式" class="headerlink" title="Servlet的工作模式"></a>Servlet的工作模式</h4><p>按照工作模式的不同，servlet的工作模式可以分为三类。</p>
+<blockquote>
+<p><strong>独立运行的Servlet容器</strong></p>
+<blockquote>
+<p>在这种模式下，<strong>Servlet容器作为构成Web服务器的一部分而存在</strong>。当使用基于Java的Web服务器时，就属于这种情况。<strong>这种方式是Tomcat的默认模式</strong>，然而大多数Web服务器并不是基于Java的，所以就产生了下面的两种其他类型。</p>
+</blockquote>
+<p><strong>内置的Servlet容器</strong></p>
+<blockquote>
+<p><strong>Servlet容器由Web服务器插件和Java容器两部分组成</strong>。采用这种方式时，<strong>Web服务器插件需要在某个Web服务器内部地址空间中打开一个JVM（Java虚拟机），在此JVM上加载Java容器并运行Servlet</strong>。如果客户端调用Servlet，Web服务器插件首先获得此请求的控制并将它传递（使用JNI技术）给Java容器，然后Java容器把此请求交给Servlet来处理。这种方式运行速度较快，并且能够提供良好的性能，适用于单进程、多线程服务器，但是在伸缩性方面存在不足。</p>
+</blockquote>
+<p><strong>外置的Servlet容器</strong></p>
+<blockquote>
+<p>采用这种方式时，<strong>Servlet容器运行在Web服务器外部地址空间</strong>。先由<strong>Web服务器插件在某个Web服务器外部地址空间打开一个JVM（Java虚拟机），然后加载Java容器来运行Servlet</strong>。Web服务器插件和JVM之间使用IPC（进程间通信）机制（通常是TCP/IPSockets）。如果客户端调用Servlet，Web服务器插件首先获得此请求的控制并将它传递（使用IPC技术）给Java容器，然后Java容器把此请求交给Servlet来处理。这种方式对客户端请求的处理速度不如内置Servlet那样快，但是在其他方面（如可伸缩性、稳定性等）具有优势。</p>
+</blockquote>
+<p>Tomcat属于Servlet容器，其工作模式也分为上述3种，<strong>所以Tomcat既可被用作独立运行的Servlet引擎（便于开发和调试），又可作为一个需要增强功能的Web服务器（如当前的Apache、IIS和Netscape服务器）插件</strong>。在配置Tomcat之前，就需要确定采用哪种工作模式，工作模式（1）比较简单，直接安装Tomcat即可，工作模式（2）和（3）有些复杂，除了安装Tomcat、Web服务器之外，还需要安装连接两者的中间连接件。</p>
+</blockquote>
+<h4 id="Apache与Tomcat整合使用"><a href="#Apache与Tomcat整合使用" class="headerlink" title="Apache与Tomcat整合使用"></a>Apache与Tomcat整合使用</h4><blockquote>
+<p>虽然Tomcat也可以认为是HTTP服务器，但通常它仍然会和Apache/Nginx配合在一起使用：</p>
+<blockquote>
+<ol>
+<li><strong>动静态资源分离</strong>——运用Nginx的反向代理功能分发请求：所有动态资源的请求交给Tomcat，而静态资源的请求（例如图片、视频、CSS、JavaScript文件等）则直接由Nginx返回到浏览器，这样能大大减轻Tomcat的压力；</li>
+<li><strong>负载均衡</strong>——当业务压力增大时，可能一个Tomcat的实例不足以处理，那么这时可以启动多个Tomcat实例进行水平扩展，而Nginx的负载均衡功能可以把请求通过算法分发到各个不同的实例进行处理；</li>
+</ol>
+</blockquote>
+<p><strong>整合的好处：</strong></p>
+<blockquote>
+<ol>
+<li><ol>
+<li>如果客户端请求的是静态页面，则只需要Apache服务器响应请求。</li>
+<li>如果客户端请求动态页面，则是Tomcat服务器响应请求。</li>
+<li>因为JSP是服务器端解释代码的，这样整合就可以减少Tomcat的服务开销。</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="什么是servlet"><a href="#什么是servlet" class="headerlink" title="什么是servlet"></a>什么是servlet</h2><blockquote>
+<p><strong>Servlet对每个请求都是单独启动一个线程，而不是进程。</strong>降低系统里的进程数量，提高系统的并发处理能力。另外因为Java Servlet是运行在虚拟机之上的，也就解决了跨平台问题。</p>
+</blockquote>
+<h3 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h3><blockquote>
+<p>作为一名专业编程人员，您碰到的大多数 Java servlet 都是为响应 Web 应用程序上下文中的 HTTP 请求而设计的。<strong>因此，javax.servlet 和 javax.servlet.http 包中特定于 HTTP 的类是您应该关心的。</strong>对于Servlet容器(Tomcat)与HttpServlet是怎样进行交互的呢，看下类图：</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-fa39524956cd25e0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>​    Servlet的框架是由两个Java包组成的：javax.servlet与javax.servlet.http。在javax.servlet包中定义了所有的Servlet类都必须实现或者扩展的通用接口和类。<strong>在javax.servlet.http包中定义了采用Http协议通信的HttpServlet类</strong>。Servlet的框架的核心是javax.servlet.Servlet接口，所有的Servlet都必须实现这个接口。<strong>在Servlet接口中定义了5个方法，其中3个方法代表了Servlet的生命周期：</strong></p>
+<blockquote>
+<ol>
+<li>init(ServletConfig)方法：负责初始化Servlet对象，在Servlet的生命周期中，该方法执行一次；该方法执行在单线程的环境下，因此开发者不用考虑线程安全的问题；</li>
+<li>service(ServletRequest req,ServletResponse res)方法：负责响应客户的请求；为了提高效率，Servlet规范要求一个Servlet实例必须能够同时服务于多个客户端请求，即service()方法运行在多线程的环境下，Servlet开发者必须保证该方法的线程安全性；</li>
+<li>destroy()方法：当Servlet对象退出生命周期时，负责释放占用的资源；</li>
+</ol>
+</blockquote>
+<p>​    在创建一个 Java servlet 时，一般需要子类 HttpServlet。该类中的方法允许您访问请求和响应包装器（wrapper），您可以用这个包装器来处理请求和创建响应。<strong>大多数程序员都知道Servlet的生命周期，简单的概括这就分为四步：</strong></p>
+<blockquote>
+<p>Servlet类加载—&gt;实例化—&gt;服务—&gt;销毁；</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-7f3b114e0350a670.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p><strong>创建Servlet对象的时机：</strong></p>
+<ol>
+<li><strong>默认情况下，在Servlet容器启动后：</strong>客户首次向Servlet发出请求，Servlet容器会判断内存中是否存在指定的Servlet对象，如果没有则创建它，然后根据客户的请求创建HttpRequest、HttpResponse对象，从而调用Servlet对象的service方法；</li>
+<li><strong>Servlet容器启动时：</strong>当web.xml文件中如果<servlet>元素中指定了<load-on-startup>子元素时，Servlet容器在启动web服务器时，将按照顺序创建并初始化Servlet对象；</load-on-startup></servlet></li>
+<li><strong>Servlet的类文件被更新后，重新创建Servlet。</strong>Servlet容器在启动时自动创建Servlet，这是由在web.xml文件中为Servlet设置的<load-on-startup>属性决定的。从中我们也能看到同一个类型的Servlet对象在Servlet容器中以单例的形式存在；</load-on-startup></li>
+</ol>
+<blockquote>
+<p>注意：在web.xml文件中，某些Servlet只有<code>&lt;serlvet&gt;</code>元素，没有<code>&lt;servlet-mapping&gt;</code>元素，这样我们无法通过url的方式访问这些Servlet，这种Servlet通常会在<code>&lt;servlet&gt;</code>元素中配置一个<code>&lt;load-on-startup&gt;</code>子元素，让容器在启动的时候自动加载这些Servlet并调用init(ServletConfig config)方法来初始化该Servlet。其中方法参数config中包含了Servlet的配置信息，比如初始化参数，该对象由服务器创建。</p>
+</blockquote>
+<p><strong>销毁Servlet对象的时机：</strong></p>
+<blockquote>
+<p>Servlet容器停止或者重新启动：Servlet容器调用Servlet对象的destroy方法来释放资源。以上所讲的就是Servlet对象的生命周期。那么Servlet容器如何知道创建哪一个Servlet对象？Servlet对象如何配置？实际上这些信息是通过读取web.xml配置文件来实现的。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Servlet对象的名称 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>action<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 创建Servlet对象所要调用的类 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.apache.struts.action.ActionServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 参数名称 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>config<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 参数值 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>/WEB-INF/struts-config.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>detail<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>debug<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>2<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Servlet容器启动时加载Servlet对象的顺序 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 要与servlet中的servlet-name配置节内容对应 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>action<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 客户访问的Servlet的相对URL路径 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当Servlet容器启动的时候读取<servlet>配置节信息，根据<servlet-class>配置节信息创建Servlet对象，同时根据<init-param>配置节信息创建HttpServletConfig对象，然后执行Servlet对象的init方法，并且根据<load-on-startup>配置节信息来决定创建Servlet对象的顺序，如果此配置节信息为负数或者没有配置，那么在Servlet容器启动时，将不加载此Servlet对象。当客户访问Servlet容器时，Servlet容器根据客户访问的URL地址，通过<servlet-mapping>配置节中的<url-pattern>配置节信息找到指定的Servlet对象，并调用此Servlet对象的service方法。</url-pattern></servlet-mapping></load-on-startup></init-param></servlet-class></servlet></p>
+<p>在整个Servlet的生命周期过程中，<strong>创建Servlet实例、调用实例的init()和destroy()方法都只进行一次</strong>，当初始化完成后，Servlet容器会将该实例保存在内存中，通过调用它的service()方法，为接收到的请求服务。下面给出Servlet整个生命周期过程的UML序列图，如图所示：</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-89d2fd9e92040ff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>如果需要让Servlet容器在启动时即加载Servlet，可以在web.xml文件中配置<load-on-startup>元素。</load-on-startup></p>
+</blockquote>
+<p>###Servlet工作原理</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-14290e2fa96e4d4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<p>Servlet工作原理时序图</p>
+<blockquote>
+<ol>
+<li>Web Client 向Servlet容器（Tomcat）发出Http请求；</li>
+<li>Servlet容器接收Web Client的请求；</li>
+<li>Servlet容器创建一个HttpRequest对象，将Web Client请求的信息封装到这个对象中；</li>
+<li>Servlet容器创建一个HttpResponse对象；</li>
+<li>Servlet容器调用HttpServlet对象的service方法，把HttpRequest对象与HttpResponse对象作为参数传给 HttpServlet对象；</li>
+<li>HttpServlet调用HttpRequest对象的有关方法，获取Http请求信息；</li>
+<li>HttpServlet调用HttpResponse对象的有关方法，生成响应数据；</li>
+<li>Servlet容器把HttpServlet的响应结果传给Web Client；</li>
+</ol>
+</blockquote>
+<h3 id="Servlet的四种方式请求方式（待写）"><a href="#Servlet的四种方式请求方式（待写）" class="headerlink" title="Servlet的四种方式请求方式（待写）"></a>Servlet的四种方式请求方式（待写）</h3><blockquote>
+<p>get、post、put、delete。</p>
+</blockquote>
+<h2 id="Tomcat工作原理"><a href="#Tomcat工作原理" class="headerlink" title="Tomcat工作原理"></a>Tomcat工作原理</h2><p>Tomcat 的结构很复杂，但是 Tomcat 也非常的模块化，找到了 Tomcat 最核心的模块，您就抓住了 Tomcat 的“七寸”。下面是 Tomcat 的总体结构图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-15bb966deef614f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<blockquote>
+<p>从上图可以看出Tomcat的核心是两个组件：<strong>连接器（Connector）和容器（Container）</strong>。Connector组件是负责生成请求对象和响应对象的，Tomcat默认的是HttpConnector，负责根据收到的Http请求报文生成Request对象和Response对象，并把这两个对象传递给Container，然后根据Response中的内容生成相应的HTTP报文。</p>
+<p><strong>Container是容器的父接口，所有子容器都必须实现这个接口，简单来说就是服务器部署的项目是运行在Container中的</strong>。Container里面的项目获取到Connector传递过来对应的的Request对象和Response对象进行相应的操作。</p>
+<p><strong>Connector可以根据不同的设计和应用场景进行替换</strong>。一个Container可以选择对应多个Connector。<strong>多个Connector和一个Container就形成了一个Service，有了Service就可以对外提供服务了</strong>。</p>
+<p><strong>Tomcat要为一个Servlet的请求提供服务，需要做三件事：</strong></p>
+<blockquote>
+<ol>
+<li>创建一个request对象并填充那些有可能被所引用的Servlet使用的信息，如参数，头部、cookies、查询字符串等。一个request对象就是javax.servlet.ServletRequest或javax.servlet.http.ServletRequest接口的一个实例。</li>
+<li>创建一个response对象，所引用的servlet使用它来给客户端发送响应。一个response对象是javax.servlet.ServletResponse或javax.servlet.http.ServletResponse接口的一个实例。</li>
+<li>调用servlet的service方法，并传入request和response对象。这里servlet会从request对象取值，给response写值。</li>
+<li>根据servlet返回的response生成相应的HTTP响应报文</li>
+</ol>
+<p>既然我们已经抓到Tomcat的“七寸”，两个核心组件：<strong>连接器（Connector）和容器（Container）</strong>，那这样从连接器（Connector）入手，来看下Tomcat处理HTTP请求的流程。</p>
+<p>很多开源应用服务器都是集成tomcat作为web container的，而且对于tomcat的servlet container这部分代码很少改动。这样，<strong>这些应用服务器的性能基本上就取决于Tomcat处理HTTP请求的connector模块的性能</strong>。</p>
+</blockquote>
+</blockquote>
+<h3 id="Connector种类"><a href="#Connector种类" class="headerlink" title="Connector种类"></a>Connector种类</h3><p>Tomcat源码中与connector相关的类位于org.apache.coyote包中，Connector分为以下几类：</p>
+<blockquote>
+<p><strong>Http Connector，基于HTTP协议，负责建立HTTP连接</strong>。它又分为BIO Http Connector与NIO Http Connector两种，后者提供非阻塞IO与长连接Comet支持。</p>
+<p>AJP Connector，基于AJP协议，<strong>AJP是专门设计用来为tomcat与http服务器之间通信专门定制的协议</strong>，能提供较高的通信速度和效率。如与Apache服务器集成时，采用这个协议。</p>
+<p>APR HTTP Connector，用C实现，通过JNI调用的。<strong>主要提升对静态资源（如HTML、图片、CSS、JS等）的访问性能</strong>。现在这个库已独立出来可用在任何项目中。Tomcat在配置APR之后性能非常强劲。</p>
+</blockquote>
+<h3 id="Connector配置"><a href="#Connector配置" class="headerlink" title="Connector配置"></a>Connector配置</h3><p>对Connector的配置位于conf/server.xml文件中。</p>
+<p>BIO HTTP/1.1 Connector配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;Connector port=”8080” protocol=”HTTP/1.1” maxThreads=”150” </div><div class="line">    connectionTimeout=”20000” redirectPort=”8443” /&gt;</div></pre></td></tr></table></figure>
+<p>其它一些重要属性如下：</p>
+<blockquote>
+<p>acceptCount : 接受连接request的最大连接数目，默认值是10；</p>
+<p>address : 绑定IP地址，如果不绑定，默认将绑定任何IP地址；</p>
+<p>allowTrace : 如果是true,将允许TRACE HTTP方法；</p>
+<p>compressibleMimeTypes : 各个mimeType, 以逗号分隔，如text/html,text/xml；</p>
+<p>compression : 如果带宽有限的话，可以用GZIP压缩；</p>
+<p>connectionTimeout : 超时时间，默认为60000ms (60s)；</p>
+<p>maxKeepAliveRequest : 默认值是100；</p>
+<p>maxThreads : 处理请求的Connector的线程数目，默认值为200；</p>
+</blockquote>
+<p>###Tomcat架构模块</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2062729-3da95ca10cc5d75f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
+<h3 id="Tomcat运行流程"><a href="#Tomcat运行流程" class="headerlink" title="Tomcat运行流程"></a>Tomcat运行流程</h3><p><img src="https://upload-images.jianshu.io/upload_images/2062729-fefd9142bc563fd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240/format/jpg" alt="img"></p>
+<p><strong>假设来自客户的请求为：<a href="http://localhost:8080/test/index.jsp" target="_blank" rel="noopener">http://localhost:8080/test/index.jsp</a></strong></p>
+<blockquote>
+<ol>
+<li>请求被发送到本机端口8080，被在那里侦听的Coyote HTTP/1.1 Connector获得；</li>
+<li>Connector把该请求交给它所在的Service的Engine来处理，并等待Engine的回应；</li>
+<li>Engine获得请求localhost:8080/test/index.jsp，匹配它所有虚拟主机Host；</li>
+<li>Engine匹配到名为localhost的Host（即使匹配不到也把请求交给该Host处理，因为该Host被定义为该Engine的默认主机）；</li>
+<li>localhost Host获得请求/test/index.jsp，匹配它所拥有的所有Context；</li>
+<li>Host匹配到路径为/test的Context（如果匹配不到就把该请求交给路径名为””的Context去处理）；</li>
+<li>path=”/test”的Context获得请求/index.jsp，在它的mapping table中寻找对应的servlet；</li>
+<li>Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类；</li>
+<li>构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法；</li>
+<li>Context把执行完了之后的HttpServletResponse对象返回给Host；</li>
+<li>Host把HttpServletResponse对象返回给Engine；</li>
+<li>Engine把HttpServletResponse对象返回给Connector；</li>
+<li>Connector把HttpServletResponse对象返回给客户browser；</li>
+</ol>
+</blockquote>
+
       
       
         <div class="page-reward">
@@ -307,12 +534,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/24/20180324自己搭建java-web框架架/">20180324自己搭建java web框架架</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/24/20180324自己搭建java-web框架架/">搭建java web框架架</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
         <p><span>发布时间:</span>2018年03月24日 - 22时07分</p>
-        <p><span>最后更新:</span>2018年03月24日 - 22时07分</p>
+        <p><span>最后更新:</span>2018年05月04日 - 08时59分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/24/20180324自己搭建java-web框架架/" title="20180324自己搭建java web框架架">https://shangrila-kun.github.io/2018/03/24/20180324自己搭建java-web框架架/</a>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/24/20180324自己搭建java-web框架架/" title="搭建java web框架架">https://shangrila-kun.github.io/2018/03/24/20180324自己搭建java-web框架架/</a>
             <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2018/03/24/20180324自己搭建java-web框架架/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -348,7 +575,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建maven项目"><span class="toc-number">1.</span> <span class="toc-text">创建maven项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-xml讲解"><span class="toc-number">2.</span> <span class="toc-text">web.xml讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WEB服务器"><span class="toc-number">3.</span> <span class="toc-text">WEB服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Http-Server"><span class="toc-number">3.1.</span> <span class="toc-text">Http Server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache-HTTP服务器"><span class="toc-number">3.1.1.</span> <span class="toc-text">Apache HTTP服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nginx-HTTP服务器"><span class="toc-number">3.1.2.</span> <span class="toc-text">Nginx HTTP服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nginx与Apache比较"><span class="toc-number">3.1.3.</span> <span class="toc-text">Nginx与Apache比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Application-Server"><span class="toc-number">3.2.</span> <span class="toc-text">Application Server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Servlet的工作模式"><span class="toc-number">3.2.1.</span> <span class="toc-text">Servlet的工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache与Tomcat整合使用"><span class="toc-number">3.2.2.</span> <span class="toc-text">Apache与Tomcat整合使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是servlet"><span class="toc-number">4.</span> <span class="toc-text">什么是servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet的生命周期"><span class="toc-number">4.1.</span> <span class="toc-text">Servlet的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet的四种方式请求方式（待写）"><span class="toc-number">4.2.</span> <span class="toc-text">Servlet的四种方式请求方式（待写）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat工作原理"><span class="toc-number">5.</span> <span class="toc-text">Tomcat工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Connector种类"><span class="toc-number">5.1.</span> <span class="toc-text">Connector种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Connector配置"><span class="toc-number">5.2.</span> <span class="toc-text">Connector配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tomcat运行流程"><span class="toc-number">5.3.</span> <span class="toc-text">Tomcat运行流程</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -416,7 +643,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/01/20180401-线程/">线程及其在java方面的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-进程/">20180331-进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-操作系统的介介绍/">操作系统的介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324自己搭建java-web框架架/">20180324自己搭建java web框架架</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324linux基本基本命令/">linux基本基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/面向对象3/">面向对象3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202mysql的那些些坑/">20171202mysql的那些些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202nginx的哪些坑/">nginx的哪些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202lnmp安装/">lnmp安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">用阿里云免费ssl证书把网站从http变成https</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/04/面向对象2/">面向对象2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/04/面向对象1/">面向对象1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/03/20180503算法法/">算法竞赛入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/01/20180401-线程/">线程及其在java方面的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-进程/">20180331-进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-操作系统的介介绍/">操作系统的介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324自己搭建java-web框架架/">搭建java web框架架</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324linux基本基本命令/">linux基本基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/面向对象3/">面向对象3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202mysql的那些些坑/">20171202mysql的那些些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202nginx的哪些坑/">nginx的哪些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202lnmp安装/">lnmp安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">用阿里云免费ssl证书把网站从http变成https</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
