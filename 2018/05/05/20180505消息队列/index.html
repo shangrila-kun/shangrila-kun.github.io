@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="tE4x1LzlIo" />
+  
+  <title>ActiveMQ消息队列 | Shangrila-kun Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    关于ActiveMQ的一些学习和资料整理。">
+<meta name="keywords" content="ActiveMQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ActiveMQ消息队列">
+<meta property="og:url" content="https://shangrila-kun.github.io/2018/05/05/20180505消息队列/index.html">
+<meta property="og:site_name" content="Shangrila-kun Blog">
+<meta property="og:description" content="​    关于ActiveMQ的一些学习和资料整理。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://hi.csdn.net/attachment/201203/2/0_1330687238Zopu.gif">
+<meta property="og:updated_time" content="2018-05-05T12:24:45.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ActiveMQ消息队列">
+<meta name="twitter:description" content="​    关于ActiveMQ的一些学习和资料整理。">
+<meta name="twitter:image" content="http://hi.csdn.net/attachment/201203/2/0_1330687238Zopu.gif">
+  
+    <link rel="alternative" href="/atom.xml" title="Shangrila-kun Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Shangrila-kun</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Full of passion to meet every day</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/HK/home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/tags">标签云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                            
+                                <a class="fl Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/ActiveMQ/" style="font-size: 10px;">ActiveMQ</a> <a href="/tags/Fork小丝带/" style="font-size: 10px;">Fork小丝带</a> <a href="/tags/HDMI/" style="font-size: 10px;">HDMI</a> <a href="/tags/TCP-IP协议/" style="font-size: 10px;">TCP/IP协议</a> <a href="/tags/c语言竞赛/" style="font-size: 10px;">c语言竞赛</a> <a href="/tags/execute问题/" style="font-size: 10px;">execute问题</a> <a href="/tags/java-web/" style="font-size: 10px;">java web</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/linux基本命令/" style="font-size: 10px;">linux基本命令</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/sql/" style="font-size: 20px;">sql</a> <a href="/tags/多电脑操作githubblog/" style="font-size: 10px;">多电脑操作githubblog</a> <a href="/tags/我的博客/" style="font-size: 10px;">我的博客</a> <a href="/tags/操作系统介绍/" style="font-size: 10px;">操作系统介绍</a> <a href="/tags/显示器接口/" style="font-size: 20px;">显示器接口</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/访问控制权限/" style="font-size: 10px;">访问控制权限</a> <a href="/tags/趣味技术/" style="font-size: 10px;">趣味技术</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/进程、线程/" style="font-size: 10px;">进程、线程</a> <a href="/tags/随机数/" style="font-size: 10px;">随机数</a> <a href="/tags/面向对象/" style="font-size: 20px;">面向对象</a> <a href="/tags/面向对象设计/" style="font-size: 10px;">面向对象设计</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://shangrila-kun.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">码一手无bug的code,做一个会life的boy。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Shangrila-kun</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Shangrila-kun</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Full of passion to meet every day</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/HK/home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/tags">标签云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=&#57;&#56;&#52;&#56;&#51;&#49;&#54;&#53;&#51;&#64;&#113;&#113;&#46;&#99;&#111;&#109;" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/shangrila-kun" title="github">github</a>
+                    
+                        <a class="Instagram" target="_blank" href="https://www.instagram.com/shangrilakunkun/" title="Instagram">Instagram</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-20180505消息队列" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/05/05/20180505消息队列/" class="article-date">
+      <time datetime="2018-05-05T12:22:17.000Z" itemprop="datePublished">2018-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ActiveMQ消息队列
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/架构/">架构</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ActiveMQ/">ActiveMQ</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>​    关于ActiveMQ的一些学习和资料整理。</p>
+<a id="more"></a>
+<h2 id="消息中间件"><a href="#消息中间件" class="headerlink" title="消息中间件"></a>消息中间件</h2><h3 id="中间件类型概述"><a href="#中间件类型概述" class="headerlink" title="中间件类型概述"></a>中间件类型概述</h3><p><strong>三种类型</strong></p>
+<blockquote>
+<ol>
+<li>基于远程过程调用 (Remote Procedure Call, RPC) 的中间件，允许一个应用程序中的过程调用远程应用程序中的过程，就好像它们是本地调用一样。该中间件实现一个查找远程过程的链接机制并使调用方能够以透明方式使用这些过程。以前，这种类型的中间件处理基于过程的程序；现在，它还包括基于对象的组件。</li>
+<li>基于对象请求代理 (Object Request Broker, ORB) 的中间件，使应用程序的对象能够在异类网络之间分布和共享。ORB 负责完成查找请求的对象实现、让对象实现准备好接收请求、传递构成请求的数据等完成远程调用时底层通信任务所需的全部机制。</li>
+<li>消息的中间件或基于 MOM 的中间件，使分布式应用程序可以通过发送和接收消息来进行通信和交换数据。</li>
+</ol>
+</blockquote>
+<p><img src="http://hi.csdn.net/attachment/201203/2/0_1330687238Zopu.gif" alt="img">3. 面向</p>
+<p><strong>总结</strong></p>
+<p>​     所有这些模型都使一个软件组件可以通过网络影响另一个组件的行为。它们的区别在于基于 RPC 和 ORB 的中间件会创建紧密耦合组件系统，而基于 MOM 的系统允许组件进行更松散的耦合。在基于 RPC 或 ORB 的系统中，一个过程调用另一个过程时，必须等待调用的过程返回才能执行其他操作。正如前面所提到的，在这些模型中，中间件在一定程度上充当超级链接程序，在网络上查找被调用过程，并使用网络服务将函数或方法参数传递到被调用过程，然后返回查找结果。</p>
+<p>RPC的局限性</p>
+<ol>
+<li>同步通信：客户端调用后，必须等待服务对象完成处理并返回结果后才能继续执行；</li>
+<li>客户和服务对象的生命周期紧密耦合：客户进程和服务对象进程都必须正常运行；如果由于服务对象奔溃或者网络故障导致客户的请求不可达，客户会接收到异常。</li>
+<li>点对点通信：客户的一次调用只能发送给某个单独的目标对象。</li>
+</ol>
+<p><strong>MOM(面向消息的中间件 Message Oriented Middleware,MOM)较好的解决了以上问题</strong>。</p>
+<p>​     发送者将  消息转发给接收者。这种模式下，发送和接收是异步的，发送者无需等待；二者的生命周期未必相同：发送消息的时候接受者不一定运行，接收消息的时候发送者也不一定运行；一对多通信：对于一个消息可以有多个接收者。</p>
+<h3 id="JMS"><a href="#JMS" class="headerlink" title="JMS"></a>JMS</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>JMS即Java消息服务（Java Message Service）应用程序接口，是一个Java平台中关于面向消息中间件（MOM）的API。</p>
+<p>实现jms接口的消息中间件称为JMS Provider，已有的MOM系统包括Apache的ActiveMQ\以及阿里巴巴的RocketMQ、IBM的MQSeries、Microsoft的MSMQ，BEA的RabbitMQ等等。[BEA系统有限公司，著名的<a href="https://baike.baidu.com/item/Java/85979" target="_blank" rel="noopener">Java</a><a href="https://baike.baidu.com/item/%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%BD%AF%E4%BB%B6" target="_blank" rel="noopener">中间件软件</a>公司，美国<a href="https://baike.baidu.com/item/NASDAQ" target="_blank" rel="noopener">NASDAQ</a>上市公司，其<a href="https://baike.baidu.com/item/%E4%B8%AD%E9%97%B4%E4%BB%B6" target="_blank" rel="noopener">中间件</a><a href="https://baike.baidu.com/item/%E5%B8%82%E5%9C%BA%E4%BB%BD%E9%A2%9D" target="_blank" rel="noopener">市场份额</a>一度比<a href="https://baike.baidu.com/item/IBM/9190" target="_blank" rel="noopener">IBM</a> 还要高。2008年初被<a href="https://baike.baidu.com/item/Oracle" target="_blank" rel="noopener">Oracle</a> 收购。]</p>
+<h4 id="JMS术语"><a href="#JMS术语" class="headerlink" title="JMS术语"></a>JMS术语</h4><blockquote>
+<p>　在提到JMS时，我们通常会说到一些术语，解释如下：</p>
+<p>​      1. 消息中间件（JMS Provider) ： 指提供了对JMS协议的第三方组件，比如ActiveMQ就是一个消息中间件，另外比较知名的还有KFA, Rabbit MQ等。</p>
+<p>​      2. 消息模式：分为点对点（Point to Point，即P2P）和发布/订阅（Pub/Sub)，对应的数据结构分别是队列（Queue)和主题（Topic)</p>
+<p>​      3. 消息（Message): 通信内容的载体，其结构主要分为消息头，属性和消息体，并且根据存储结构的不同分为好几种，后面会详细提到。</p>
+<p>​      4. 消息生产者：产生消息的一方，在P2P模式下，指消息发送者(Sender)，在P/S模式下指消息发布者(Publisher)</p>
+<p>​      5. 消息消费者：接收消息的一方，对应于两种模式分别是消息接收者（Receiver）和消息订阅者(Subscriber)</p>
+<p>​      在JMS的标准协议里，有几个重要的接口，先简单罗列如下：</p>
+<p>​      1. ConnectionFactory ：创建Connection的工厂，通过这个对象来创建一个到某个消息服务的连接。</p>
+<ol>
+<li>Connection: 一个具体的连接，由ConnectionFactory创建。</li>
+</ol>
+<p>​      3. Session: 由Connection创建的用于操作消息的接口，本接口可以直接用来创建消息的生产者对象。</p>
+<p>​      4. Destination:消息存储的位置，发送者把消息发送到指定位置，消费者从指定位置取消息，那么这个指定位置可能是一个topic也可能是一个queue，由这个来表示。</p>
+<p>​      5. MessageProducer: 消息的生产者，包括QueueSender和TopicPublisher。</p>
+<p>​      6. MessageConsumer: 消息的消费者， 包括QueueReceiver和TopicSubscriber。</p>
+<p>​      7. MessageListener: 消息监听器，这个是提供给消费者监听消息使用的，在添加了某个监听器之后，一旦消费到达，则会调用其onMessage方法。</p>
+</blockquote>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><blockquote>
+<p><a href="https://www.cnblogs.com/zhuxiaojie/p/5564187.html" target="_blank" rel="noopener">ActiveMQ消息队列的使用及应用</a></p>
+<p><a href="https://blog.csdn.net/u013185616/article/details/51778275" target="_blank" rel="noopener">JMS及ActiveMQ</a></p>
+<p><a href="https://blog.csdn.net/u013185616/article/details/52088690" target="_blank" rel="noopener">ActiveMQ学习企业家应用配置详解</a></p>
+<p><a href="http://elim.iteye.com/blog/1900937" target="_blank" rel="noopener">Spring整合JMS（三）——MessageConverter介绍</a></p>
+<p><a href="https://github.com/IamXiaRui/Android_5.0_ViewDemo/tree/master/GsonArrayDemo" target="_blank" rel="noopener">用GSON 五招之内搞定任何JSON数组</a></p>
+<p><a href="https://www.cnblogs.com/duanxz/p/3511695.html" target="_blank" rel="noopener">JAVA序列化</a></p>
+<p><a href="https://blog.csdn.net/woshirongshaolin/article/details/70503988" target="_blank" rel="noopener">消息队列使用的四种场景介绍</a></p>
+</blockquote>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/05/05/20180505消息队列/">ActiveMQ消息队列</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Shangrila-kun 的个人博客">Shangrila-kun</a></p>
+        <p><span>发布时间:</span>2018年05月05日 - 20时22分</p>
+        <p><span>最后更新:</span>2018年05月05日 - 20时24分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/05/05/20180505消息队列/" title="ActiveMQ消息队列">https://shangrila-kun.github.io/2018/05/05/20180505消息队列/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://shangrila-kun.github.io/2018/05/05/20180505消息队列/　　作者: Shangrila-kun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/05/20180505炫酷技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">有趣的小技术</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#消息中间件"><span class="toc-number">1.</span> <span class="toc-text">消息中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中间件类型概述"><span class="toc-number">1.1.</span> <span class="toc-text">中间件类型概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JMS"><span class="toc-number">1.2.</span> <span class="toc-text">JMS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-number">1.2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JMS术语"><span class="toc-number">1.2.2.</span> <span class="toc-text">JMS术语</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">1.3.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="youyan" id="comments">
+  <div id="uyan_frame"></div>
+  <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142700"></script>
+</section>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/05/05/20180505炫酷技术/" title="下一篇: 有趣的小技术">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/20180505消息队列/">ActiveMQ消息队列</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/05/20180505炫酷技术/">有趣的小技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/04/面向对象2/">面向对象2</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/04/面向对象1/">面向对象1</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/03/20180503算法法/">算法竞赛入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/01/20180401-线程/">线程及其在java方面的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-进程/">20180331-进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/31/20180331-操作系统的介介绍/">操作系统的介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324自己搭建java-web框架架/">搭建java web框架架</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/24/20180324linux基本基本命令/">linux基本基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/面向对象3/">面向对象3</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202mysql的那些些坑/">20171202mysql的那些些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202nginx的哪些坑/">nginx的哪些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/02/20171202lnmp安装/">lnmp安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/20171118database/">数据库知识点总结（未完待续）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/18/用阿里云免费ssl证书把网站从http变成https/">用阿里云免费ssl证书把网站从http变成https</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/29/jsreadxml/">js读取本地文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/13/linux20171013/">linux安装软件教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/hexo20170917/">如何使用Hexo在多台电脑上提交和更新github pages博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/0830githugfork/">添加Fork me on GitHub 小丝带</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/27/20170828java6/">java访问控制权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/15/20170823sql/">SQL中execute操作返回false的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/04/Random20170804/">Random</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170723computerDevice/">台式主机用那个接口和显示器相连，分辨率效果最好？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/23/20170722vgadbihdmi/">DVI、VGA、HDMI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/20170722hdmi/">HDMI线</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/22/network0722/">A、B、C、D、E类地址知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/21/hellohk/">我的博客</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Shangrila-kun
+            </div>
+            <div class="footer-right">
+                 <a href="https://github.com/shangrila-kun" target="_blank">Welcome to shangrila-kun blog </a>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+<div class="ribbon">
+<a href="https://github.com/shangrila-kun">Fork me on GitHub</a>
+</div>
+  </div>
+</body>
+</html>
